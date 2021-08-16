@@ -1,0 +1,26 @@
+@import url("fonts.css");
+body {
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden; }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 11;
+  height: 7vh;
+  background-color: white; }
+  .navbar div a {
+    text-decoration: none;
+    height: auto;
+    justify-content: center;
+    font-family: 'PoetsenOne';
+    font-size: 4vh; }
+    .navbar div a img {
+      width: 2.5vw;
+      height: 2.5vw; }
+  .navbar div a:hover {
+    color: #FF9B00; }

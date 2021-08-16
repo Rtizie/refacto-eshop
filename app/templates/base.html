@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" type="text/css">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo_shadow.png') }}" type="image/x-icon">
+        <title>{% block title %}{% endblock %}</title>
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body>
+            <div class="w3-bar w3-border w3-large navbar">
+                <div class="w3-white" style="background-color: white;">
+                    <a href="#" class="w3-bar-item" style="padding-left: 16px;"><img src="{{ url_for('static', filename='images/logo.png') }}"></a>
+                    <a href="#" class="w3-bar-item w3-right">Nabídka</a>
+                    <a href="#" class="w3-bar-item w3-right">Kolekce</a>
+                    <a href="#" class="w3-bar-item w3-right">Kontakt</a>
+                </div>
+            </div>
+            {% block body %}
+
+            {% endblock %}
+    </body>
+    {% block scripts %}
+    {% endblock %}
+</html>

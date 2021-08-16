@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}DeFacto{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" type="text/css">
+{% endblock %}
+       
+
+{% block body %}       
+    <div class="landing">
+        <div class="w3-container landing-container">
+            <div>
+                <img src="{{ url_for('static', filename='images/logo_shadow.png') }}">
+                <h1>Představte si dokonalé tričko</h1>
+                <hr>
+                <h3>Tady ho seženete</h3>
+            </div>
+        </div>
+        <img class="w3-display-bottommiddle arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
+    </div>
+    <div class="bubbles w3-container">
+        <div class="container">
+            <div class="info" >
+                <div class="bubble" style=" float: right;"></div>
+            </div>
+            <div class="info">
+                    <div class="bubble"></div>
+                    <div class="text">
+                        <h1>Jsme experti na osobitá trička</h1>
+                        <p>Prohlédněte si našich 20 unikátních kolekcí</p>
+                    </div>
+            </div>
+            <div class="info">
+                <div class="bubble"  style="float: right;"></div>
+                <div class="text" style="float: right;text-align: right;">
+                    <h1>Připravte si u nás vlastní potisk</h1>
+                    <p>A bude zábava!   </p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="bubble"></div>
+                <div class="text">
+                    <h1>Užijte si jemný dotek kvalitního materiálu</h1>
+                    <p>Cool a ještě pohodlné, co víc si přát?</p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="bubble"  style="float: right;"></div>
+                <div class="text" style="float: right;text-align: right;">
+                    <h1 >Podpořte s námi přírodu</h1>
+                    <p>Veškeré naše produkty pocházejí z udržitelných zdrojů</p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="bubble"></div>
+                <div class="text">
+                    <h1>Užijte si rychlé a spolehlivé dopravy až domů</h1>
+                    <p>PPL vám vaše tričko doveze do dvou dnů a to až na práh dveří</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-text">
+            <center>
+                <h3>Jsme ti praví?</h3>
+                <img class="arrow_black" src="{{ url_for('static', filename='images/arrow_green.png') }}">
+            </center>
+        </div>
+
+    </div>
+    <div class="actions w3-container">
+        <div class="first-action">
+            <h2>Prohlédnout Kolekce</h2>
+        </div>
+        <div class="second-action">
+            <h2>Vytvořit vlastní návrh</h2> 
+        </div>
+    </div>
+    <footer class="w3-container">
+        <div style="float: left;">
+            <h3>DeFacto a.s</h3>
+            <p class="w3-xlarge">
+                Nějaký text, důležitá informace...
+                <br>
+                <a href="#">Obchodní podmínky</a>
+                <br>
+                <a href="#">Kontakt</a>
+            </p>
+            <p>Všechna práva vyhrazena DeFacto a.s. 2022</p>
+        </div>
+    </footer>
+{% endblock %}
