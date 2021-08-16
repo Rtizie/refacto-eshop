@@ -106,8 +106,10 @@ h1, h2, h3, h4, h5, h6 {
         height: 100%;
         float: left; }
         .bubbles .container .info:nth-child(2) .text h1 {
+          font-size: 8vh;
           color: #F49A00; }
         .bubbles .container .info:nth-child(2) .text p {
+          font-size: 6vh;
           color: #F49A00;
           font-family: 'Summer Font Light'; }
       .bubbles .container .info:nth-child(3) .text {
@@ -118,8 +120,10 @@ h1, h2, h3, h4, h5, h6 {
         text-align: right;
         padding-right: 5vmin; }
         .bubbles .container .info:nth-child(3) .text h1 {
+          font-size: 8vh;
           color: #AB142D; }
         .bubbles .container .info:nth-child(3) .text p {
+          font-size: 6vh;
           color: #AB142D;
           font-family: 'Summer Font Light'; }
       .bubbles .container .info:nth-child(4) .text {
@@ -128,8 +132,10 @@ h1, h2, h3, h4, h5, h6 {
         height: 100%;
         float: left; }
         .bubbles .container .info:nth-child(4) .text h1 {
+          font-size: 8vh;
           color: #6D3C8B; }
         .bubbles .container .info:nth-child(4) .text p {
+          font-size: 6vh;
           color: #6D3C8B;
           font-family: 'Summer Font Light'; }
       .bubbles .container .info:nth-child(5) .text {
@@ -139,8 +145,10 @@ h1, h2, h3, h4, h5, h6 {
         float: right;
         text-align: right; }
         .bubbles .container .info:nth-child(5) .text h1 {
+          font-size: 8vh;
           color: #63B349; }
         .bubbles .container .info:nth-child(5) .text p {
+          font-size: 6vh;
           color: #63B349;
           font-family: 'Summer Font Light'; }
       .bubbles .container .info:nth-child(6) .text {
@@ -149,8 +157,10 @@ h1, h2, h3, h4, h5, h6 {
         height: 100%;
         float: left; }
         .bubbles .container .info:nth-child(6) .text h1 {
+          font-size: 8vh;
           color: #4899CE; }
         .bubbles .container .info:nth-child(6) .text p {
+          font-size: 6vh;
           color: #4899CE;
           font-family: 'Summer Font Light'; }
       .bubbles .container .info .bubble {
