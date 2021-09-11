@@ -3,9 +3,9 @@
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" type="text/css">
 {% endblock %}
-       
 
-{% block body %}       
+
+{% block body %}
     <div class="landing">
         <div class="w3-container landing-container">
             <div>
@@ -15,14 +15,14 @@
                 <h3>Tady ho seženete</h3>
             </div>
         </div>
-        <img class="w3-display-bottommiddle arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
+        <a href="#first-bubble"><img class="w3-display-bottommiddle arrow" src="{{ url_for('static', filename='images/arrow.png') }}"></a>
     </div>
     <div class="bubbles w3-container">
         <div class="container">
-            <div class="info" >
+            <div class="info">
                 <div class="bubble" style=" float: right;"></div>
             </div>
-            <div class="info">
+            <div class="info" id="first-bubble">
                     <div class="bubble"></div>
                     <div class="text">
                         <h1>Jsme experti na osobitá trička</h1>
@@ -33,7 +33,7 @@
                 <div class="bubble"  style="float: right;"></div>
                 <div class="text" style="float: right;text-align: right;">
                     <h1>Připravte si u nás vlastní potisk</h1>
-                    <p>A bude zábava!   </p>
+                    <p>A bude zábava!</p>
                 </div>
             </div>
             <div class="info">
@@ -46,7 +46,7 @@
             <div class="info">
                 <div class="bubble"  style="float: right;"></div>
                 <div class="text" style="float: right;text-align: right;">
-                    <h1 >Podpořte s námi přírodu</h1>
+                    <h1>Podpořte s námi přírodu</h1>
                     <p>Veškeré naše produkty pocházejí z udržitelných zdrojů</p>
                 </div>
             </div>
@@ -68,10 +68,20 @@
     </div>
     <div class="actions w3-container">
         <div class="first-action">
-            <h2>Prohlédnout Kolekce</h2>
+            <div class="top-text">
+                <h2>Prohlédnout Kolekce</h2>
+            </div>
+            <div class="action-main">
+                <img src="{{ url_for('static', filename='images/first-action.png') }}">
+            </div>
         </div>
         <div class="second-action">
-            <h2>Vytvořit vlastní návrh</h2> 
+            <div class="top-text">
+                <h2>Vytvořit vlastní návrh</h2>
+            </div>
+            <div class="action-main">
+                <img src="{{ url_for('static', filename='images/first-action.png') }}">
+            </div>
         </div>
     </div>
     <footer class="w3-container">

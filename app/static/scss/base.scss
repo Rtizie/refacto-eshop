@@ -1,7 +1,20 @@
-@import url('fonts.css');
+@import url('fonts.scss');
+
+::-webkit-scrollbar-thumb{
+    background-color: #3E90C6;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    -ms-border-radius: 5%;
+    -o-border-radius: 5%;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
 
 body{
 	margin: 0;
+    inset: 0;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
 }
@@ -23,8 +36,8 @@ body{
             font-family: 'PoetsenOne';
             font-size: 4vh;
             img{
-                width: 2.5vw;
-                height: 2.5vw;
+                width: 5vh;
+                height: 5vh;
             }
         }
         a:hover{

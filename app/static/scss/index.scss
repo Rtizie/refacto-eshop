@@ -8,6 +8,7 @@ h1, h2, h3, h4, h5,h6{
 }
 
 *{
+    scroll-behavior: smooth;
     //border: 1px red solid;
     font-family: 'Summer Font';
     color:$colorText;
@@ -15,7 +16,6 @@ h1, h2, h3, h4, h5,h6{
 
 .landing{
     position: relative;
-    inset:0;
     z-index: 10;
     display: flex;
     font-family: $headerFont;
@@ -127,7 +127,6 @@ h1, h2, h3, h4, h5,h6{
             top: -48vmin;
             &:nth-child(2){ 
                 .text{
-                    padding-top: 16vh;
                     width: 50%;
                     height: 100%;
                     float: left;
@@ -144,7 +143,6 @@ h1, h2, h3, h4, h5,h6{
             }
             &:nth-child(3){ 
                 .text{
-                    padding-top: 16vh;
                     width: auto;
                     height: 100%;
                     float: right;
@@ -163,7 +161,6 @@ h1, h2, h3, h4, h5,h6{
             }
             &:nth-child(4){ 
                 .text{
-                    padding-top: 16vh;
                     width: 50%;
                     height: 100%;
                     float: left;
@@ -180,7 +177,6 @@ h1, h2, h3, h4, h5,h6{
             }
             &:nth-child(5){ 
                 .text{
-                    padding-top: 16vh;
                     width: 50%;
                     height: 100%;
                     float: right;
@@ -198,7 +194,6 @@ h1, h2, h3, h4, h5,h6{
             }
             &:nth-child(6){ 
                 .text{
-                    padding-top: 16vh;
                     width: 50%;
                     height: 100%;
                     float: left;
@@ -265,40 +260,59 @@ h1, h2, h3, h4, h5,h6{
 }
 
 .actions{
-    border-top: 15px solid #D7D7D7;
+    border-top: 16px solid #D7D7D7;
     padding-bottom: 72px;
-    height: auto;
     background-color: #E2E2E2;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     .first-action{
-        border-radius: 15px;
-        border-top: 15px solid #4899CE;
+        border: 0px solid black;
+        border-radius:15px;
         background-color: #000000;
         color: #FFFFFF;
         width: 30%;
-        -webkit-border-radius: 15px;
-        -moz-border-radius: 15px;
-        -ms-border-radius: 15px;
-        -o-border-radius: 15px;
-}
+
+        div.top-text
+        {
+            background-color: #4899CE;
+            width: 100%;
+            height: 5%;
+            margin-top: 0;
+            padding-top: 0;
+            border-radius: 15px 15px 0 0 ;
+        }
+    }
     .second-action{
         border-radius: 15px;
-        border-top: 15px solid #F49A00;
         background-color: #000000;
         width: 30%;
-        -webkit-border-radius: 15px;
-        -moz-border-radius: 15px;
-        -ms-border-radius: 15px;
-        -o-border-radius: 15px;
-}
+
+        div.top-text{
+            background-color: #F49A00;
+            width: 100%;
+            height: 5%;
+            margin-top: 0;
+            padding-top: 0;
+            border-radius: 15px 15px 0 0;
+
+        }
+    }
+    .action-main{
+        margin: 0;
+    }
+    .action-main img{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
     div{
         margin-top: 24px;
         box-shadow: 15px 15px 2px  rgba(0, 0, 0, 0.30);
         h2{
-            padding-top: 28vh;
-            padding-bottom: 28vh;
+            margin: 0;
             color: #FFFFFF;
             text-align: center;
         }
