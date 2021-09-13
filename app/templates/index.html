@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block title %}DeFacto{% endblock %}
 {% block head %}
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index-mobil.css') }}" media="screen and (max-width: 968px)" type="text/css">
 {% endblock %}
 
 
