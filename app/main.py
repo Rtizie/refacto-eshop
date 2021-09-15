@@ -10,3 +10,8 @@ sass.compile(dirname=('app/static/scss', 'app/static/css'))
 def home_view():
         sass.compile(dirname=('app/static/scss', 'app/static/css'))
         return render_template('index.html')
+
+@app.route("/kolekce")
+def kolekce():
+        sass.compile(dirname=('app/static/scss', 'app/static/css'))
+        return render_template('kolekce.html')

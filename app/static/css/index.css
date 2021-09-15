@@ -205,10 +205,14 @@ h1, h2, h3, h4, h5, h6 {
     .actions .first-action div.top-text {
       background-color: #4899CE;
       width: 100%;
-      height: 5%;
+      height: 10%;
       margin-top: 0;
       padding-top: 0;
       border-radius: 15px 15px 0 0; }
+      .actions .first-action div.top-text h2 {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%); }
   .actions .second-action {
     border-radius: 15px 15px 15px 15px;
     background-color: #000000;
@@ -216,10 +220,14 @@ h1, h2, h3, h4, h5, h6 {
     .actions .second-action div.top-text {
       background-color: #F49A00;
       width: 100%;
-      height: 5%;
+      height: 10%;
       margin-top: 0;
       padding-top: 0;
       border-radius: 15px 15px 0 0; }
+      .actions .second-action div.top-text h2 {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%); }
   .actions .action-main {
     margin: 0; }
   .actions .action-main img {
