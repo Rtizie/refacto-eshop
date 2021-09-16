@@ -1,8 +1,53 @@
 {% extends "base.html" %}
 {% block title %}DeFacto - Kolekce{% endblock %}
 {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kolekce.css') }}" type="text/css">
 {% endblock %}
 
 {% block body %}
+<div class="page">
+    <h1 class="w3-jumbo">Kolekce</h1>
+    <div class="bubbles">
+        <div class="bubble1">
+            <div class="middle-bubble">
+                <img src="{{ url_for('static', filename='images/kolekce/red-bubble.png') }}">
+                <h2>Seriálová</h2>
+                <p>Milujete seriály? Tady si vyberete!</p>
+            </div>
+            <img class="outside-bubble" src="{{ url_for('static', filename='images/kolekce/red-bubbles.png') }}">
+        </div>
+        <div class="bubble2">
+            <div class="middle-bubble">
+                <img src="{{ url_for('static', filename='images/kolekce/purple-bubble.png') }}">
+                <h2>Hráčské</h2>
+                <p>Perfektní trička nejen pro hráče videoher.</p>
+            </div>
+            <img class="outside-bubble" src="{{ url_for('static', filename='images/kolekce/purple-bubbles.png') }}">
+        </div>
+        <div class="bubble3">
+            <div class="middle-bubble">
+                <img src="{{ url_for('static', filename='images/kolekce/blue-bubble.png') }}">
+                <h2>Studenské</h2>
+                <p>Dokonalá trička pro více i méně pilné studenty.</p>
+            </div>
+            <img class="outside-bubble" src="{{ url_for('static', filename='images/kolekce/blue-bubbles.png') }}">
+        </div>
+        <div class="bubble4">
+            <div class="middle-bubble">
+                <img src="{{ url_for('static', filename='images/kolekce/green-bubble.png') }}">
+                <h2>Pohodářské</h2>
+                <p>Jednoduchý desing pro všechny pohodáře.</p>
+            </div>
+            <img class="outside-bubble" src="{{ url_for('static', filename='images/kolekce/green-bubbles.png') }}">
+        </div>
+        <div class="bubble5">
+            <div class="middle-bubble">
+                <img src="{{ url_for('static', filename='images/kolekce/yellow-bubble.png') }}">
+                <h2>Hudební</h2>
+                <p>Kdo říkal, že hudba nemůže být vidět</p>
+            </div>
+            <img class="outside-bubble" src="{{ url_for('static', filename='images/kolekce/yellow-bubbles.png') }}">
+        </div>
+    </div>
+</div>
 {% endblock %}

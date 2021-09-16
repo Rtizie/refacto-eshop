@@ -242,11 +242,3 @@ h1, h2, h3, h4, h5, h6 {
       margin: 0;
       color: #FFFFFF;
       text-align: center; }
-
-footer {
-  display: flex;
-  border-top: 10px solid #A3A3A3; }
-  footer div {
-    padding: 32px; }
-    footer div p {
-      font-size: large; }

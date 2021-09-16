@@ -1,0 +1,42 @@
+@import url("fonts.css");
+body {
+  font-family: 'Summer Font Light'; }
+
+h1 {
+  font-family: 'PoetsenOne';
+  margin-bottom: 16vmin; }
+
+.middle-bubble {
+  width: 100%;
+  position: absolute; }
+  .middle-bubble img {
+    width: 72vmin; }
+  .middle-bubble h2 {
+    font-family: 'PoetsenOne'; }
+  .middle-bubble p {
+    font-size: xx-large; }
+
+.outside-bubble {
+  width: 80%; }
+
+.bubbles {
+  display: flex;
+  flex-direction: column; }
+
+.bubble1, .bubble2, .bubble3, .bubble4, .bubble5 {
+  padding-bottom: 32vh; }
+
+.bubble5 {
+  padding-bottom: 48vh; }
+
+.middle-bubble img:hover {
+  transition: 1s;
+  transform: scale(110%); }
+
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 12vmin;
+  justify-content: center;
+  text-align: center; }

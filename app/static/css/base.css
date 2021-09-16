@@ -1,4 +1,4 @@
-@import url("fonts.scss");
+@import url("fonts.css");
 ::-webkit-scrollbar-thumb {
   background-color: #3E90C6;
   border-radius: 5%;
@@ -11,6 +11,7 @@
   width: 8px; }
 
 body {
+  overflow-x: hidden;
   margin: 0;
   inset: 0;
   text-rendering: optimizeLegibility;
@@ -36,3 +37,13 @@ body {
       height: 5vh; }
   .navbar div a:hover {
     color: #FF9B00; }
+
+footer {
+  display: flex;
+  border-top: 10px solid #A3A3A3; }
+  footer h3 {
+    font-family: "PoetsenOne"; }
+  footer div {
+    padding: 32px; }
+    footer div p {
+      font-size: large; }
