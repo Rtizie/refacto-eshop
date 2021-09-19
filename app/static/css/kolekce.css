@@ -10,11 +10,12 @@ h1 {
   width: 100%;
   position: absolute; }
   .middle-bubble img {
-    width: 72vmin; }
+    width: 64vmin; }
   .middle-bubble h2 {
-    font-family: 'PoetsenOne'; }
+    font-family: 'PoetsenOne';
+    font-size: 10vh; }
   .middle-bubble p {
-    font-size: xx-large; }
+    font-size: 4vh; }
 
 .outside-bubble {
   width: 80%; }
