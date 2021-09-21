@@ -1,11 +1,13 @@
 from flask import Flask,render_template
-import sass
-from sqlalchemy.sql.expression import null
 from werkzeug.exceptions import abort
 from flask_sqlalchemy import SQLAlchemy
+import app.config as config
+
+import sass
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///clothes.db"
+
+config.configure(app)
 
 db = SQLAlchemy(app)
 
@@ -21,9 +23,9 @@ class Shirt(db.Model):
             return f'Name:{self.name}, Color:{self.color}, Size:{self.size}, Cost:{self.cost}, Stock:{self.stock}'
 
 
-#@app.errorhandler(404)
-#def page_not_found(error):
-#   return render_template('404.html', title = '404'), 404
+@app.errorhandler(404)
+def page_not_found(error):
+   return render_template('404.html', title = '404'), 404
 
 
 @app.route("/")
