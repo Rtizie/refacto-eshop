@@ -1,13 +1,14 @@
 from flask import Flask,render_template
 from werkzeug.exceptions import abort
 from flask_sqlalchemy import SQLAlchemy
-import app.config as config
 
 import sass
 
 app = Flask(__name__)
 
-config.configure(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///clothes.db"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SECRET_KEY'] = b'\xc36@\xa8\x80\x0bWO\x04\xb7\xdc\xc8\xdd3\xa4\xa2\xe9\xaeV\x0bd\xf9\x98\xde'
 
 db = SQLAlchemy(app)
 
@@ -20,7 +21,7 @@ class Shirt(db.Model):
         stock = db.Column(db.Integer, nullable=False)
 
         def __repr__(self) -> str:
-            return f'Name:{self.name}, Color:{self.color}, Size:{self.size}, Cost:{self.cost}, Stock:{self.stock}'
+            return f'ID: {self.id}, Name:{self.name}, Color:{self.color}, Size:{self.size}, Cost:{self.cost}, Stock:{self.stock}'
 
 
 @app.errorhandler(404)
@@ -41,3 +42,4 @@ def kolekce():
 @app.route("/database")
 def testPage():
         return render_template('data.html',var=Shirt.query.all()[0].cost)
+
