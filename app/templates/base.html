@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" type="text/css">
         <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo_shadow.png') }}" type="image/x-icon">
@@ -13,9 +14,14 @@
             <div class="w3-bar w3-border w3-large navbar">
                 <div class="w3-white" style="background-color: white;">
                     <a href="{{ url_for('home_view') }}" class="w3-bar-item" style="padding-left: 16px;"><img src="{{ url_for('static', filename='images/logo.png') }}"></a>
-                    <a href="#" class="w3-bar-item w3-right">Nabídka</a>
-                    <a href="{{ url_for('kolekce') }}" class="w3-bar-item w3-right">Kolekce</a>
-                    <a href="#" class="w3-bar-item w3-right">Kontakt</a>
+                    <div id="items">
+                        <a href="#" class="w3-bar-item w3-right">Nabídka</a>
+                        <a href="{{ url_for('kolekce') }}" class="w3-bar-item w3-right">Kolekce</a>
+                        <a href="#" class="w3-bar-item w3-right">Kontakt</a>
+                    </div>
+                    <a href="javascript:void(0);" class="w3-bar-item w3-right icon" onclick="menu()">
+                        <i class="fa fa-bars"></i>
+                    </a>
                 </div>
             </div>
             {% block body %}
@@ -34,7 +40,28 @@
                     <p>Všechna práva vyhrazena DeFacto a.s. 2022</p>
                 </div>
             </footer>
+            <script type="text/javascript">
+                
+                function menu() {
+                    var x = document.getElementById("items");
+                    console.log(x)
+                    if (x.style.display === "flex") {
+                        x.style.display = "none";
+                        var c = x.childNodes;
+                        for(var i = 0;i <= c.length;i++){
+                            c[0].style.display = "none";
+                        }
+                    } else {
+                        x.style.display = "flex";
+                        var c = x.childNodes;
+                        for(var i = 0;i <= c.length;i++){
+                            c[0].style.display = "block";
+                        }
+                    }
+                }
+            </script>
+            {% block scripts %}
+            {% endblock %}
     </body>
-    {% block scripts %}
-    {% endblock %}
+    
 </html>

@@ -21,6 +21,8 @@ body{
 }
 
 .navbar{
+    width: 100%;
+    overflow-x: hidden;
     position: fixed;
     top: 0;
     right: 0;
@@ -40,12 +42,23 @@ body{
                 width: 5vh;
                 height: 5vh;
             }
+            #items{
+                display: flex;
+                justify-content: flex-end;
+            }
         }
         a:hover{
             color: #FF9B00;
         }
+        
+       .icon{
+            display: none;
+        }
     }
+
 }
+
+
 footer{
     h3{
         font-family: "PoetsenOne";
@@ -57,5 +70,23 @@ footer{
         p{
             font-size: large;
         }
+    }
+}
+@media only screen and (max-width:786px) {
+    .navbar{
+        div{
+            .icon{ 
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+    
+    #items{
+        display: none;
+        position: relative;
+        padding-right: 32px;
     }
 }

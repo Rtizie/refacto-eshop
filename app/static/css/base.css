@@ -18,6 +18,8 @@ body {
   overflow-x: hidden; }
 
 .navbar {
+  width: 100%;
+  overflow-x: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -35,8 +37,13 @@ body {
     .navbar div a img {
       width: 5vh;
       height: 5vh; }
+    .navbar div a #items {
+      display: flex;
+      justify-content: flex-end; }
   .navbar div a:hover {
     color: #FF9B00; }
+  .navbar div .icon {
+    display: none; }
 
 footer {
   display: flex;
@@ -47,3 +54,14 @@ footer {
     padding: 32px; }
     footer div p {
       font-size: large; }
+
+@media only screen and (max-width: 786px) {
+  .navbar div .icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0; }
+  #items {
+    display: none;
+    position: relative;
+    padding-right: 32px; } }
