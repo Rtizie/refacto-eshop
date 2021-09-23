@@ -182,7 +182,7 @@ h1, h2, h3, h4, h5,h6{
                     float: right;
                     text-align: right;
                     h1{
-                        font-size: 8vh;
+                        font-size: 7vh;
                         color:#63B349;
                     }
                     p{
@@ -214,12 +214,12 @@ h1, h2, h3, h4, h5,h6{
                 float: left;
                 display: block;
                 overflow: visible;
+                overflow-x: hidden;
                 height: 64vmin;
                 width: 64vmin;
                 background-image: url("../images/bubbles/1.png");
                 background-size: 60vmin;
                 background-repeat: no-repeat;
-                //position: relative;
             }
             &:nth-child(2){ 
                 .bubble{
@@ -229,7 +229,7 @@ h1, h2, h3, h4, h5,h6{
             &:nth-child(3){ 
                 .bubble{
                     position: relative;
-                    right:-15vmin;
+                    //right:-15vmin;
                     background-size: 50vmin;
                     background-image: url("../images/bubbles/3.png");
                 }
@@ -243,9 +243,9 @@ h1, h2, h3, h4, h5,h6{
             &:nth-child(5){ 
                 .bubble{
                     position: relative;
-                    right:-20vmin;
+                    right:10%;
                     background-image: url("../images/bubbles/5.png");
-                    background-size: 44.5vmin;
+                    background-size: 40vmin;
                 }
             }
             &:nth-child(6){ 

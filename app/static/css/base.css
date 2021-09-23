@@ -11,6 +11,7 @@
   width: 8px; }
 
 body {
+  max-width: 100vw;
   overflow-x: hidden;
   margin: 0;
   inset: 0;
@@ -37,9 +38,6 @@ body {
     .navbar div a img {
       width: 5vh;
       height: 5vh; }
-    .navbar div a #items {
-      display: flex;
-      justify-content: flex-end; }
   .navbar div a:hover {
     color: #FF9B00; }
   .navbar div .icon {
@@ -61,7 +59,30 @@ footer {
     position: absolute;
     top: 0;
     right: 0; }
-  #items {
-    display: none;
-    position: relative;
-    padding-right: 32px; } }
+  .navbar div .items {
+    display: none; } }
+
+.sidepanel {
+  width: 0;
+  position: fixed;
+  z-index: 12;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px; }
+  .sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    font-family: 'PoetsenOne';
+    display: block;
+    transition: 0.3s; }
+  .sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px; }

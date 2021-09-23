@@ -11,15 +11,21 @@
         {% endblock %}
     </head>
     <body>
+        <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Nabídka</a>
+            <a href="{{ url_for('kolekce') }}"">Kolekce</a>
+            <a href="#">Kontakt</a>
+          </div>
             <div class="w3-bar w3-border w3-large navbar">
                 <div class="w3-white" style="background-color: white;">
                     <a href="{{ url_for('home_view') }}" class="w3-bar-item" style="padding-left: 16px;"><img src="{{ url_for('static', filename='images/logo.png') }}"></a>
-                    <div id="items">
+                    <div class="items">
                         <a href="#" class="w3-bar-item w3-right">Nabídka</a>
                         <a href="{{ url_for('kolekce') }}" class="w3-bar-item w3-right">Kolekce</a>
                         <a href="#" class="w3-bar-item w3-right">Kontakt</a>
-                    </div>
-                    <a href="javascript:void(0);" class="w3-bar-item w3-right icon" onclick="menu()">
+                    </div>    
+                    <a href="javascript:void(0);" class="w3-bar-item w3-right icon" onclick="openNav()">
                         <i class="fa fa-bars"></i>
                     </a>
                 </div>
@@ -29,7 +35,7 @@
             {% endblock %}
             <footer class="w3-container">
                 <div style="float: left;">
-                    <h3>DeFacto a.s</h3>
+                    <h3>ReFacto a.s</h3>
                     <p class="w3-xlarge">
                         Nějaký text, důležitá informace...
                         <br>
@@ -37,27 +43,18 @@
                         <br>
                         <a href="#">Kontakt</a>
                     </p>
-                    <p>Všechna práva vyhrazena DeFacto a.s. 2022</p>
+                    <p>Všechna práva vyhrazena ReFacto a.s. 2022</p>
                 </div>
             </footer>
             <script type="text/javascript">
-                
-                function menu() {
-                    var x = document.getElementById("items");
-                    console.log(x)
-                    if (x.style.display === "flex") {
-                        x.style.display = "none";
-                        var c = x.childNodes;
-                        for(var i = 0;i <= c.length;i++){
-                            c[0].style.display = "none";
-                        }
-                    } else {
-                        x.style.display = "flex";
-                        var c = x.childNodes;
-                        for(var i = 0;i <= c.length;i++){
-                            c[0].style.display = "block";
-                        }
-                    }
+                /* Set the width of the sidebar to 250px (show it) */
+                function openNav() {
+                    document.getElementById("mySidepanel").style.width = "200px";
+                }
+
+                /* Set the width of the sidebar to 0 (hide it) */
+                function closeNav() {
+                    document.getElementById("mySidepanel").style.width = "0";
                 }
             </script>
             {% block scripts %}
