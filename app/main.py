@@ -1,3 +1,4 @@
+from re import S
 from flask import Flask,render_template
 from werkzeug.exceptions import abort
 from flask_sqlalchemy import SQLAlchemy
@@ -15,13 +16,14 @@ db = SQLAlchemy(app)
 class Shirt(db.Model):
         id = db.Column(db.Integer, primary_key=True)
         name = db.Column(db.String(40),unique=True, nullable=False)
+        collection = db.Column(db.String(40),nullable=False)
         color = db.Column(db.String(100), nullable=False)
         size = db.Column(db.String(20), nullable=False)
         cost = db.Column(db.Integer, nullable=False)
         stock = db.Column(db.Integer, nullable=False)
 
         def __repr__(self) -> str:
-            return f'ID: {self.id}, Name:{self.name}, Color:{self.color}, Size:{self.size}, Cost:{self.cost}, Stock:{self.stock}'
+            return f'ID: {self.id}, Name:{self.name}, Collection:{self.collection}, Color:{self.color}, Size:{self.size}, Cost:{self.cost}, Stock:{self.stock}'
 
 
 @app.errorhandler(404)
@@ -43,3 +45,12 @@ def kolekce():
 def testPage():
         return render_template('data.html',var=Shirt.query.all()[0].cost)
 
+@app.route("/kolekce/<collection>/<shirt>")
+def openShirt(collection,shirt):
+        sass.compile(dirname=('app/static/scss', 'app/static/css'))
+        shirtData = Shirt.query.filter_by(name=shirt).all()
+        print(shirtData)
+        if shirtData != []:
+                return render_template('shirt_page.html',name=shirtData[0].name,cost=shirtData[0].cost)
+        else:
+                abort(404)

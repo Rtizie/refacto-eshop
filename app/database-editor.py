@@ -24,7 +24,8 @@ def data():
     size = input("Zadej velikost: ")
     cost = int(input("Zadej cenu: "))
     stock = int(input("Kolik toho je na skladě: "))
-    return name,color,size,cost,stock
+    collection = input("V jaké je to kolekci:")
+    return name,color,size,cost,stock,collection
 
 def clear():
     Shirt.query.delete()
@@ -36,18 +37,19 @@ def change():
     id = int(input("Vyber ID:"))
     shirt = Shirt.query.filter_by(id=id).all()
     print(shirt)
-    name,color,size,cost,stock = data()
+    name,color,size,cost,stock,collection = data()
     shirt[0].name = name
     shirt[0].color = color
     shirt[0].size = size
     shirt[0].cost = cost
     shirt[0].stock = stock
+    shirt[0].collection = collection
     print(shirt)
     db.session.commit()
 
 def add():
-    name,color,size,cost,stock = data()
-    shirt = Shirt(name=name,color=color,size=size,cost=cost,stock=stock)
+    name,color,size,cost,stock,collection = data()
+    shirt = Shirt(name=name,color=color,size=size,cost=cost,stock=stock,collection=collection)
     db.session.add(shirt)
     db.session.commit()
     print("Úspěšně přidáno")
