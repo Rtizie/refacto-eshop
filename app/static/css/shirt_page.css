@@ -1,0 +1,52 @@
+.mainPage {
+  display: flex; }
+  .mainPage .shirt {
+    display: flex;
+    flex-direction: row;
+    margin: 7vw; }
+    .mainPage .shirt img {
+      width: 30%; }
+    .mainPage .shirt .info {
+      margin-left: 10vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      font-family: 'Summer Font Light';
+      width: 30%; }
+      .mainPage .shirt .info h1 {
+        font-family: 'PoetsenOne'; }
+      .mainPage .shirt .info p {
+        font-size: 1.2vw; }
+      .mainPage .shirt .info .data {
+        margin-top: 2vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; }
+        .mainPage .shirt .info .data h3 {
+          font-size: x-large;
+          font-family: 'Summer Font Light';
+          margin-right: 2vw; }
+        .mainPage .shirt .info .data .firstBubble {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center; }
+          .mainPage .shirt .info .data .firstBubble img {
+            margin: auto;
+            width: 25%; }
+          .mainPage .shirt .info .data .firstBubble h3 {
+            margin: auto;
+            font-family: 'PoetsenOne';
+            font-size: large; }
+        .mainPage .shirt .info .data .secondBubble {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center; }
+          .mainPage .shirt .info .data .secondBubble img {
+            margin: auto;
+            width: 30%; }
+          .mainPage .shirt .info .data .secondBubble h3 {
+            font-size: large;
+            font-family: 'PoetsenOne';
+            margin: auto; }

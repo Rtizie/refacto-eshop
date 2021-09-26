@@ -1,0 +1,72 @@
+*{
+    //border: 1px solid red;
+}
+
+.mainPage{
+    display: flex;
+
+    .shirt{
+        display: flex;
+        flex-direction: row;
+        margin:7vw;
+        img{
+            width: 30%;
+        }
+        .info{
+            margin-left: 10vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            font-family: 'Summer Font Light';
+            width: 30%;
+            h1{
+                font-family: 'PoetsenOne';
+            }
+            p{
+                font-size: 1.2vw;
+            }
+
+            .data{
+                margin-top: 2vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                h3{
+                    font-size: x-large;
+                    font-family: 'Summer Font Light';
+                    margin-right: 2vw;
+                }
+                .firstBubble{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    img{
+                        margin:auto;
+                        width: 25%;
+                    }
+                    h3{
+                        margin: auto;
+                        font-family: 'PoetsenOne';
+                        font-size: large;
+                    }
+                }
+                .secondBubble{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    img{
+                        margin:auto;
+                        width: 30%;
+                    }
+                    h3{
+                        font-size: large;
+                        font-family: 'PoetsenOne';
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+}

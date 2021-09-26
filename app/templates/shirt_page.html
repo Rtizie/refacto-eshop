@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ name }} - ReFacto{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shirt_page.css') }}" type="text/css">
+{% endblock %}
+
+
+{% block body %}
+<div class="mainPage">
+    <div class="shirt">
+        <img src="{{ url_for('static', filename='images/Fotka.png') }}">
+        <div class="info">
+            <h1 class="w3-jumbo">{{ name }}</h1>
+            <p>Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny</p>
+            <div class="data">
+                <h3>{{ cost }} Kč</h3>
+                <div class="firstBubble">
+                    <img src="{{ url_for('static', filename='images/blue_tag.png') }}">
+                    <h3>Velmi kvalitní potisk</h3>
+                </div>
+                <div class="secondBubble">
+                    <img src="{{ url_for('static', filename='images/green_tag.png') }}">
+                    <h3>Fruit of the Loom</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

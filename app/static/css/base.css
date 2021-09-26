@@ -44,6 +44,7 @@ body {
     display: none; }
 
 footer {
+  font-family: 'Summer Font';
   display: flex;
   border-top: 10px solid #A3A3A3; }
   footer h3 {
