@@ -1,5 +1,5 @@
 *{
-    //border: 1px solid red;
+    border: 1px solid red;
 }
 
 .mainPage{
@@ -9,6 +9,7 @@
         display: flex;
         flex-direction: row;
         margin:7vw;
+        margin-right: 6vw;
         img{
             width: 30%;
         }
@@ -18,7 +19,7 @@
             flex-direction: column;
             justify-content: flex-start;
             font-family: 'Summer Font Light';
-            width: 30%;
+            width: 40%;
             h1{
                 font-family: 'PoetsenOne';
             }
@@ -26,11 +27,12 @@
                 font-size: 1.2vw;
             }
 
-            .data{
+            .data{  
+                margin-right: 0%;
                 margin-top: 2vh;
                 display: flex;
                 flex-direction: row;
-                justify-content: space-around;
+                justify-content: space-between;
                 h3{
                     font-size: x-large;
                     font-family: 'Summer Font Light';
@@ -65,6 +67,15 @@
                         font-family: 'PoetsenOne';
                         margin: auto;
                     }
+                }
+            }
+            .buyingData{
+                display: flex;
+                .size{
+                    border: 2px black solid;
+                    background-color: #C1C1C1;
+                    font-family: 'PoetsenOne';
+                    margin: 1vh 1vw 1vh 1vw;
                 }
             }
         }

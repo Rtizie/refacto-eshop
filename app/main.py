@@ -50,7 +50,10 @@ def openShirt(collection,shirt):
         sass.compile(dirname=('app/static/scss', 'app/static/css'))
         shirtData = Shirt.query.filter_by(name=shirt).all()
         print(shirtData)
+        sizes = shirtData[0].size
+        sizes = sizes.split(',')
+        print(sizes)
         if shirtData != []:
-                return render_template('shirt_page.html',name=shirtData[0].name,cost=shirtData[0].cost)
+                return render_template('shirt_page.html',name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes)
         else:
                 abort(404)
