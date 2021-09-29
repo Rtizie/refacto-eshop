@@ -32,6 +32,8 @@
           font-family: 'Summer Font Light';
           margin-right: 2vw; }
         .mainPage .shirt .info .data .firstBubble {
+          margin-left: auto;
+          margin-right: 1vw;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -55,10 +57,45 @@
             font-size: large;
             font-family: 'PoetsenOne';
             margin: auto; }
+      .mainPage .shirt .info .captions {
+        display: flex;
+        font-family: 'Summer Font Light'; }
+        .mainPage .shirt .info .captions h2 {
+          font-family: 'Summer Font Light';
+          display: inline; }
+        .mainPage .shirt .info .captions h2:nth-child(2) {
+          margin-left: auto; }
       .mainPage .shirt .info .buyingData {
-        display: flex; }
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start; }
         .mainPage .shirt .info .buyingData .size {
           border: 2px black solid;
           background-color: #C1C1C1;
-          font-family: 'PoetsenOne';
-          margin: 1vh 1vw 1vh 1vw; }
+          font-family: 'PoetsenOne'; }
+        .mainPage .shirt .info .buyingData .sizes {
+          margin-top: auto;
+          margin-bottom: auto; }
+        .mainPage .shirt .info .buyingData .color {
+          border: 2px black solid;
+          width: 2vw;
+          height: 2vw; }
+        .mainPage .shirt .info .buyingData .colors {
+          margin-left: auto; }
+      .mainPage .shirt .info .buy {
+        display: flex; }
+        .mainPage .shirt .info .buy button {
+          width: auto;
+          height: 62%;
+          margin-top: auto;
+          margin-bottom: auto;
+          color: white;
+          background-color: red;
+          border: 2px solid black;
+          border-right: 0;
+          font-family: 'PoetsenOne'; }
+        .mainPage .shirt .info .buy h3 {
+          border: 2px solid black;
+          width: 10%;
+          text-align: center;
+          font-family: 'PoetsenOne'; }

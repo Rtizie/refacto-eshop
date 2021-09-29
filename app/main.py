@@ -49,11 +49,9 @@ def testPage():
 def openShirt(collection,shirt):
         sass.compile(dirname=('app/static/scss', 'app/static/css'))
         shirtData = Shirt.query.filter_by(name=shirt).all()
-        print(shirtData)
-        sizes = shirtData[0].size
-        sizes = sizes.split(',')
-        print(sizes)
+        sizes = shirtData[0].size.split(',')
+        colors = shirtData[0].color.split(',')
         if shirtData != []:
-                return render_template('shirt_page.html',name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes)
+                return render_template('shirt_page.html',name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
         else:
                 abort(404)

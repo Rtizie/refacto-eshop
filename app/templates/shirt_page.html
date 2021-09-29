@@ -23,15 +23,26 @@
                     <h3>Fruit of the Loom</h3>
                 </div>
             </div>
+            <div class="captions"><h2>Velikost:</h2><h2>Barva:</h2></div>
+            
             <div class="buyingData">
+                
                 <div class="sizes">
                     {% for size in range(0, lenSizes) %}
-                        <div class="size"><div class="w3-large">{{ sizes[size] }}</div></div>
+                        <button  class="size"><div class="w3-large">{{ sizes[size] }}</div></button>
                     {% endfor %}
                 </div>
                 <div class="colors">
-                    
+                    {% for color in range(0, lenColors) %}
+                        <button class="color" style="background-color: {{ colors[color] }}"></button>
+                    {% endfor %}
                 </div>
+            </div>
+            <div class="buy">
+                <button>Objednat</button>
+                <h3>
+                    {{ stock }}ks
+                </h3>
             </div>
         </div>
     </div>
