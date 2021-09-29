@@ -23,28 +23,35 @@
                     <h3>Fruit of the Loom</h3>
                 </div>
             </div>
+            <!--
             <div class="captions"><h2>Velikost:</h2><h2>Barva:</h2></div>
             
             <div class="buyingData">
-                
                 <div class="sizes">
-                    {% for size in range(0, lenSizes) %}
-                        <button  class="size"><div class="w3-large">{{ sizes[size] }}</div></button>
-                    {% endfor %}
+                    <select name="size">
+                        {% for size in range(0, lenSizes) %}
+                            <option value="{{ sizes[size] }}" class="size"><div class="w3-large">{{ sizes[size] }}</div></option>
+                        {% endfor %}
+                    </select>
+
                 </div>
                 <div class="colors">
                     {% for color in range(0, lenColors) %}
-                        <button class="color" style="background-color: {{ colors[color] }}"></button>
+                        <button class="color" name="color" value="{{ colors[color] }}" style="background-color: {{ colors[color] }}"></button>
                     {% endfor %}
                 </div>
             </div>
             <div class="buy">
-                <button>Objednat</button>
-                <h3>
-                    {{ stock }}ks
-                </h3>
+                <input type="submit" value="Objednat">
+                <div class="quantity">
+                    <input type="number" name="count" value="0" max="{{ stock }}" min="0">
+                </div>
+                <!--<h3>{{ stock }}ks</h3>-->
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/shirt_page.js')}}"></script>
 {% endblock %}
