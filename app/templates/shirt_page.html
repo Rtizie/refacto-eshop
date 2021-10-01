@@ -23,12 +23,12 @@
                     <h3>Fruit of the Loom</h3>
                 </div>
             </div>
-            <!--
+
             <div class="captions"><h2>Velikost:</h2><h2>Barva:</h2></div>
             
             <div class="buyingData">
                 <div class="sizes">
-                    <select name="size">
+                    <select id="size" name="size">
                         {% for size in range(0, lenSizes) %}
                             <option value="{{ sizes[size] }}" class="size"><div class="w3-large">{{ sizes[size] }}</div></option>
                         {% endfor %}
@@ -37,7 +37,12 @@
                 </div>
                 <div class="colors">
                     {% for color in range(0, lenColors) %}
-                        <button class="color" name="color" value="{{ colors[color] }}" style="background-color: {{ colors[color] }}"></button>
+                        <label>
+                            <input type="radio" name="work_days" value="1">
+                            <div style="background-color: {{ colors[color] }}  ">
+                                <img src="{{ url_for('static', filename='images/checkmark-b.png')}}" alt="">
+                            </div>
+                        </label>
                     {% endfor %}
                 </div>
             </div>
@@ -45,8 +50,8 @@
                 <input type="submit" value="Objednat">
                 <div class="quantity">
                     <input type="number" name="count" value="0" max="{{ stock }}" min="0">
+                    <h3>ks</h3>
                 </div>
-                <!--<h3>{{ stock }}ks</h3>-->
             </div>
         </div>
     </div>
