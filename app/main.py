@@ -1,4 +1,3 @@
-from re import S
 from flask import Flask,render_template
 from werkzeug.exceptions import abort
 from flask_sqlalchemy import SQLAlchemy
@@ -28,33 +27,34 @@ class Shirt(db.Model):
 
 @app.errorhandler(404)
 def page_not_found(error):
-   return render_template('404.html'), 404
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	return render_template('404.html'), 404
 
 
 @app.route("/")
 def home_view():
-        sass.compile(dirname=('app/static/scss', 'app/static/css'))
-        return render_template('index.html')
+    sass.compile(dirname=('app/static/scss', 'app/static/css'))
+    return render_template('index.html')
 
 @app.route("/kolekce")
 def kolekce():
-        sass.compile(dirname=('app/static/scss', 'app/static/css'))
-        return render_template('kolekce.html')
+    sass.compile(dirname=('app/static/scss', 'app/static/css'))
+    return render_template('kolekce.html')
 
 @app.route("/database")
 def testPage():
-        return render_template('data.html',var=Shirt.query.all()[0].cost)
+    return render_template('data.html',var=Shirt.query.all()[0].cost)
 
 @app.route("/kolekce/<collection>/<shirt>")
 def openShirt(collection,shirt):
-        sass.compile(dirname=('app/static/scss', 'app/static/css'))
-        shirtData = Shirt.query.filter_by(name=shirt).all()
-        if shirtData != []:
-                sizes = shirtData[0].size.split(',')
-                colors = shirtData[0].color.split(',')
-                return render_template('shirt_page.html',name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
-        else:
-                abort(404)
+    sass.compile(dirname=('app/static/scss', 'app/static/css'))
+    shirtData = Shirt.query.filter_by(name=shirt).all()
+    if shirtData != []:
+        sizes = shirtData[0].size.split(',')
+        colors = shirtData[0].color.split(',')
+        return render_template('shirt_page.html',name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
+    else:
+        abort(404)
 
 @app.route("/test")
 def test():

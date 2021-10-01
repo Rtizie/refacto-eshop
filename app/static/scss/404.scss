@@ -1,0 +1,27 @@
+#main{
+    margin-top: 5vh;
+    background-image: url('../images/404-bubbles-red.png');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-clip: border-box;
+    display: flex;
+    height: 80vh;
+    width: 100vw;
+    #bubble{
+        background-image: url('../images/404-red.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 30%;
+        margin: auto;
+        width: 70%;
+        height: 70%;
+        display: flex;
+        text-decoration: none;
+        h1{
+            margin: auto;
+            color: white;
+            font-family: 'PoetsenOne';
+        }
+    }
+}
