@@ -24,35 +24,36 @@
                 </div>
             </div>
 
+            <form action="{{ url_for('addItem')}}" method="POST">
             <div class="captions"><h2>Velikost:</h2><h2>Barva:</h2></div>
-            
-            <div class="buyingData">
-                <div class="sizes">
-                    <select id="size" name="size">
-                        {% for size in range(0, lenSizes) %}
-                            <option value="{{ sizes[size] }}" class="size"><div class="w3-large">{{ sizes[size] }}</div></option>
-                        {% endfor %}
-                    </select>
+                <div class="buyingData">
+                    <div class="sizes">
+                        <select id="size" name="size" required>
+                            {% for size in range(0, lenSizes) %}
+                                <option value="{{ sizes[size] }}" class="size"><div class="w3-large">{{ sizes[size] }}</div></option>
+                            {% endfor %}
+                        </select>
 
+                    </div>
+                    <div class="colors">
+                        {% for color in range(0, lenColors) %}
+                            <label>
+                                <input type="radio" name="color" value="{{ colors[color] }}" required>
+                                <div style="background-color: {{ colors[color] }}  ">
+                                    <img src="{{ url_for('static', filename='images/checkmark-b.png')}}" alt="">
+                                </div>
+                            </label>
+                        {% endfor %}
+                    </div>
                 </div>
-                <div class="colors">
-                    {% for color in range(0, lenColors) %}
-                        <label>
-                            <input type="radio" name="work_days" value="1">
-                            <div style="background-color: {{ colors[color] }}  ">
-                                <img src="{{ url_for('static', filename='images/checkmark-b.png')}}" alt="">
-                            </div>
-                        </label>
-                    {% endfor %}
+                <div class="buy">
+                    <input type="submit" value="Objednat"/>
+                    <div class="quantity">
+                        <input type="number" name="count" value="0" max="{{ stock }}" min="0"/>
+                        <h3>ks</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="buy">
-                <input type="submit" value="Objednat">
-                <div class="quantity">
-                    <input type="number" name="count" value="0" max="{{ stock }}" min="0">
-                    <h3>ks</h3>
-                </div>
-            </div>
+        </form>
         </div>
     </div>
 </div>

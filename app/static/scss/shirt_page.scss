@@ -117,25 +117,27 @@
 					justify-content: end;
 				}
 			}
-			.buy{
-				height: 5%;
-				margin-top:2vh;
-				display: flex;
-				input[type=submit]{
-					width: auto;
-					height: 100%;
-					width: 20%;
-					margin-top: auto;
-					margin-bottom: auto;
-					color: white;
-					background-color: red;
-					border: 2px solid black;
-					border-right: 0;
-					font-family: 'PoetsenOne';
-				}
-				input{
-					border:2px solid black;
-					font-family: 'PoetsenOne';
+			form{
+				.buy{
+					height: 20%;
+					margin-top:2vh;
+					display: flex;
+					input[type=submit]{
+						width: auto;
+						height: 100%;
+						width: 20%;
+						margin-top: auto;
+						margin-bottom: auto;
+						color: white;
+						background-color: red;
+						border: 2px solid black;
+						border-right: 0;
+						font-family: 'PoetsenOne';
+					}
+					input{
+						border:2px solid black;
+						font-family: 'PoetsenOne';
+					}
 				}
 			}
 		}
@@ -158,7 +160,6 @@ input[type=number] {
 		font-family: 'PoetsenOne';
 		margin: 0;
 		padding: 0;
-		margin-left: 16px;
 	}
 }
 .quantity input {

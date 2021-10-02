@@ -1,8 +1,9 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 from werkzeug.exceptions import abort
 from flask_sqlalchemy import SQLAlchemy
 
 import sass
+from werkzeug.utils import redirect
 
 app = Flask(__name__)
 
@@ -55,6 +56,14 @@ def openShirt(collection,shirt):
         return render_template('shirt_page.html',name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
     else:
         abort(404)
+
+@app.route('/addItem',methods=['GET','POST'])
+def addItem():
+    if request.method == 'POST':
+        color = request.form.get('color')
+        print(color)
+    return redirect('/')
+
 
 @app.route("/test")
 def test():

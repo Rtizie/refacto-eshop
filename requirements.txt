@@ -2,3 +2,5 @@ gunicorn
 flask
 libsass
 flask-sqlalchemy
+wtforms
+flask_wtf

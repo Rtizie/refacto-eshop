@@ -17,8 +17,10 @@
     width: 70%;
     height: 70%;
     display: flex;
-    text-decoration: none; }
+    text-decoration: none;
+    justify-content: center; }
     #main #bubble h1 {
+      text-align: center;
       margin: auto;
       color: white;
       font-family: 'PoetsenOne'; }

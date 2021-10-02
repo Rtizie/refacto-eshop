@@ -88,11 +88,11 @@
         .mainPage .shirt .info .buyingData .colors {
           margin-left: auto;
           justify-content: end; }
-      .mainPage .shirt .info .buy {
-        height: 5%;
+      .mainPage .shirt .info form .buy {
+        height: 20%;
         margin-top: 2vh;
         display: flex; }
-        .mainPage .shirt .info .buy input[type=submit] {
+        .mainPage .shirt .info form .buy input[type=submit] {
           width: auto;
           height: 100%;
           width: 20%;
@@ -103,7 +103,7 @@
           border: 2px solid black;
           border-right: 0;
           font-family: 'PoetsenOne'; }
-        .mainPage .shirt .info .buy input {
+        .mainPage .shirt .info form .buy input {
           border: 2px solid black;
           font-family: 'PoetsenOne'; }
 
@@ -121,8 +121,7 @@ input[type=number] {
   .quantity h3 {
     font-family: 'PoetsenOne';
     margin: 0;
-    padding: 0;
-    margin-left: 16px; }
+    padding: 0; }
 
 .quantity input {
   height: 85%;

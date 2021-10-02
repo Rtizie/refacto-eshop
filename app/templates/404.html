@@ -8,24 +8,12 @@
 {% block body %}
 <div id="main">
     <a href="{{ url_for('home_view') }}" id="bubble" onmouseover="change()" onmouseleave="changeBack()">
-        <h1 class="w3-xxxlarge">Error 404</h1>
+        <h1 class="w3-xxxlarge">Error<br>404</h1>
     </a>
 </div>
 {% endblock %}
 {% block scripts %}
-<script>
-    var main =  document.getElementById("main");
-    var bubble = document.getElementById("bubble")
-    function change(){
-        main.style = "background-image: url('{{ url_for('static',filename='images/404-bubbles-blue.png') }}')";
-        bubble.style = "background-image: url('{{ url_for('static',filename='images/404-blue.png') }}')";
-        bubble.lastElementChild.innerHTML = "Vraťme se zpět";
-    }
-    function changeBack(){
-        main.style = "background-image: url('{{ url_for('static',filename='images/404-bubbles-red.png') }}')";
-        bubble.style = "background-image: url('{{ url_for('static',filename='images/404-red.png') }}')";
-        //console.log(bubble.firstChild.textContent)
-        bubble.lastElementChild.innerHTML = "404 Error";
-    }
+<script src="{{ url_for('static', filename='js/404.js')}}">
 </script>
+    
 {% endblock %}

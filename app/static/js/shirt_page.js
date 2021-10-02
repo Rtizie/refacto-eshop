@@ -1,6 +1,5 @@
 var selectName = $('select').attr('name');
 
-console.log(selectName)
 // add a hidden element with the same name as the select
 var hidden = $('<input type="hidden" name="'+selectName+'">');
 hidden.val($('select').val());
