@@ -23,7 +23,7 @@ $(document).on('click', '.size', function() {
 
 //Roller
 $(document).ready(function () {
-    jQuery('<div class="quantity-nav"><button class="quantity-button quantity-up">&#xf106;</button><button class="quantity-button quantity-down">&#xf107</button></div>').insertAfter('.quantity input');
+    jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">&#xf106;</div><div class="quantity-button quantity-down">&#xf107</div></div>').insertAfter('.quantity input');
     jQuery('.quantity').each(function () {
       var spinner = jQuery(this),
           input = spinner.find('input[type="number"]'),

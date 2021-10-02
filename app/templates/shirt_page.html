@@ -26,6 +26,7 @@
 
             <form action="{{ url_for('addItem')}}" method="POST">
             <div class="captions"><h2>Velikost:</h2><h2>Barva:</h2></div>
+            <input type="hidden" value="{{ name }}" name="name">
                 <div class="buyingData">
                     <div class="sizes">
                         <select id="size" name="size" required>
@@ -49,7 +50,7 @@
                 <div class="buy">
                     <input type="submit" value="Objednat"/>
                     <div class="quantity">
-                        <input type="number" name="count" value="0" max="{{ stock }}" min="0"/>
+                        <input type="number" name="count" value="0" max="{{ stock }}" min="1"/>
                         <h3>ks</h3>
                     </div>
                 </div>
