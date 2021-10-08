@@ -83,7 +83,7 @@ def testPage():
 @app.route("/kolekce/<collection>/<shirt>")
 def openShirt(collection,shirt):
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	shirtData = Shirt.query.filter_by(name=shirt).all()
+	shirtData = Shirt.query.filter_by(name=shirt,collection=collection).all()
 	if shirtData != []:
 		sizes = shirtData[0].size.split(',')
 		colors = shirtData[0].color.split(',')
@@ -118,6 +118,13 @@ def cart():
 	except:
 		return render_template('empty_cart.html',)
 
-@app.route("/test")
-def test():
-	return render_template('test.html')
+@app.route('/kolekce/<collection>')
+def open_collection(collection):
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	try:
+		shirts = Shirt.query.filter_by(collection=collection).all()
+		return render_template('open_collection.html',title=collection,shirts=shirts)
+	except Exception as e:
+		raise(e)
+
+
