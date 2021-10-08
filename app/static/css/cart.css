@@ -1,6 +1,21 @@
 .main {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   margin-top: 10vh;
-  margin-bottom: 10vh; }
+  margin-bottom: 10vh;
+  width: 70%; }
   .main h1 {
     font-family: 'PoetsenOne';
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 10vh; }
+  .main table {
+    width: 80%;
+    margin: auto; }
+    .main table .image {
+      width: 20%; }
+      .main table .image img {
+        height: auto;
+        width: 40%;
+        border-radius: 75%; }

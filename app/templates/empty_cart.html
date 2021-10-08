@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Košík - Refacto{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/empty_cart.css')}}">
+{% endblock %}
+{% block body %}
+<div class="main">
+    <h1>Košík je prázdný</h1>
+    <a href="{{ url_for('kolekce') }}">Kolekce <i class="fas fa-caret-right"></i></a>
+</div>
+{% endblock %}

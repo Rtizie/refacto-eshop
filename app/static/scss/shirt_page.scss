@@ -90,12 +90,7 @@
 					border: 2px black solid;
 					background-color: #C1C1C1;
 					font-family: 'PoetsenOne';
-					margin-right: 10%;
-					div{
-						*{
-							margin:2vw;
-						}
-					}
+					margin-right: 2%;
 				}
 				.on{
 					background-color: yellow;
@@ -247,4 +242,26 @@ input[type=number] {
 		width: 24px;
 		height: 24px;
 	}
+}
+
+//Size
+.size input[type="radio"] {
+	display: none;
+}
+
+.size div {
+	display: block;
+	text-transform: uppercase;
+	border: 1px solid black;
+}
+
+.size input[type="radio"] + div {
+	padding:3px;
+	padding-left: 6px;
+	padding-right: 6px;
+	margin: 0;
+	width: fit-content;
+}
+.size input[type="radio"]:checked + div {
+	background-color: yellow;
 }

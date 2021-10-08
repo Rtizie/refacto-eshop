@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
+{% block title %}Košík - ReFacto{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css')}}">
 {% endblock %}
 {% block body %}
 <div class="main">
     <h1>Košík</h1>
-    <table class="w3-table w3-border-bottom w3-border-orange">
+    <table class="w3-table w3-border">
         <tr>
-            <th>Název</th>
-            <th>Barva</th>
+            <th>&nbsp;</th>
+            <th>Jméno trička</th>
             <th>Velikost</th>
             <th>Počet Kusů</th>
             <th>Cena</th>
         </tr>
+        
         {% for item in items %}
+        <tr>
+            <td class="image"><img src="{{ url_for('static', filename=item.image) }}"></td>
             <td>{{ item.name }}</td>
-            <td class="color" style="background-color: {{ item.color }};">&nbsp;</td>
             <td>{{ item.size}}</td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.total }}</td>
+        </tr>
         {% endfor %}
     </table>
 </div>

@@ -8,7 +8,7 @@
 {% block body %}
 <div class="mainPage">
     <div class="shirt">
-        <img src="{{ url_for('static', filename='images/Fotka.png') }}">
+        <img src="{{ url_for('static', filename=image) }}">
         <div class="info">
             <h1 class="w3-jumbo">{{ name }}</h1>
             <p>Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny.Popis, který v podstatě přesvědčuje člově ke koupi a odvádí pozornost od ceny</p>
@@ -29,12 +29,14 @@
             <input type="hidden" value="{{ name }}" name="name">
                 <div class="buyingData">
                     <div class="sizes">
-                        <select id="size" name="size" required>
-                            {% for size in range(0, lenSizes) %}
-                                <option value="{{ sizes[size] }}" class="size"><div class="w3-large">{{ sizes[size] }}</div></option>
-                            {% endfor %}
-                        </select>
-
+                        {% for size in range(0, lenSizes) %}
+                            <label class="size">
+                                <input type="radio" name="size" value="{{ sizes[size] }}"  required>
+                                <div>
+                                    {{ sizes[size] }}
+                                </div>
+                            </label>
+                        {% endfor %}
                     </div>
                     <div class="colors">
                         {% for color in range(0, lenColors) %}

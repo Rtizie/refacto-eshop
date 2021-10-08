@@ -1,0 +1,10 @@
+.main {
+  justify-content: center; }
+  .main a {
+    text-align: center;
+    background-color: #C80C2B;
+    color: white;
+    margin: auto;
+    padding: 3vh 2vw;
+    font-family: 'PoetsenOne';
+    text-decoration: none; }

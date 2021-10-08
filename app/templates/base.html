@@ -57,7 +57,20 @@
                 function closeNav() {
                     document.getElementById("mySidepanel").style.width = "0";
                 }
+                function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+$('div').each(function (index, div) {
+  $(div).css('border', '1px solid ' + getRandomColor());
+});
+
             </script>
+            <script src="https://kit.fontawesome.com/4963a4c9ed.js" crossorigin="anonymous"></script>
             {% block scripts %}
             {% endblock %}
     </body>
