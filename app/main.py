@@ -67,8 +67,6 @@ def page_not_found(error):
 @app.route("/")
 def home_view():
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	
-		
 	return render_template('index.html')
 
 @app.route("/kolekce")
