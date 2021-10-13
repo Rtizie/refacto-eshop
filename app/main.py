@@ -96,12 +96,17 @@ def addItem():
 			color = request.form.get('color')
 			name = request.form.get('name')
 			size = request.form.get('size')
-			count = request.form.get('count')	
+			count = request.form.get('count')
+			#Bere Databázi	
 			shirtData = Shirt.query.filter_by(name=name).all()
 			if shirtData != []:
 				if 'cart' not in session:
+					print("Vytvořený cart")
 					session['cart'] = []
-				session['cart'].append({'name': name, 'quantity': count,'size': size,'color':color})
+				try:
+					session['cart'].append({'name': name, 'quantity': count,'size': size,'color':color})
+				except Exception as e:
+					raise(e)
 				print(f"Košík po přidání {session.get('cart')}")
 		except Exception as e:
 			raise e

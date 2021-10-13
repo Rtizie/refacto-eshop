@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: auto; }
@@ -182,7 +182,6 @@ h1, h2, h3, h4, h5, h6 {
         background-size: 50vmin; }
       .bubbles .container .info:nth-child(5) .bubble {
         position: relative;
-        right: 10%;
         background-image: url("../images/bubbles/5.png");
         background-size: 40vmin; }
       .bubbles .container .info:nth-child(6) .bubble {
