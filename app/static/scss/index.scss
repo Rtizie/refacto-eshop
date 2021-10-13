@@ -178,6 +178,7 @@ h1, h2, h3, h4, h5,h6{
             }
             &:nth-child(5){ 
                 .text{
+                    margin-right: 2vw;
                     width: 50%;
                     height: 100%;
                     float: right;
@@ -244,9 +245,9 @@ h1, h2, h3, h4, h5,h6{
             &:nth-child(5){ 
                 .bubble{
                     position: relative;
-                    width: 20%;
+                    width: 25%;
                     background-image: url("../images/bubbles/5.png");
-                    background-size: 40vmin;
+                    background-size: 60vmin;
                 }
             }
             &:nth-child(6){ 

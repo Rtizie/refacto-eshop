@@ -137,6 +137,7 @@ h1, h2, h3, h4, h5, h6 {
           color: #6D3C8B;
           font-family: 'Summer Font Light'; }
       .bubbles .container .info:nth-child(5) .text {
+        margin-right: 2vw;
         width: 50%;
         height: 100%;
         float: right;
@@ -183,9 +184,9 @@ h1, h2, h3, h4, h5, h6 {
         background-size: 50vmin; }
       .bubbles .container .info:nth-child(5) .bubble {
         position: relative;
-        width: 20%;
+        width: 25%;
         background-image: url("../images/bubbles/5.png");
-        background-size: 40vmin; }
+        background-size: 60vmin; }
       .bubbles .container .info:nth-child(6) .bubble {
         width: 25%;
         background-image: url("../images/bubbles/6.png");
