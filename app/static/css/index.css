@@ -32,7 +32,8 @@ h1, h2, h3, h4, h5, h6 {
         margin-right: auto;
         padding-bottom: 24px;
         width: 32vmin;
-        height: 32vmin; }
+        height: 32vmin;
+        filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.45)); }
       .landing .landing-container div h1, .landing .landing-container div h3 {
         text-align: center;
         text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
