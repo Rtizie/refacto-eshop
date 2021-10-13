@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block title%}{{ title }} - ReFacto{% endblock%}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/open_collection.css') }}">
+{% endblock %}
+{% block body %}
+<div class="main">
+    <div class="top">
+        <div class="first_side">
+        </div>
+        <div class="center">
+            <h1>{{ title }}</h1>
+        </div>
+        <div class="second_side">
+        </div>
+    </div>
+    <div class="items">
+        {% for shirt in shirts %}
+        <div class="item">
+            <img src="{{ url_for('static', filename=shirt.image) }}">
+            <h2>{{ shirt.name }}</h2>
+            <h3>{{ shirt.cost }}Kč</h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
