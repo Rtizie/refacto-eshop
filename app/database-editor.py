@@ -1,5 +1,6 @@
 from main import db, Shirt
 import pprint
+
 def main():
     print("Chceš měnit nebo přidat ?")
     choice = int(input("1. Měnit, 2. Přidat \n3. Smazat databázi, 4. Vypsat celou databázi: "))
