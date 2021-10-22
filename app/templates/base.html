@@ -46,33 +46,37 @@
                     </p>
                     <p>Všechna práva vyhrazena ReFacto a.s. 2022</p>
                 </div>
+                <div style="margin-left: auto;">
+                    <h3>Junior Achiviement</h3>
+                    <p class="w3-xlarge">
+                        Tato firma spadá pod JA
+                        <br>
+                    </p>
+                </div>
             </footer>
             <script type="text/javascript">
-                /* Set the width of the sidebar to 250px (show it) */
-                function openNav() {
+            function openNav() {
                     document.getElementById("mySidepanel").style.width = "200px";
-                }
+            }
 
-                /* Set the width of the sidebar to 0 (hide it) */
-                function closeNav() {
-                    document.getElementById("mySidepanel").style.width = "0";
+            function closeNav() {
+                document.getElementById("mySidepanel").style.width = "0";
+            }
+            function getRandomColor() {
+                    var letters = '0123456789ABCDEF'.split('');
+                    var color = '#';
+                    for (var i = 0; i < 6; i++ ) {
+                        color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    return color;
                 }
-                function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-//$('div').each(function (index, div) {
-//  $(div).css('border', '1px solid ' + getRandomColor());
-//});
+            //$('div').each(function (index, div) {
+            //    $(div).css('border', '1px solid ' + getRandomColor());
+            //});
 
             </script>
             <script src="https://kit.fontawesome.com/4963a4c9ed.js" crossorigin="anonymous"></script>
             {% block scripts %}
             {% endblock %}
     </body>
-    
 </html>

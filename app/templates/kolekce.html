@@ -11,7 +11,7 @@
     <div class="bubbles">
         <div class="bubble1">
             <div class="middle-bubble">
-                <img src="{{ url_for('static', filename='images/kolekce/red-bubble.png') }}">
+                <a href="{{ url_for('open_collection', collection='Hudba')}}"><img src="{{ url_for('static', filename='images/kolekce/red-bubble.png') }}"></a>
                 <h2>Seriálová</h2>
                 <p>Milujete seriály? Tady si vyberete!</p>
             </div>
@@ -19,15 +19,15 @@
         </div>
         <div class="bubble2">
             <div class="middle-bubble">
-                <img src="{{ url_for('static', filename='images/kolekce/purple-bubble.png') }}">
-                <h2>Hráčské</h2>
-                <p>Perfektní trička nejen pro hráče videoher.</p>
+                <a href="{{ url_for('open_collection', collection='Chaos')}}"><img src="{{ url_for('static', filename='images/kolekce/purple-bubble.png') }}"></a>
+                <h2>Chaos</h2>
+                <p>Jsi chaotický nebo jenom máš rád chaos ? Vyber si!</p>
             </div>
             <img class="outside-bubble" src="{{ url_for('static', filename='images/kolekce/purple-bubbles.png') }}">
         </div>
         <div class="bubble3">
             <div class="middle-bubble">
-                <img src="{{ url_for('static', filename='images/kolekce/blue-bubble.png') }}">
+                <a href="{{ url_for('open_collection', collection='Studenti')}}"><img src="{{ url_for('static', filename='images/kolekce/blue-bubble.png') }}"></a>
                 <h2>Studentské</h2>
                 <p>Dokonalá trička pro více i méně pilné studenty.</p>
             </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="bubble4">
             <div class="middle-bubble">
-                <img src="{{ url_for('static', filename='images/kolekce/green-bubble.png') }}">
+                <a href="{{ url_for('open_collection', collection='Pohoda')}}"><img src="{{ url_for('static', filename='images/kolekce/green-bubble.png') }}"></a>
                 <h2>Pohodářské</h2>
                 <p>Jednoduchý desing pro všechny pohodáře.</p>
             </div>
@@ -43,7 +43,7 @@
         </div>
         <div class="bubble5">
             <div class="middle-bubble">
-                <img src="{{ url_for('static', filename='images/kolekce/yellow-bubble.png') }}">
+                <a href="{{ url_for('open_collection', collection='Hudba')}}"><img src="{{ url_for('static', filename='images/kolekce/yellow-bubble.png') }}"></a>
                 <h2>Hudební</h2>
                 <p>Kdo říkal, že hudba nemůže být vidět</p>
             </div>

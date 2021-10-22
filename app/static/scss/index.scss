@@ -290,6 +290,10 @@ h1, h2, h3, h4, h5,h6{
             }
         }
     }
+    .first-action:hover{
+        transform: scale(102%);
+        transition: 1s;
+    }
     .second-action{
         border-radius: 15px 15px 15px 15px;
         background-color: #000000;
@@ -309,6 +313,10 @@ h1, h2, h3, h4, h5,h6{
             }
         }
     }
+    .second-action:hover{
+        transform: scale(102%);
+        transition: 1s;
+    }
     .action-main{
         margin: 0;
     }
@@ -319,7 +327,7 @@ h1, h2, h3, h4, h5,h6{
         padding: 0;
     }
 
-    div{
+    .first-action,.second-action{
         margin-top: 24px;
         box-shadow: 15px 15px 2px  rgba(0, 0, 0, 0.30);
         h2{

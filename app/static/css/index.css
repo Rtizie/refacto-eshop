@@ -216,6 +216,9 @@ h1, h2, h3, h4, h5, h6 {
         position: relative;
         top: 50%;
         transform: translateY(-50%); }
+  .actions .first-action:hover {
+    transform: scale(102%);
+    transition: 1s; }
   .actions .second-action {
     border-radius: 15px 15px 15px 15px;
     background-color: #000000;
@@ -231,6 +234,9 @@ h1, h2, h3, h4, h5, h6 {
         position: relative;
         top: 50%;
         transform: translateY(-50%); }
+  .actions .second-action:hover {
+    transform: scale(102%);
+    transition: 1s; }
   .actions .action-main {
     margin: 0; }
   .actions .action-main img {
@@ -238,10 +244,10 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     margin: 0;
     padding: 0; }
-  .actions div {
+  .actions .first-action, .actions .second-action {
     margin-top: 24px;
     box-shadow: 15px 15px 2px rgba(0, 0, 0, 0.3); }
-    .actions div h2 {
+    .actions .first-action h2, .actions .second-action h2 {
       margin: 0;
       color: #FFFFFF;
       text-align: center; }
