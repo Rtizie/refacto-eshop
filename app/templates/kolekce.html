@@ -11,7 +11,7 @@
     <div class="bubbles">
         <div class="bubble1">
             <div class="middle-bubble">
-                <a href="{{ url_for('open_collection', collection='Hudba')}}"><img src="{{ url_for('static', filename='images/kolekce/red-bubble.png') }}"></a>
+                <a href="{{ url_for('open_collection', collection='Hudba')}}"><img onmouseleave="hoverEnd(this)" src="{{ url_for('static', filename='images/kolekce/red-bubble.png') }}"></a>
                 <h2>Seriálová</h2>
                 <p>Milujete seriály? Tady si vyberete!</p>
             </div>
@@ -19,7 +19,7 @@
         </div>
         <div class="bubble2">
             <div class="middle-bubble">
-                <a href="{{ url_for('open_collection', collection='Chaos')}}"><img src="{{ url_for('static', filename='images/kolekce/purple-bubble.png') }}"></a>
+                <a href="{{ url_for('open_collection', collection='Chaos')}}"><img onmouseleave="hoverEnd(this)" src="{{ url_for('static', filename='images/kolekce/purple-bubble.png') }}"></a>
                 <h2>Chaos</h2>
                 <p>Jsi chaotický nebo jenom máš rád chaos ? Vyber si!</p>
             </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="bubble3">
             <div class="middle-bubble">
-                <a href="{{ url_for('open_collection', collection='Studenti')}}"><img src="{{ url_for('static', filename='images/kolekce/blue-bubble.png') }}"></a>
+                <a href="{{ url_for('open_collection', collection='Studenti')}}"><img onmouseleave="hoverEnd(this)" src="{{ url_for('static', filename='images/kolekce/blue-bubble.png') }}"></a>
                 <h2>Studentské</h2>
                 <p>Dokonalá trička pro více i méně pilné studenty.</p>
             </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="bubble4">
             <div class="middle-bubble">
-                <a href="{{ url_for('open_collection', collection='Pohoda')}}"><img src="{{ url_for('static', filename='images/kolekce/green-bubble.png') }}"></a>
+                <a href="{{ url_for('open_collection', collection='Pohoda')}}"><img onmouseleave="hoverEnd(this)" src="{{ url_for('static', filename='images/kolekce/green-bubble.png') }}"></a>
                 <h2>Pohodářské</h2>
                 <p>Jednoduchý desing pro všechny pohodáře.</p>
             </div>
@@ -43,7 +43,7 @@
         </div>
         <div class="bubble5">
             <div class="middle-bubble">
-                <a href="{{ url_for('open_collection', collection='Hudba')}}"><img src="{{ url_for('static', filename='images/kolekce/yellow-bubble.png') }}"></a>
+                <a href="{{ url_for('open_collection', collection='Hudba')}}"><img onmouseleave="hoverEnd(this)" src="{{ url_for('static', filename='images/kolekce/yellow-bubble.png') }}"></a>
                 <h2>Hudební</h2>
                 <p>Kdo říkal, že hudba nemůže být vidět</p>
             </div>
@@ -51,4 +51,13 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    function hoverEnd(object) {
+        object.style = "transform:scale(100%);transition:1s;"
+        //TODO(ALEX): FIX NECHÁVÁ TAM TĚCH 100%
+        object.style = ""
+    }
+</script>
 {% endblock %}
