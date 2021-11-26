@@ -1,0 +1,16 @@
+@import url("fonts.css");
+.main {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  justify-content: center;
+  align-items: center; }
+  .main .contacts * {
+    font-family: "PoetsenOne"; }
+  .main .contacts header {
+    font-size: xx-large; }
+  .main .contacts h3 {
+    font-family: 'Summer Font'; }

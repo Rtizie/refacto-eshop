@@ -1,0 +1,24 @@
+@import url('fonts.css');
+$headerFont: "PoetsenOne";
+.main{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    .contacts{
+        *{
+
+            font-family: "PoetsenOne";
+        }
+        header{
+            font-size: xx-large;
+        }
+        h3{
+            font-family: 'Summer Font';
+        }
+    }
+}

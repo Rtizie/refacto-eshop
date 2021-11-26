@@ -74,6 +74,11 @@ def kolekce():
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	return render_template('kolekce.html')
 
+@app.route("/kontakt")
+def contact():
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	return render_template('contact.html', title="Kontakt")
+
 @app.route("/database")
 def testPage():
 	return render_template('data.html',var=Shirt.query.all()[0].cost)

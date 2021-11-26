@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% block title%}{{ title }} - ReFacto{% endblock%}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="main">
+        <div class="contacts">
+            <header>Napište nám</header>
+            <div>
+                <h3>E-Mail</h3>
+                <h4>refacto@email.cz</h4>
+            </div>
+            <div>
+                <h3>Facebook</h3>
+                <h4>refacto@email.cz</h4>
+            </div>
+            <div>
+                <h3>Instagram</h3>
+                <h4>@refacto.cz</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}
