@@ -15,12 +15,14 @@
         </div>
     </div>
     <div class="items">
-        {% for shirt in shirts %}
-        <div class="item">
-            <img src="{{ url_for('static', filename=shirt.image) }}">
-            <h2>{{ shirt.name }}</h2>
-            <h3>{{ shirt.cost }}Kč</h3>
-        </div>
+        {% for s in shirts %}
+        <a href="{{ url_for('openShirt', collection=title, shirt=s.name) }}">
+            <div class="item">
+                <img src="{{ url_for('static', filename=s.image) }}">
+                <h2>{{ s.name }}</h2>
+                <h3>{{ s.cost }}Kč</h3>
+            </div>
+        </a>
         {% endfor %}
     </div>
 </div>

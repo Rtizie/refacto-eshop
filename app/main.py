@@ -30,15 +30,15 @@ class Shirt(db.Model):
 			return f'ID: {self.id},Fotka:{self.image}, Name:{self.name}, Collection:{self.collection}, Color:{self.color}, Size:{self.size}, Cost:{self.cost}, Stock:{self.stock}'
 
 
-def handle_cart():
+def handle_cart(cart):
 	products = []
 	grand_total = 0
 	index = 0
 	quantity_total = 0
 
-	print(f"Košík ve funkci:{session.get('cart')}")
+	print(f"Košík ve funkci:{cart}")
 
-	for item in session.get('cart'):
+	for item in cart:
 		print(f"Specifický produkt: {item}")
 		if session['cart'] is []:
 			return [],0,0
@@ -113,15 +113,18 @@ def addItem():
 				except Exception as e:
 					raise(e)
 				print(f"Košík po přidání {session.get('cart')}")
+				session.update()
 		except Exception as e:
 			raise e
 	return redirect(url_for('cart'))
 
 @app.route('/kosik')
 def cart():
+	cart = session.get('cart')
+	print(cart)
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	try:
-		products, grand_total, quantity_total = handle_cart()
+		products, grand_total, quantity_total = handle_cart(cart)
 		return render_template('cart.html',items=products,grand_total=grand_total,quantity_total=quantity_total)
 	except:
 		return render_template('empty_cart.html',)
