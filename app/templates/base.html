@@ -16,7 +16,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#">Nabídka</a>
             <a href="{{ url_for('kolekce') }}"">Kolekce</a>
-            <a href="#">Kontakt</a>
+            <a href="{{ url_for('contact') }}">Kontakt</a>
           </div>
             <div class="w3-bar w3-border w3-large navbar">
                 <div class="w3-white" style="background-color: white;">
@@ -24,7 +24,7 @@
                     <div class="items">
                         <a href="#" class="w3-bar-item w3-right">Nabídka</a>
                         <a href="{{ url_for('kolekce') }}" class="w3-bar-item w3-right">Kolekce</a>
-                        <a href="#" class="w3-bar-item w3-right">Kontakt</a>
+                        <a href="{{ url_for('contact') }}" class="w3-bar-item w3-right">Kontakt</a>
                     </div>    
                     <a href="javascript:void(0);" class="w3-bar-item w3-right icon" onclick="openNav()">
                         <i class="fa fa-bars"></i>
@@ -38,20 +38,13 @@
                 <div style="float: left;">
                     <h3>ReFacto a.s</h3>
                     <p class="w3-xlarge">
-                        Nějaký text, důležitá informace...
+                        Tato firma spadá pod Junior Achievement
                         <br>
                         <a href="#">Obchodní podmínky</a>
                         <br>
-                        <a href="#">Kontakt</a>
+                        <a href="{{ url_for('contact') }}">Kontakt</a>
                     </p>
-                    <p>Všechna práva vyhrazena ReFacto a.s. 2022</p>
-                </div>
-                <div style="margin-left: auto;">
-                    <h3>Junior Achievement</h3>
-                    <p class="w3-xlarge">
-                        Tato firma spadá pod Junior Achievement
-                        <br>
-                    </p>
+                    <p>Všechna práva vyhrazena ReFacto</p>
                 </div>
             </footer>
             <script type="text/javascript">

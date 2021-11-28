@@ -1,24 +1,31 @@
 @import url('fonts.css');
-$headerFont: "PoetsenOne";
+
 .main{
     margin-top: 10vh;
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 10vh;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
+    width: 20%;
+    header{
+        text-align: center;
+        font-size: 32pt;
+        font-family: 'PoetsenOne';
+        margin-bottom: 5vh;
+    }
     .contacts{
-        *{
-
-            font-family: "PoetsenOne";
-        }
-        header{
-            font-size: xx-large;
-        }
-        h3{
-            font-family: 'Summer Font';
+        div div{
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 2vh;
+            i{
+                font-size: xx-large;
+            }
+            span{
+                font-size: 20pt;
+                font-family: 'Summer Font';
+                width: 30%;
+            }
         }
     }
 }
