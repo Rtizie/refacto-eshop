@@ -19,15 +19,16 @@ db = SQLAlchemy(app)
 class Shirt(db.Model):
 		id = db.Column(db.Integer, primary_key=True)
 		image = db.Column(db.String(300),nullable=False)
+		imageCart = db.Column(db.String(300),nullable=False)
 		name = db.Column(db.String(40),unique=True, nullable=False)
 		collection = db.Column(db.String(40),nullable=False)
 		color = db.Column(db.String(100), nullable=False)
 		size = db.Column(db.String(20), nullable=False)
-		cost = db.Column(db.Integer, nullable=False)
-		stock = db.Column(db.Integer, nullable=False)
+		cost = db.Column(db.String(5), nullable=False)
+		stock = db.Column(db.String(10), nullable=False)
 
 		def __repr__(self) -> str:
-			return f'ID: {self.id},Fotka:{self.image}, Name:{self.name}, Collection:{self.collection}, Color:{self.color}, Size:{self.size}, Cost:{self.cost}, Stock:{self.stock}'
+			return f'ID: {self.id},Fotka:{self.image},Fotka v Košíku:{self.imageCart}, Name:{self.name}, Collection:{self.collection}, Color:{self.color}, Size:{self.size}, Cost:{self.cost}, Stock:{self.stock}'
 
 
 def handle_cart(cart):
@@ -45,12 +46,12 @@ def handle_cart(cart):
 		shirt = Shirt.query.filter_by(name=item['name']).first()
 
 		quantity = int(item['quantity'])
-		total = quantity * shirt.cost
+		total = quantity * int(shirt.cost)
 		grand_total += total
 
 		quantity_total += quantity
 
-		products.append({'id': shirt.id,'image':shirt.image, 'name': shirt.name,'color': item['color'],'size': item['size'],'quantity': quantity, 'total': total, 'index': index})
+		products.append({'id': shirt.id,'image':shirt.image,'imageCart':shirt.imageCart, 'name': shirt.name,'color': item['color'],'size': item['size'],'quantity': quantity, 'total': total, 'index': index})
 		index += 1
 	print(f"Všechny produkty: {products}")
 	return products, grand_total, quantity_total
@@ -126,7 +127,8 @@ def cart():
 	try:
 		products, grand_total, quantity_total = handle_cart(cart)
 		return render_template('cart.html',items=products,grand_total=grand_total,quantity_total=quantity_total)
-	except:
+	except Exception as e:
+		print(e)
 		return render_template('empty_cart.html',)
 
 @app.route('/kolekce/<collection>')

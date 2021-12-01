@@ -16,6 +16,6 @@
     .main table .image {
       width: 20%; }
       .main table .image img {
-        height: auto;
-        width: 40%;
+        height: 40%;
+        width: 50%;
         border-radius: 75%; }

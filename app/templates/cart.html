@@ -17,7 +17,7 @@
         
         {% for item in items %}
         <tr>
-            <td class="image"><img src="{{ url_for('static', filename=item.image) }}"></td>
+            <td class="image"><img src="{{ url_for('static', filename=item.imageCart) }}"></td>
             <td>{{ item.name }}</td>
             <td>{{ item.size}}</td>
             <td>{{ item.quantity }}</td>
