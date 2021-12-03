@@ -21,6 +21,7 @@ class Shirt(db.Model):
 		image = db.Column(db.String(300),nullable=False)
 		imageCart = db.Column(db.String(300),nullable=False)
 		name = db.Column(db.String(40),unique=True, nullable=False)
+		description = db.Column(db.String(600),nullable=False)
 		collection = db.Column(db.String(40),nullable=False)
 		color = db.Column(db.String(100), nullable=False)
 		size = db.Column(db.String(20), nullable=False)
