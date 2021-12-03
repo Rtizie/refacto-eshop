@@ -12,15 +12,60 @@
         margin-bottom: 10vh;
     }
     table{
+        font-family: 'Summer Font';
+        font-size: x-large;
         width: 80%;
         margin: auto;
         .image{
-            width: 20%; 
             img{
-                height: 40%;
+                border: 1px solid #959595;
+                height: 50%;
                 width: 50%;
                 border-radius: 75%;
+                box-shadow: 4px 4px 18px rgba($color: #000000, $alpha: 0.2);
             }
         }
+    }
+    th:not(.fotoCol){
+        border-bottom: 3px solid black;
+    }
+    table tr{
+        .fotoCol{
+            width: 10%;
+        }
+        .nameCol{
+            font-family: 'PoetsenOne';
+            width: 50%;
+        }
+        .name{
+            font-family: 'PoetsenOne';
+            font-size: x-large;
+        }
+        th{
+            font-family: 'Summer Font Light';
+            font-size: x-large;
+            &:not(.nameCol){
+                text-align: center;
+            }
+        }
+        td{  
+            vertical-align: middle;
+            border-bottom: 2px solid black;
+
+            &:not(.name){
+                text-align: center;
+            }
+        }
+    }
+    .buy{
+        background-color: red;
+        font-family: 'PoetsenOne';
+        font-size: x-large;
+        color: white;
+        border: 0;
+        width: 30%;
+        border-radius: 2% 2% 2% 2%;
+        margin-top: 10vh;
+        margin-left: auto;
     }
 }

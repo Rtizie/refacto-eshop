@@ -6,10 +6,10 @@
 {% block body %}
 <div class="main">
     <h1>Košík</h1>
-    <table class="w3-table w3-border">
+    <table class="w3-table">
         <tr>
-            <th>&nbsp;</th>
-            <th>Jméno trička</th>
+            <th class="fotoCol">&nbsp;</th>
+            <th class="nameCol">Jméno trička</th>
             <th>Velikost</th>
             <th>Počet Kusů</th>
             <th>Cena</th>
@@ -18,12 +18,15 @@
         {% for item in items %}
         <tr>
             <td class="image"><img src="{{ url_for('static', filename=item.imageCart) }}"></td>
-            <td>{{ item.name }}</td>
+            <td class="name">{{ item.name }}</td>
             <td>{{ item.size}}</td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.total }}</td>
         </tr>
         {% endfor %}
     </table>
+    <button class="buy">
+        <a>Objednat za {{ grand_total }} korun <i class="fas fa-arrow-right"></i></a>
+    </button>
 </div>
 {% endblock %}

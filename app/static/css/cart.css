@@ -11,11 +11,43 @@
     text-align: center;
     margin-bottom: 10vh; }
   .main table {
+    font-family: 'Summer Font';
+    font-size: x-large;
     width: 80%;
     margin: auto; }
-    .main table .image {
-      width: 20%; }
-      .main table .image img {
-        height: 40%;
-        width: 50%;
-        border-radius: 75%; }
+    .main table .image img {
+      border: 1px solid #959595;
+      height: 50%;
+      width: 50%;
+      border-radius: 75%;
+      box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.2); }
+  .main th:not(.fotoCol) {
+    border-bottom: 3px solid black; }
+  .main table tr .fotoCol {
+    width: 10%; }
+  .main table tr .nameCol {
+    font-family: 'PoetsenOne';
+    width: 50%; }
+  .main table tr .name {
+    font-family: 'PoetsenOne';
+    font-size: x-large; }
+  .main table tr th {
+    font-family: 'Summer Font Light';
+    font-size: x-large; }
+    .main table tr th:not(.nameCol) {
+      text-align: center; }
+  .main table tr td {
+    vertical-align: middle;
+    border-bottom: 2px solid black; }
+    .main table tr td:not(.name) {
+      text-align: center; }
+  .main .buy {
+    background-color: red;
+    font-family: 'PoetsenOne';
+    font-size: x-large;
+    color: white;
+    border: 0;
+    width: 30%;
+    border-radius: 2% 2% 2% 2%;
+    margin-top: 10vh;
+    margin-left: auto; }
