@@ -73,29 +73,29 @@ def cart_remove():
 						if item['size'] == size:
 							del cart[count]
 	session.update()
-	return redirect(url_for('cart'))
+	return redirect(url_for('cart',number_of_items_in_basket=len(session.get('cart'))))
 
 
 @app.errorhandler(404)
 def page_not_found(error):
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	return render_template('404.html'), 404
+	return render_template('404.html',number_of_items_in_basket=len(session.get('cart'))), 404
 
 
 @app.route("/")
 def home_view():
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	return render_template('index.html')
+	return render_template('index.html',number_of_items_in_basket=len(session.get('cart')))
 
 @app.route("/kolekce")
 def kolekce():
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	return render_template('kolekce.html')
+	return render_template('kolekce.html',number_of_items_in_basket=len(session.get('cart')))
 
 @app.route("/kontakt")
 def contact():
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	return render_template('contact.html', title="Kontakt")
+	return render_template('contact.html', title="Kontakt",number_of_items_in_basket=len(session.get('cart')))
 
 @app.route("/kolekce/<collection>/<shirt>")
 def openShirt(collection,shirt):
@@ -104,7 +104,7 @@ def openShirt(collection,shirt):
 	if shirtData != []:
 		sizes = shirtData[0].size.split(',')
 		colors = shirtData[0].color.split(',')
-		return render_template('shirt_page.html',id=shirtData[0].id,image=shirtData[0].image,name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
+		return render_template('shirt_page.html',number_of_items_in_basket=len(session.get('cart')),id=shirtData[0].id,image=shirtData[0].image,name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
 	else:
 		abort(404)
 
@@ -140,7 +140,7 @@ def addItem():
 				session.update()
 		except Exception as e:
 			raise e
-	return redirect(url_for('cart'))
+	return redirect(url_for('cart',number_of_items_in_basket=len(session.get('cart'))))
 
 @app.route('/kosik')
 def cart():
@@ -149,18 +149,18 @@ def cart():
 	try:
 		products, grand_total, quantity_total = handle_cart(cart)
 		if grand_total == 0:
-			return render_template('empty_cart.html',)
-		return render_template('cart.html',items=products,grand_total=grand_total,quantity_total=quantity_total)
+			return render_template('empty_cart.html',number_of_items_in_basket=len(session.get('cart')))
+		return render_template('cart.html',items=products,grand_total=grand_total,quantity_total=quantity_total,number_of_items_in_basket=len(session.get('cart')))
 	except Exception as e:
 		print(e)
-		return render_template('empty_cart.html',)
+		return render_template('empty_cart.html',number_of_items_in_basket=len(session.get('cart')))
 
 @app.route('/kolekce/<collection>')
 def open_collection(collection):
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	try:
 		shirts = Shirt.query.filter_by(collection=collection).all()
-		return render_template('open_collection.html',title=collection,shirts=shirts)
+		return render_template('open_collection.html',title=collection,shirts=shirts,number_of_items_in_basket=len(session.get('cart')))
 	except Exception as e:
 		raise(e)
 

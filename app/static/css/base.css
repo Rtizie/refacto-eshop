@@ -18,6 +18,35 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: hidden; }
 
+.cart {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10vh;
+  padding-left: 95vw;
+  z-index: 12; }
+  .cart div {
+    margin-right: 2vw;
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center; }
+    .cart div i {
+      padding-top: 0.5vh;
+      font-size: 2rem; }
+    .cart div div {
+      position: relative;
+      width: 50%;
+      height: 50%;
+      top: -50%;
+      left: 50%;
+      background-color: #C80C2B; }
+      .cart div div p {
+        text-align: center;
+        font-size: larger;
+        font-family: 'PoetsenOne';
+        color: white; }
+
 .navbar {
   width: 100%;
   overflow-x: hidden;

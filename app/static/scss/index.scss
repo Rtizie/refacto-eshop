@@ -274,6 +274,7 @@ h1, h2, h3, h4, h5,h6{
         background-color: #000000;
         color: #FFFFFF;
         width: 30%;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* vendorless fallback */
 
         div.top-text
         {
@@ -292,13 +293,12 @@ h1, h2, h3, h4, h5,h6{
     }
     .first-action:hover{
         transform: scale(102%);
-        transition: 1s;
     }
     .second-action{
         border-radius: 15px 15px 15px 15px;
         background-color: #000000;
         width: 30%;
-
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* vendorless fallback */
         div.top-text{
             background-color: #F49A00;
             width: 100%;
@@ -315,7 +315,6 @@ h1, h2, h3, h4, h5,h6{
     }
     .second-action:hover{
         transform: scale(102%);
-        transition: 1s;
     }
     .action-main{
         margin: 0;

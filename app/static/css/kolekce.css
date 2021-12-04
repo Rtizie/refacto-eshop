@@ -10,7 +10,8 @@ h1 {
   width: 100%;
   position: absolute; }
   .middle-bubble img {
-    width: 64vmin; }
+    width: 64vmin;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
   .middle-bubble h2 {
     font-family: 'PoetsenOne';
     font-size: 10vh; }
@@ -31,7 +32,6 @@ h1 {
   padding-bottom: 48vh; }
 
 .middle-bubble img:hover {
-  transition: 1s;
   transform: scale(110%); }
 
 .page {

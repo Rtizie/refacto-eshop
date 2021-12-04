@@ -12,6 +12,14 @@
         {% endblock %}
     </head>
     <body>
+        <div class="cart">
+            <div>
+                <a href="{{ url_for('cart') }}"><i class="fas fa-shopping-bag"></i></a>
+                <div>
+                    <p>{{ number_of_items_in_basket }}</p>
+                </div>
+            </div>
+        </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#">Nabídka</a>
