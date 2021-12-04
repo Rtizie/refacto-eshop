@@ -78,27 +78,42 @@ def cart_remove():
 
 @app.errorhandler(404)
 def page_not_found(error):
+	if 'cart' not in session:
+		print("Vytvořený cart")
+		session['cart'] = []	
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	return render_template('404.html',number_of_items_in_basket=len(session.get('cart'))), 404
 
 
 @app.route("/")
 def home_view():
+	if 'cart' not in session:
+		print("Vytvořený cart")
+		session['cart'] = []	
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	return render_template('index.html',number_of_items_in_basket=len(session.get('cart')))
 
 @app.route("/kolekce")
 def kolekce():
+	if 'cart' not in session:
+		print("Vytvořený cart")
+		session['cart'] = []	
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	return render_template('kolekce.html',number_of_items_in_basket=len(session.get('cart')))
 
 @app.route("/kontakt")
 def contact():
+	if 'cart' not in session:
+		print("Vytvořený cart")
+		session['cart'] = []
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	return render_template('contact.html', title="Kontakt",number_of_items_in_basket=len(session.get('cart')))
 
 @app.route("/kolekce/<collection>/<shirt>")
 def openShirt(collection,shirt):
+	if 'cart' not in session:
+		print("Vytvořený cart")
+		session['cart'] = []
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	shirtData = Shirt.query.filter_by(name=shirt,collection=collection).all()
 	if shirtData != []:
@@ -144,6 +159,9 @@ def addItem():
 
 @app.route('/kosik')
 def cart():
+	if 'cart' not in session:
+		print("Vytvořený cart")
+		session['cart'] = []	
 	cart = session.get('cart')
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	try:
@@ -157,6 +175,9 @@ def cart():
 
 @app.route('/kolekce/<collection>')
 def open_collection(collection):
+	if 'cart' not in session:
+		print("Vytvořený cart")
+		session['cart'] = []	
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	try:
 		shirts = Shirt.query.filter_by(collection=collection).all()
