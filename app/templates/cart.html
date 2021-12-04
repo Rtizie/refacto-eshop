@@ -10,18 +10,32 @@
         <tr>
             <th class="fotoCol">&nbsp;</th>
             <th class="nameCol">Jméno trička</th>
+            <th class="colorCol">Barva</th>
             <th>Velikost</th>
             <th>Počet Kusů</th>
             <th>Cena</th>
+            <th class="delete">&nbsp;</th>
         </tr>
         
         {% for item in items %}
         <tr>
             <td class="image"><img src="{{ url_for('static', filename=item.imageCart) }}"></td>
             <td class="name">{{ item.name }}</td>
+            <td><div  class="color" style="background-color: {{ item.color }}"></div></td>
             <td>{{ item.size}}</td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.total }}</td>
+            <td>
+                <form action="{{ url_for('cart_remove')}}" method="POST">
+                    <input type="hidden" value="{{ item.id }}" name="id">
+                    <input type="hidden" value="{{ item.name }}" name="name">
+                    <input type="hidden" value="{{ item.quantity }}" name="quantity">
+                    <input type="hidden" value="{{ item.size }}" name="size">
+                    <input type="hidden" value="{{ item.color }}" name="color">
+
+                    <input type="submit" value="Odebrat">
+                </form>
+            </td> 
         </tr>
         {% endfor %}
     </table>

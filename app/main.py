@@ -38,10 +38,7 @@ def handle_cart(cart):
 	index = 0
 	quantity_total = 0
 
-	print(f"Košík ve funkci:{cart}")
-
 	for item in cart:
-		print(f"Specifický produkt: {item}")
 		if session['cart'] is []:
 			return [],0,0
 		shirt = Shirt.query.filter_by(name=item['name']).first()
@@ -54,10 +51,27 @@ def handle_cart(cart):
 
 		products.append({'id': shirt.id,'image':shirt.image,'imageCart':shirt.imageCart, 'name': shirt.name,'color': item['color'],'size': item['size'],'quantity': quantity, 'total': total, 'index': index})
 		index += 1
-	print(f"Všechny produkty: {products}")
 	return products, grand_total, quantity_total
 
 
+@app.route("/cart_remove",methods=['GET','POST'])
+def cart_remove():
+	ID = request.form.get('id')
+	name = request.form.get('name')
+	color = request.form.get('color')
+	quantity = request.form.get('quantity')
+	size = request.form.get('size')
+	cart = session.get('cart')
+	
+	for count,item in enumerate(cart):
+		if item["id"] == ID:
+			if item["name"] == name:
+				if item["color"] == color:
+					if item["quantity"] == quantity:
+						if item["size"] == size:
+							del cart[count]
+	session.update()
+	return redirect(url_for('cart'))
 
 
 @app.errorhandler(404)
@@ -81,10 +95,6 @@ def contact():
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	return render_template('contact.html', title="Kontakt")
 
-@app.route("/database")
-def testPage():
-	return render_template('data.html',var=Shirt.query.all()[0].cost)
-
 @app.route("/kolekce/<collection>/<shirt>")
 def openShirt(collection,shirt):
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
@@ -92,7 +102,7 @@ def openShirt(collection,shirt):
 	if shirtData != []:
 		sizes = shirtData[0].size.split(',')
 		colors = shirtData[0].color.split(',')
-		return render_template('shirt_page.html',image=shirtData[0].image,name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
+		return render_template('shirt_page.html',id=shirtData[0].id,image=shirtData[0].image,name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
 	else:
 		abort(404)
 
@@ -104,6 +114,9 @@ def addItem():
 			name = request.form.get('name')
 			size = request.form.get('size')
 			count = request.form.get('count')
+			id = request.form.get('id')
+			skip = False
+
 			#Bere Databázi	
 			shirtData = Shirt.query.filter_by(name=name).all()
 			if shirtData != []:
@@ -111,10 +124,17 @@ def addItem():
 					print("Vytvořený cart")
 					session['cart'] = []
 				try:
-					session['cart'].append({'name': name, 'quantity': count,'size': size,'color':color})
+					for countL,item in enumerate(session.get('cart')):
+						if item["name"] != name or item["color"] != color or item["size"] != size:
+							continue
+						else:
+							session.get('cart')[countL]["quantity"] = str(int(session.get('cart')[countL]["quantity"]) + int(item["quantity"]))
+							skip = True
+							break
+					if skip is not True:		
+						session['cart'].append({'id': id,'name': name, 'quantity': count,'size': size,'color':color})
 				except Exception as e:
 					raise(e)
-				print(f"Košík po přidání {session.get('cart')}")
 				session.update()
 		except Exception as e:
 			raise e
@@ -123,10 +143,11 @@ def addItem():
 @app.route('/kosik')
 def cart():
 	cart = session.get('cart')
-	print(cart)
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	try:
 		products, grand_total, quantity_total = handle_cart(cart)
+		if grand_total == 0:
+			return render_template('empty_cart.html',)
 		return render_template('cart.html',items=products,grand_total=grand_total,quantity_total=quantity_total)
 	except Exception as e:
 		print(e)

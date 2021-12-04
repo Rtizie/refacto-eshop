@@ -21,7 +21,7 @@
       width: 50%;
       border-radius: 75%;
       box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.2); }
-  .main th:not(.fotoCol) {
+  .main th:not(.fotoCol):not(.delete) {
     border-bottom: 3px solid black; }
   .main table tr .fotoCol {
     width: 10%; }
@@ -31,6 +31,11 @@
   .main table tr .name {
     font-family: 'PoetsenOne';
     font-size: x-large; }
+  .main table tr .color {
+    width: 80%;
+    height: 4.8vh;
+    border: 2px solid black;
+    border-radius: 50%; }
   .main table tr th {
     font-family: 'Summer Font Light';
     font-size: x-large; }
@@ -41,6 +46,9 @@
     border-bottom: 2px solid black; }
     .main table tr td:not(.name) {
       text-align: center; }
+    .main table tr td form input[type=submit] {
+      text-decoration: none;
+      border: none; }
   .main .buy {
     background-color: red;
     font-family: 'PoetsenOne';
