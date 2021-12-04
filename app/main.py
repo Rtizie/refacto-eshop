@@ -64,11 +64,13 @@ def cart_remove():
 	cart = session.get('cart')
 	
 	for count,item in enumerate(cart):
-		if item["id"] == ID:
-			if item["name"] == name:
-				if item["color"] == color:
-					if item["quantity"] == quantity:
-						if item["size"] == size:
+		print(item)
+		print(ID)
+		if item['id'] == ID:
+			if item['name'] == name:
+				if item['color'] == color:
+					if item['quantity'] == quantity:
+						if item['size'] == size:
 							del cart[count]
 	session.update()
 	return redirect(url_for('cart'))
