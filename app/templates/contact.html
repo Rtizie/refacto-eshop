@@ -2,6 +2,8 @@
 {% block title %}{{ title }} - ReFacto{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact-tablet.css') }}" media="(max-width: 968px)" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact-mobile.css') }}" media="(max-width: 786px) and (orientation: portrait)" type="text/css">
 {% endblock %}
 {% block body %}
     <div class="main">

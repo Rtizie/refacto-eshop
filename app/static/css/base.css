@@ -22,7 +22,8 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 10vh;
-  padding-left: 95vw;
+  display: flex;
+  justify-content: end;
   z-index: 12; }
   .cart div {
     margin-right: 2vw;

@@ -3,6 +3,8 @@
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/empty_cart.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/empty_cart-tablet.css') }}" media="(max-width: 968px)" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/empty_cart-mobile.css') }}" media="(max-width: 786px) and (orientation: portrait)" type="text/css">
 {% endblock %}
 {% block body %}
 <div class="main">
