@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #id_work_days input[type="radio"] {
-  display: none;
-}
-
-#id_work_days span {
-  display: inline-block;
-  padding: 10px;
-  text-transform: uppercase;
-  border: 2px solid gold;
-  border-radius: 3px;
-  color: gold;
-}
-
-#id_work_days input[type="radio"]:checked + span {
-  background-color: gold;
-  color: black;
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <p id="id_work_days">
-        <label><input type="radio" name="work_days" value="1"><span>sun</span></label>
-        <label><input type="radio" name="work_days" value="2"><span>mon</span></label>
-        <label><input type="radio" name="work_days" value="3"><span>tue</span></label>
-        <label><input type="radio" name="work_days" value="4"><span>wed</span></label>
-        <label><input type="radio" name="work_days" value="5"><span>thu</span></label>
-        <label><input type="radio" name="work_days" value="6"><span>fri</span></label>
-        <label><input type="radio" name="work_days" value="7"><span>sat</span></label>
-      </p>
+  <script
+  src="https://www.paypal.com/sdk/js?client-id=AW0hYSmJUcbrdO1iqXhEYbfMlZqQCjPW3UJTtuvbXrR0jx2QYBE05vCII9w-oUrqNZQnTJcWG6vqsgmj&currency=CZK"> // Required. Replace YOUR_CLIENT_ID with your sandbox client ID.
+</script>
+<div id="paypal-button-container"></div>
+<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      // This function sets up the details of the transaction, including the amount and line item details.
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '1'
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      // This function captures the funds from the transaction.
+      return actions.order.capture().then(function(details) {
+        // This function shows a transaction success message to your buyer.
+        alert('Transaction completed by ' + details.payer.name.given_name);
+      });
+    }
+  }).render('#paypal-button-container');
+  //This function displays Smart Payment Buttons on your web page.
+</script>
 </body>
 </html>

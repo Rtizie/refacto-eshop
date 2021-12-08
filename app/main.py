@@ -54,6 +54,10 @@ def handle_cart(cart):
 	return products, grand_total, quantity_total
 
 
+@app.route("/test")
+def test():
+	return render_template("test.html")
+
 @app.route("/cart_remove",methods=['GET','POST'])
 def cart_remove():
 	ID = request.form.get('id')
