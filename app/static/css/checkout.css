@@ -1,0 +1,7 @@
+.main {
+  margin: auto;
+  display: flex;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  width: 50%;
+  justify-content: space-around; }

@@ -62,6 +62,7 @@ def test():
 def checkout():
 	cart = session.get('cart')
 	products, grand_total, quantity_total = handle_cart(cart)
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	return render_template("checkout.html",products=products,grand_total=grand_total,quantity_total=quantity_total,number_of_items_in_basket=len(session.get('cart')))
 
 @app.route("/cart_remove",methods=['GET','POST'])
