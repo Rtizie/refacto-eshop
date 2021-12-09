@@ -58,6 +58,12 @@ def handle_cart(cart):
 def test():
 	return render_template("test.html")
 
+@app.route("/kosik/checkout")
+def checkout():
+	cart = session.get('cart')
+	products, grand_total, quantity_total = handle_cart(cart)
+	return render_template("checkout.html",products=products,grand_total=grand_total,quantity_total=quantity_total,number_of_items_in_basket=len(session.get('cart')))
+
 @app.route("/cart_remove",methods=['GET','POST'])
 def cart_remove():
 	ID = request.form.get('id')
