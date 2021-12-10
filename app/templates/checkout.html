@@ -1,9 +1,7 @@
 {% extends 'base.html' %} {% block title %}Dodací údaje - ReFacto{% endblock %} {%
 block head %}
-<link
-	rel="stylesheet"
-	href="{{ url_for('static',filename='css/checkout.css')}}"
-/>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/checkout.css')}}"/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/contact-mobile.css') }}" media="(max-width: 786px) and (orientation: portrait)" type="text/css">
 {% endblock %} {% block body %}
 <div class="main">
 	<div>
@@ -148,6 +146,14 @@ block head %}
 		<h3 style="font-family: 'PoetsenOne';" id="error"></h3>
 	</div>
 	<script>
+		
+		/*function phoneMask() { 
+			var num = $(this).val(); 
+			$(this).val(num.substring(0,3) + ' ' + num.substring(3,6) + ' ' + num.substring(6,9)); 
+		}
+		$('[type="tel"]').keyup(phoneMask);*/		/*formatovani telefonniho cisla*/
+
+
 		function validateFields() {
 			if (document.querySelector("#firstName").value.length <= 1) {
 				document.querySelector("#error").innerText =
