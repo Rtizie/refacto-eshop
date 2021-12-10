@@ -75,18 +75,15 @@ h1, h2, h3, h4, h5, h6 {
   background-color: white;
   width: 100%;
   height: auto;
-  padding: 0;
-  padding-top: -15%; }
+  padding: 0; }
   .bubbles .bottom-text {
-    padding: 0;
-    margin-top: -50vh; }
+    padding: 0; }
     .bubbles .bottom-text h3 {
       color: #63B349; }
   .bubbles .container {
     padding: 0;
     margin: 0;
     white-space: pre-wrap;
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -96,15 +93,10 @@ h1, h2, h3, h4, h5, h6 {
     .bubbles .container .info {
       padding: 0;
       width: 100%;
-      position: relative;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: -48vmin; }
+      display: flex; }
       .bubbles .container .info:nth-child(2) .text {
         width: 50%;
-        height: 100%;
-        float: left; }
+        height: 100%; }
         .bubbles .container .info:nth-child(2) .text h1 {
           font-size: 8vh;
           color: #F49A00; }
@@ -115,7 +107,6 @@ h1, h2, h3, h4, h5, h6 {
       .bubbles .container .info:nth-child(3) .text {
         width: auto;
         height: 100%;
-        float: right;
         text-align: right;
         padding-right: 5vmin; }
         .bubbles .container .info:nth-child(3) .text h1 {
@@ -127,8 +118,7 @@ h1, h2, h3, h4, h5, h6 {
           font-family: 'Summer Font Light'; }
       .bubbles .container .info:nth-child(4) .text {
         width: 50%;
-        height: 100%;
-        float: left; }
+        height: 100%; }
         .bubbles .container .info:nth-child(4) .text h1 {
           font-size: 8vh;
           color: #6D3C8B; }
@@ -138,9 +128,8 @@ h1, h2, h3, h4, h5, h6 {
           font-family: 'Summer Font Light'; }
       .bubbles .container .info:nth-child(5) .text {
         margin-right: 2vw;
-        width: 50%;
+        width: auto;
         height: 100%;
-        float: right;
         text-align: right; }
         .bubbles .container .info:nth-child(5) .text h1 {
           font-size: 7vh;
@@ -151,8 +140,7 @@ h1, h2, h3, h4, h5, h6 {
           font-family: 'Summer Font Light'; }
       .bubbles .container .info:nth-child(6) .text {
         width: 50%;
-        height: 100%;
-        float: left; }
+        height: 100%; }
         .bubbles .container .info:nth-child(6) .text h1 {
           font-size: 8vh;
           color: #4899CE; }
@@ -163,7 +151,6 @@ h1, h2, h3, h4, h5, h6 {
       .bubbles .container .info .bubble {
         padding: 0;
         margin: 0;
-        float: left;
         display: block;
         overflow: visible;
         overflow-x: hidden;
@@ -172,25 +159,25 @@ h1, h2, h3, h4, h5, h6 {
         background-image: url("../images/bubbles/1.png");
         background-size: 60vmin;
         background-repeat: no-repeat; }
+      .bubbles .container .info:nth-child(1) {
+        height: 25vmin;
+        /*display: none !important;*/ }
       .bubbles .container .info:nth-child(2) .bubble {
         background-image: url("../images/bubbles/2.png"); }
       .bubbles .container .info:nth-child(3) .bubble {
-        position: relative;
-        width: 25%;
+        background-image: url("../images/bubbles/3.png");
         background-size: 60vmin;
-        background-image: url("../images/bubbles/3.png"); }
+        /*margin-right: -5vw;*/ }
       .bubbles .container .info:nth-child(4) .bubble {
         background-image: url("../images/bubbles/4.png");
         background-size: 50vmin; }
       .bubbles .container .info:nth-child(5) .bubble {
-        position: relative;
-        width: 25%;
         background-image: url("../images/bubbles/5.png");
-        background-size: 60vmin; }
+        background-size: 60vmin;
+        /*margin-right: -5vw;*/ }
       .bubbles .container .info:nth-child(6) .bubble {
-        width: 25%;
         background-image: url("../images/bubbles/6.png");
-        background-size: 44.5vmin; }
+        background-size: 50vmin; }
 
 .actions {
   border-top: 16px solid #D7D7D7;

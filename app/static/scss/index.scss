@@ -95,11 +95,9 @@ h1, h2, h3, h4, h5,h6{
     width: 100%;
     height: auto;  
     padding: 0;
-    padding-top: -15%;
 
     .bottom-text{
         padding: 0;
-        margin-top: -50vh;
         h3{
             color:#63B349;
         }
@@ -109,11 +107,9 @@ h1, h2, h3, h4, h5,h6{
         padding: 0;
         margin: 0;
         white-space: pre-wrap;
-        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        
         align-items: center;
         width: 100%;
         height: auto;
@@ -121,16 +117,11 @@ h1, h2, h3, h4, h5,h6{
         .info{
             padding: 0;
             width: 100%;
-            position:  relative;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            top: -48vmin;
+            display: flex;
             &:nth-child(2){ 
                 .text{
                     width: 50%;
                     height: 100%;
-                    float: left;
                     h1{
                         font-size: 8vh;
                         color:#F49A00;
@@ -146,7 +137,6 @@ h1, h2, h3, h4, h5,h6{
                 .text{
                     width: auto;
                     height: 100%;
-                    float: right;
                     text-align: right;
                     padding-right: 5vmin;
                     h1{
@@ -164,7 +154,6 @@ h1, h2, h3, h4, h5,h6{
                 .text{
                     width: 50%;
                     height: 100%;
-                    float: left;
                     h1{
                         font-size: 8vh;
                         color:#6D3C8B;
@@ -179,9 +168,8 @@ h1, h2, h3, h4, h5,h6{
             &:nth-child(5){ 
                 .text{
                     margin-right: 2vw;
-                    width: 50%;
+                    width: auto;
                     height: 100%;
-                    float: right;
                     text-align: right;
                     h1{
                         font-size: 7vh;
@@ -198,7 +186,6 @@ h1, h2, h3, h4, h5,h6{
                 .text{
                     width: 50%;
                     height: 100%;
-                    float: left;
                     h1{
                         font-size: 8vh;
                         color:#4899CE;
@@ -213,7 +200,6 @@ h1, h2, h3, h4, h5,h6{
             .bubble{
                 padding: 0;
                 margin: 0;
-                float: left;
                 display: block;
                 overflow: visible;
                 overflow-x: hidden;
@@ -223,6 +209,10 @@ h1, h2, h3, h4, h5,h6{
                 background-size: 60vmin;
                 background-repeat: no-repeat;
             }
+            &:nth-child(1) {
+               height: 25vmin; 
+               /*display: none !important;*/
+            }
             &:nth-child(2){ 
                 .bubble{
                     background-image: url("../images/bubbles/2.png");
@@ -230,10 +220,9 @@ h1, h2, h3, h4, h5,h6{
             }
             &:nth-child(3){ 
                 .bubble{
-                    position: relative;
-                    width: 25%;
-                    background-size: 60vmin;
                     background-image: url("../images/bubbles/3.png");
+                    background-size: 60vmin;
+                    /*margin-right: -5vw;*/
                 }
             }
             &:nth-child(4){ 
@@ -244,17 +233,15 @@ h1, h2, h3, h4, h5,h6{
             }
             &:nth-child(5){ 
                 .bubble{
-                    position: relative;
-                    width: 25%;
                     background-image: url("../images/bubbles/5.png");
                     background-size: 60vmin;
+                    /*margin-right: -5vw;*/
                 }
             }
             &:nth-child(6){ 
                 .bubble{
-                    width: 25%;
                     background-image: url("../images/bubbles/6.png");
-                    background-size: 44.5vmin;
+                    background-size: 50vmin;
                 }
             }
         }
