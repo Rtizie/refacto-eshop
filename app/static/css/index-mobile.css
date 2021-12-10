@@ -22,3 +22,10 @@
     margin: 0 !important; }
   .container .info:nth-child(odd) .text p {
     font-size: 20px !important; }
+
+/*.actions {
+    flex-direction: column;
+    div {
+        flex-direction: row;
+    }
+}*/

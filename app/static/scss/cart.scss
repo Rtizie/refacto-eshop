@@ -19,9 +19,12 @@
         .image{
             img{
                 border: 1px solid #959595;
-                height: 50%;
-                width: 50%;
+                /*height: 50%;
+                width: 50%;*/
+                height: 65px;
+                width: 65px;
                 border-radius: 75%;
+                object-fit: cover;
                 box-shadow: 4px 4px 18px rgba($color: #000000, $alpha: 0.2);
             }
         }

@@ -1,0 +1,15 @@
+.main{
+    .buy{
+        width: 65%;
+        margin-left: auto;
+    }
+    table{
+        .image{
+            img{
+                height: 50px;
+                width: 50px;
+                object-fit: cover;
+            }
+        }
+    }
+}
