@@ -1,4 +1,5 @@
 from datetime import timedelta
+import re
 from flask import Flask,render_template,request,session
 from flask.helpers import url_for
 from werkzeug.exceptions import abort
@@ -13,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///clothes.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = b'\xc36@\xa8\x80\x0bWO\x04\xb7\xdc\xc8\xdd3\xa4\xa2\xe9\xaeV\x0bd\xf9\x98\xde'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
-#logging.getLogger('werkzeug').setLevel('ERROR')
+logging.getLogger('werkzeug').setLevel('ERROR')
 db = SQLAlchemy(app)
 
 class Shirt(db.Model):
@@ -60,10 +61,28 @@ def test():
 
 @app.route("/kosik/checkout")
 def checkout():
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	return render_template("checkout.html",number_of_items_in_basket=len(session.get('cart')))
+
+@app.route('/kosik/checkout/platba',methods=['GET', 'POST'])
+def payment():
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	firstName = request.form.get('first')
+	lastName = request.form.get('last')
+	email = request.form.get('email')
+	phone = request.form.get('phone')
+	address = request.form.get('address')
+	psc = request.form.get('psc')
+	town = request.form.get('town')
+	delivery = request.form.get('delivery')
+	print(f"{firstName},{lastName},{email},{phone},{address},{psc},{town},{delivery}")
 	cart = session.get('cart')
 	products, grand_total, quantity_total = handle_cart(cart)
-	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	return render_template("checkout.html",products=products,grand_total=grand_total,quantity_total=quantity_total,number_of_items_in_basket=len(session.get('cart')))
+	deliveryC = 195
+	delivery_total = grand_total + deliveryC
+	print(delivery_total)
+	return render_template('payment.html',grand_total=grand_total,delivery=deliveryC,delivery_total=delivery_total)
+
 
 @app.route("/cart_remove",methods=['GET','POST'])
 def cart_remove():

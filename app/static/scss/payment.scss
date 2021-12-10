@@ -1,0 +1,24 @@
+.main{
+    margin: auto;
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    *{
+        margin: auto;
+    }
+    .info{
+        margin-bottom: 10vh;
+        *{
+            text-align: center;
+        }
+        h1{
+            font-family: 'PoetsenOne';
+            margin-bottom: 2vh;
+            font-size: 6rem;
+        }
+        h3{
+            font-family: 'PoetsenOne';
+        }
+    }
+}

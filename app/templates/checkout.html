@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Platba - ReFacto{% endblock %} {%
+{% extends 'base.html' %} {% block title %}Dodací údaje - ReFacto{% endblock %} {%
 block head %}
 <link
 	rel="stylesheet"
@@ -6,10 +6,11 @@ block head %}
 />
 {% endblock %} {% block body %}
 <div class="main">
-	<script src="https://www.paypal.com/sdk/js?client-id=AYl6fzLH8a742hJG_PA89W_uTwnogNeEbFHenxSv5BeSH5RpoJpqzJ8lgFn4mw3kyAUImk-s0WDL6F1Q&currency=CZK"></script>
 	<div>
 		<form
 			class="w3-container w3-card-4 w3-light-grey w3-margin"
+			action="{{ url_for('payment')}}"
+			method="POST"
 		>
 			<h2 class="w3-center" style="font-family: 'PoetsenOne';">Adresa a údaje</h2>
 
@@ -66,7 +67,7 @@ block head %}
 					<input
 						class="w3-input w3-border w3-border-blue"
 						name="phone"
-						type="number"
+						type="text"
 						placeholder="Telefonní číslo"
 						id="phone"
 					/>
@@ -80,10 +81,10 @@ block head %}
 				<div class="w3-rest">
 					<input
 						class="w3-input w3-border w3-border-blue"
-						name="message"
+						name="address"
 						type="text"
 						placeholder="Adresa"
-						id="adress"
+						id="address"
 					/>
 				</div>
 			</div>
@@ -94,7 +95,7 @@ block head %}
 				<div class="w3-rest">
 					<input
 						class="w3-input w3-border w3-border-blue"
-						name="message"
+						name="psc"
 						type="text"
 						placeholder="PSČ"
 						id="psc"
@@ -108,7 +109,7 @@ block head %}
 				<div class="w3-rest">
 					<input
 						class="w3-input w3-border w3-border-blue"
-						name="message"
+						name="town"
 						type="text"
 						placeholder="Město"
 						id="town"
@@ -120,24 +121,23 @@ block head %}
 					<i class="w3-xxlarge fa fa-truck" aria-hidden="true"></i>
 				</div>
 				<div class="w3-rest">
-					<input class="w3-radio" type="radio" name="gender" value="zasilkovna" checked>
+					<input class="w3-radio" type="radio" name="delivery" value="zasilkovna" checked>
 					<label style="font-family: 'Summer Font';" class="w3-xlarge">Zásilkovna</label>
 		
-					<input class="w3-radio" type="radio" name="gender" value="posta">
+					<input class="w3-radio" type="radio" name="delivery" value="posta">
 					<label style="font-family: 'Summer Font';" class="w3-xlarge">Česká Pošta</label>
-					<input class="w3-radio" type="radio" name="gender" value="ppl">
+					<input class="w3-radio" type="radio" name="delivery" value="ppl">
 					<label style="font-family: 'Summer Font';" class="w3-xlarge">PPL</label>
 		
-					<input class="w3-radio" type="radio" name="gender" value="local">
+					<input class="w3-radio" type="radio" name="delivery" value="local">
 					<label style="font-family: 'Summer Font';" class="w3-xlarge">Osobní odběr</label>
 				</div>
 			</div>
 
+			<input class="w3-button w3-blue" style="font-family: 'PoetsenOne'; width: 100%;" type="submit" value="Zaplatit">
 		</form>
 		<h3 style="font-family: 'PoetsenOne';" id="error"></h3>
 	</div>
-	<div></div>
-	<div id="paypal-button-container"></div>
 	<script>
 		function validateFields() {
 			if (document.querySelector("#firstName").value.length <= 1) {
@@ -151,7 +151,7 @@ block head %}
 					"Zadej prosím přijmení";
 				return false;
 			}
-			if (document.querySelector("#phone").value.length <= 1) {
+			if (document.querySelector("#phone").value.length < 9) {
 				document.querySelector("#error").innerText =
 					"Zadej prosím telefonní číslo";
 				return false;
@@ -182,48 +182,7 @@ block head %}
 			document.querySelector("#error").innerText = "";
 			return true;
 		}
-		paypal
-			.Buttons({
-				onInit: function (data, actions) {
-					// Disable the buttons
-					actions.disable();
-					console.log("Vytvoření a setup disable");
-					//while(true){
-					//	if(validateFields())
-					//		actions.enable();
-					//}
-				},
-				createOrder: function (data, actions) {
-					// This function sets up the details of the transaction, including the amount and line item details.
-					return actions.order.create({
-						purchase_units: [
-							{
-								amount: {
-									value: "{{ grand_total }}",
-								},
-							},
-						],
-					});
-				},
-				onClick: function (data, actions) {
-					// Show a validation error if the checkbox is not checked
-					if (validateFields()) {
-						console.log("Vypnutí")
-						document
-							.querySelector("#error")
-							.classList.remove("hidden");
-							
-					}
-				},
-				onApprove: function (data, actions) {
-					// This function captures the funds from the transaction.
-					return actions.order.capture().then(function (details) {
-						window.location.href = "{{ url_for('paymentOK') }}"
-					});
-				},
-			})
-			.render("#paypal-button-container");
-		//This function displays Smart Payment Buttons on your web page.
+
 	</script>
 </div>
 {% endblock %}
