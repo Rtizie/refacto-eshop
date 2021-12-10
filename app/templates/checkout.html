@@ -25,6 +25,7 @@ block head %}
 						type="text"
 						placeholder="Jméno"
 						id="firstName"
+						required
 					/>
 				</div>
 			</div>
@@ -40,6 +41,7 @@ block head %}
 						type="text"
 						placeholder="Přijmení"
 						id="lastName"
+						required
 					/>
 				</div>
 			</div>
@@ -52,9 +54,10 @@ block head %}
 					<input
 						class="w3-input w3-border w3-border-blue"
 						name="email"
-						type="text"
+						type="email"
 						placeholder="Email"
 						id="email"
+						required
 					/>
 				</div>
 			</div>
@@ -67,9 +70,11 @@ block head %}
 					<input
 						class="w3-input w3-border w3-border-blue"
 						name="phone"
-						type="text"
+						type="tel"
 						placeholder="Telefonní číslo"
 						id="phone"
+						minlength="9"
+						required
 					/>
 				</div>
 			</div>
@@ -85,6 +90,7 @@ block head %}
 						type="text"
 						placeholder="Adresa"
 						id="address"
+						required
 					/>
 				</div>
 			</div>
@@ -99,6 +105,8 @@ block head %}
 						type="text"
 						placeholder="PSČ"
 						id="psc"
+						minlength="5"
+						required
 					/>
 				</div>
 			</div>
@@ -113,6 +121,7 @@ block head %}
 						type="text"
 						placeholder="Město"
 						id="town"
+						required
 					/>
 				</div>
 			</div>
@@ -121,7 +130,7 @@ block head %}
 					<i class="w3-xxlarge fa fa-truck" aria-hidden="true"></i>
 				</div>
 				<div class="w3-rest">
-					<input class="w3-radio" type="radio" name="delivery" value="zasilkovna" checked>
+					<input class="w3-radio" type="radio" name="delivery" value="zasilkovna" checked required>
 					<label style="font-family: 'Summer Font';" class="w3-xlarge">Zásilkovna</label>
 		
 					<input class="w3-radio" type="radio" name="delivery" value="posta">
