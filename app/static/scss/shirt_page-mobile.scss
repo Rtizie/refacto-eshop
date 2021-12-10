@@ -1,0 +1,42 @@
+.mainPage{
+	.shirt{
+		flex-direction: column;
+		img{
+			width: 60%;
+			margin: auto;
+		}
+	}
+
+	.info{
+		margin: 0 !important;
+		width: 85vw !important;
+		p{
+			font-size: 1.5em !important;
+			margin: 0;
+		}
+
+		.buyingData {
+			.sizes {
+				flex-wrap: wrap;
+			}
+			.size {
+				margin-bottom: 3px;
+			}
+			.colors {
+				display: flex;
+				flex-direction: row;
+			}
+		}
+
+		form{
+			.buy{
+				height: 35px !important;
+				input[type=submit]{
+					height: 100%;
+					width: 100% !important;
+				}
+			}
+		}
+	}
+
+}

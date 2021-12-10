@@ -27,9 +27,11 @@
         margin-top: 10vh;
         height: auto;
         display: grid;
-        grid-template-columns: 300px 300px 300px;
+        //grid-template-columns: 300px 300px 300px;
+        grid-template-columns: 20vw 20vw 20vw;
         grid-template-rows: 500px auto 200px; 
-        column-gap: 200px;
+        //column-gap: 200px;
+        column-gap: 10vw;
         row-gap: 50px;
         .item{
             margin-top: 5vh;

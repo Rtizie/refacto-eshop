@@ -1,0 +1,8 @@
+.main{
+    .items{
+        grid-template-columns: 80vw;
+        grid-template-rows: 500px auto 200px; 
+        //column-gap: 10vw;
+        row-gap: 50px;
+    } 
+}

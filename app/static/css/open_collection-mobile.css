@@ -1,0 +1,4 @@
+.main .items {
+  grid-template-columns: 80vw;
+  grid-template-rows: 500px auto 200px;
+  row-gap: 50px; }
