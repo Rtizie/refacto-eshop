@@ -16,3 +16,7 @@
       font-size: 6rem; }
     .main .info h3 {
       font-family: 'PoetsenOne'; }
+  .main #paypal-button-container {
+    z-index: 0;
+    width: 90%;
+    max-width: 400px; }

@@ -95,7 +95,6 @@ h1, h2, h3, h4, h5,h6{
     width: 100%;
     height: auto;  
     padding: 0;
-
     .bottom-text{
         padding: 0;
         h3{
@@ -106,7 +105,7 @@ h1, h2, h3, h4, h5,h6{
     .container{ 
         padding: 0;
         margin: 0;
-        white-space: pre-wrap;
+        //white-space: pre-wrap;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -133,6 +132,10 @@ h1, h2, h3, h4, h5,h6{
                     }
                 }
             }
+            &:nth-child(n+2) {
+                align-items: center;
+            }
+
             &:nth-child(3){ 
                 .text{
                     width: auto;
@@ -222,7 +225,8 @@ h1, h2, h3, h4, h5,h6{
                 .bubble{
                     background-image: url("../images/bubbles/3.png");
                     background-size: 60vmin;
-                    /*margin-right: -5vw;*/
+                    height: 60vmin;
+                    width: 55vmin;
                 }
             }
             &:nth-child(4){ 
@@ -235,7 +239,8 @@ h1, h2, h3, h4, h5,h6{
                 .bubble{
                     background-image: url("../images/bubbles/5.png");
                     background-size: 60vmin;
-                    /*margin-right: -5vw;*/
+                    height: 60vmin;
+                    width: 55vmin;
                 }
             }
             &:nth-child(6){ 

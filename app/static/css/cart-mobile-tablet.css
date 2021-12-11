@@ -1,0 +1,7 @@
+.main {
+  width: 100% !important; }
+  .main .scroll {
+    overflow-x: scroll; }
+  .main .buy {
+    width: 100%;
+    margin-left: auto; }

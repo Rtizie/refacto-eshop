@@ -6,6 +6,7 @@
 	display: flex;
 
 	.shirt{
+		align-items: center;
 		display: flex;
 		flex-direction: row;
 		margin:7vw;
@@ -24,7 +25,7 @@
 				font-family: 'PoetsenOne';
 			}
 			p{
-				font-size: 1.2vw;
+				font-size: 1.5em;
 			}
 
 			.data{  
@@ -114,7 +115,7 @@
 			}
 			form{
 				.buy{
-					height: 20%;
+					height: 45px;
 					margin-top:2vh;
 					display: flex;
 					input[type=submit]{

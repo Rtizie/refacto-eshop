@@ -2,7 +2,7 @@
 {% block title %}{{ name }} - ReFacto{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/shirt_page.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/shirt_page-tablet.css') }}" media="(max-width: 968px)" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shirt_page-tablet.css') }}" media="(max-width: 1080px)" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/shirt_page-mobile.css') }}" media="(max-width: 786px) and (orientation: portrait)" type="text/css">
 {% endblock %}
 
@@ -15,7 +15,7 @@
             <h1 class="w3-jumbo">{{ name }}</h1>
             <p>{{ description }}</p>
             <div class="data">
-                <h3>{{ cost }} Kč</h3>
+                <h3 class="price">{{ cost }}&nbsp;Kč</h3>
                 <div class="firstBubble">
                     <img src="{{ url_for('static', filename='images/blue_tag.png') }}">
                     <h3>Velmi kvalitní potisk</h3>

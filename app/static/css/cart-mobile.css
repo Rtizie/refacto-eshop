@@ -1,8 +1,14 @@
-.main .buy {
-  width: 65%;
-  margin-left: auto; }
-
-.main table .image img {
-  height: 50px;
-  width: 50px;
-  object-fit: cover; }
+.main {
+  width: 90%; }
+  .main .scroll {
+    overflow-x: scroll; }
+  .main .buy {
+    width: 65%;
+    margin-left: auto; }
+  .main table .image img {
+    height: 55px;
+    width: 55px;
+    object-fit: cover; }
+  .main table tr .color {
+    height: 35px;
+    width: 35px; }

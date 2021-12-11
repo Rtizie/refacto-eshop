@@ -1,0 +1,18 @@
+.mainPage .shirt {
+  justify-content: space-between !important;
+  align-items: center; }
+  .mainPage .shirt img {
+    width: 35%;
+    margin: 0; }
+
+.mainPage .info {
+  margin: 0 !important;
+  width: 50vw !important; }
+  .mainPage .info p {
+    font-size: 1.5em !important;
+    margin: 0; }
+  .mainPage .info form .buy {
+    height: 35px !important; }
+    .mainPage .info form .buy input[type=submit] {
+      height: 100%;
+      width: 100% !important; }

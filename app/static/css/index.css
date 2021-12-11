@@ -83,7 +83,6 @@ h1, h2, h3, h4, h5, h6 {
   .bubbles .container {
     padding: 0;
     margin: 0;
-    white-space: pre-wrap;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -104,6 +103,8 @@ h1, h2, h3, h4, h5, h6 {
           font-size: 6vh;
           color: #F49A00;
           font-family: 'Summer Font Light'; }
+      .bubbles .container .info:nth-child(n+2) {
+        align-items: center; }
       .bubbles .container .info:nth-child(3) .text {
         width: auto;
         height: 100%;
@@ -167,14 +168,16 @@ h1, h2, h3, h4, h5, h6 {
       .bubbles .container .info:nth-child(3) .bubble {
         background-image: url("../images/bubbles/3.png");
         background-size: 60vmin;
-        /*margin-right: -5vw;*/ }
+        height: 60vmin;
+        width: 55vmin; }
       .bubbles .container .info:nth-child(4) .bubble {
         background-image: url("../images/bubbles/4.png");
         background-size: 50vmin; }
       .bubbles .container .info:nth-child(5) .bubble {
         background-image: url("../images/bubbles/5.png");
         background-size: 60vmin;
-        /*margin-right: -5vw;*/ }
+        height: 60vmin;
+        width: 55vmin; }
       .bubbles .container .info:nth-child(6) .bubble {
         background-image: url("../images/bubbles/6.png");
         background-size: 50vmin; }

@@ -35,8 +35,10 @@
     font-family: 'PoetsenOne';
     font-size: x-large; }
   .main table tr .color {
-    width: 80%;
-    height: 4.8vh;
+    /*width:80%;
+            height: 4.8vh;*/
+    height: 45px;
+    width: 45px;
     border: 2px solid black;
     border-radius: 50%; }
   .main table tr th {

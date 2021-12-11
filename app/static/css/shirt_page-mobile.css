@@ -10,6 +10,8 @@
   .mainPage .info p {
     font-size: 1.5em !important;
     margin: 0; }
+  .mainPage .info .data .price {
+    font-size: x-large !important; }
   .mainPage .info .buyingData .sizes {
     flex-wrap: wrap; }
   .mainPage .info .buyingData .size {

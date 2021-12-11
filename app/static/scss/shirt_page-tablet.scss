@@ -1,0 +1,30 @@
+.mainPage{
+	.shirt{
+		justify-content: space-between !important;
+		align-items: center;
+		img{
+			width: 35%;
+			margin: 0;
+		}
+	}
+
+	.info{
+		margin: 0 !important;
+		width: 50vw !important;
+		p{
+			font-size: 1.5em !important;
+			margin: 0;
+		}
+
+		form{
+			.buy{
+				height: 35px !important;
+				input[type=submit]{
+					height: 100%;
+					width: 100% !important;
+				}
+			}
+		}
+	}
+
+}

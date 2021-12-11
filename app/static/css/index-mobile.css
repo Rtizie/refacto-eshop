@@ -1,27 +1,25 @@
 .container .info:nth-child(even) .text {
   width: 30% !important;
-  height: 100%;
-  float: right !important;
-  margin: 0 !important;
-  padding: 0 !important; }
+  height: 100%; }
   .container .info:nth-child(even) .text h1 {
     font-size: 20px !important;
-    margin: 0 !important;
-    padding: 0 !important; }
+    margin: 0 !important; }
   .container .info:nth-child(even) .text p {
     font-size: 20px !important;
-    margin: 0 !important;
-    padding: 0 !important; }
+    margin: 0; }
 
 .container .info:nth-child(odd) .text {
   width: 50% !important;
-  height: 100%;
-  float: left !important; }
+  height: 100%; }
   .container .info:nth-child(odd) .text h1 {
     font-size: 20px !important;
     margin: 0 !important; }
   .container .info:nth-child(odd) .text p {
-    font-size: 20px !important; }
+    font-size: 20px !important;
+    margin: 0; }
+
+.container .info:nth-child(3), .container .info:nth-child(5) {
+  width: 65min; }
 
 /*.actions {
     flex-direction: column;

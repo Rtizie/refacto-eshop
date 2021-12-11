@@ -21,4 +21,10 @@
             font-family: 'PoetsenOne';
         }
     }
+    
+    #paypal-button-container {
+        z-index: 0;
+        width: 90%;
+        max-width: 400px;
+    }
 }

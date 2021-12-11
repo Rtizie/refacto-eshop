@@ -4,18 +4,13 @@
             .text {
                 width: 30% !important;
                 height: 100%;
-                float: right !important;
-                margin: 0 !important;
-                padding: 0 !important;
                 h1{
                     font-size: 20px !important;
                     margin: 0 !important;
-                    padding: 0 !important;
                 }
                 p{
                     font-size: 20px !important;
-                    margin: 0 !important;
-                    padding: 0 !important;
+                    margin: 0;
                 }
             }
         }
@@ -23,16 +18,21 @@
             .text {
                 width: 50% !important;
                 height: 100%;
-                float: left !important;
                 h1{
                     font-size: 20px !important;
                     margin: 0 !important;
                 }
                 p{
                     font-size: 20px !important;
+                    margin: 0;
                 }
             }
         }
+
+        &:nth-child(3), &:nth-child(5) {
+            width: 65min;
+        }
+
     }
 }
 

@@ -1,6 +1,7 @@
 .mainPage {
   display: flex; }
   .mainPage .shirt {
+    align-items: center;
     display: flex;
     flex-direction: row;
     margin: 7vw;
@@ -17,7 +18,7 @@
       .mainPage .shirt .info h1 {
         font-family: 'PoetsenOne'; }
       .mainPage .shirt .info p {
-        font-size: 1.2vw; }
+        font-size: 1.5em; }
       .mainPage .shirt .info .data {
         margin-right: 0%;
         margin-top: 2vh;
@@ -87,7 +88,7 @@
           margin-left: auto;
           justify-content: end; }
       .mainPage .shirt .info form .buy {
-        height: 20%;
+        height: 45px;
         margin-top: 2vh;
         display: flex; }
         .mainPage .shirt .info form .buy input[type=submit] {

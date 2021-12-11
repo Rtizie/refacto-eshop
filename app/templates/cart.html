@@ -8,13 +8,14 @@
 {% block body %}
 <div class="main">
     <h1>Košík</h1>
+    <div class="scroll">
     <table class="w3-table">
         <tr>
             <th class="fotoCol">&nbsp;</th>
-            <th class="nameCol">Název produktu</th>
+            <th class="nameCol">Název&nbsp;produktu</th>
             <th class="colorCol">Barva</th>
             <th>Velikost</th>
-            <th>Počet Kusů</th>
+            <th>Počet&nbsp;Kusů</th>
             <th>Cena</th>
             <th class="delete">&nbsp;</th>
         </tr>
@@ -26,7 +27,7 @@
             <td><div  class="color" style="background-color: {{ item.color }}"></div></td>
             <td>{{ item.size}}</td>
             <td>{{ item.quantity }}</td>
-            <td>{{ item.total }} Kč</td>
+            <td>{{ item.total }}&nbsp;Kč</td>
             <td>
                 <form action="{{ url_for('cart_remove')}}" method="POST">
                     <input type="hidden" value="{{ item.id }}" name="id">
@@ -41,6 +42,7 @@
         </tr>
         {% endfor %}
     </table>
+    </div>
 
     <button class="buy">
         <a href="{{ url_for('checkout') }}" style="text-decoration: none !important;">Objednat za {{ grand_total }} korun <i class="fas fa-arrow-right"></i></a>
