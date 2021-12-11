@@ -1,9 +1,6 @@
 {% extends 'base.html'%} {% block title %}Platba - ReFacto{% endblock %} {%
-block head %} {{ JSGlue.include() }}
-<link
-	rel="stylesheet"
-	href="{{ url_for('static', filename='css/payment.css')}}"
-/>
+block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css')}}"/>
 {% endblock %} {% block body %}
 <div class="main">
 	<script src="https://www.paypal.com/sdk/js?client-id=AYl6fzLH8a742hJG_PA89W_uTwnogNeEbFHenxSv5BeSH5RpoJpqzJ8lgFn4mw3kyAUImk-s0WDL6F1Q&currency=CZK"></script>

@@ -1,4 +1,8 @@
 .main{
+    width: 90%;
+    .scroll {
+        overflow-x: scroll;
+    }
     .buy{
         width: 65%;
         margin-left: auto;
@@ -6,10 +10,17 @@
     table{
         .image{
             img{
-                height: 50px;
-                width: 50px;
+                height: 55px;
+                width: 55px;
                 object-fit: cover;
             }
+        }
+    }
+
+    table tr {
+        .color {
+            height: 35px;
+            width: 35px;
         }
     }
 }

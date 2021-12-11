@@ -1,0 +1,18 @@
+.container .info:nth-child(even) .text {
+  width: 30% !important;
+  height: 100%; }
+  .container .info:nth-child(even) .text h1 {
+    font-size: 40px !important; }
+  .container .info:nth-child(even) .text p {
+    font-size: 30px !important; }
+
+.container .info:nth-child(odd) .text {
+  width: 50% !important;
+  height: 100%; }
+  .container .info:nth-child(odd) .text h1 {
+    font-size: 40px !important; }
+  .container .info:nth-child(odd) .text p {
+    font-size: 30px !important; }
+
+.container .info:nth-child(3), .container .info:nth-child(5) {
+  width: 60min; }

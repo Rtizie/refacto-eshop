@@ -1,0 +1,33 @@
+.container {
+    .info {
+        &:nth-child(even){
+            .text {
+                width: 30% !important;
+                height: 100%;
+                h1{
+                    font-size: 40px !important;
+                }
+                p{
+                    font-size: 30px !important;
+                }
+            }
+        }
+        &:nth-child(odd){
+            .text {
+                width: 50% !important;
+                height: 100%;
+                h1{
+                    font-size: 40px !important;
+                }
+                p{
+                    font-size: 30px !important;
+                }
+            }
+        }
+
+        &:nth-child(3), &:nth-child(5) {
+            width: 60min;
+        }
+
+    }
+}
