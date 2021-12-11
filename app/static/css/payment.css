@@ -6,13 +6,63 @@
   flex-direction: column; }
   .main * {
     margin: auto; }
-  .main .info {
-    margin-bottom: 10vh; }
-    .main .info * {
+  .main .items table {
+    font-family: 'Summer Font';
+    font-size: x-large;
+    width: 100%; }
+    .main .items table .image img {
+      border: 1px solid #959595;
+      /*height: 50%;
+                    width: 50%;*/
+      height: 65px;
+      width: 65px;
+      border-radius: 75%;
+      object-fit: cover;
+      box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.2); }
+  .main .items th:not(.fotoCol):not(.delete) {
+    border-bottom: 3px solid black; }
+  .main .items table tr .fotoCol {
+    width: 10%; }
+  .main .items table tr .nameCol {
+    font-family: 'PoetsenOne';
+    width: 50%; }
+  .main .items table tr .name {
+    font-family: 'PoetsenOne';
+    font-size: x-large; }
+  .main .items table tr .color {
+    width: 80%;
+    height: 4.8vh;
+    border: 2px solid black;
+    border-radius: 50%; }
+  .main .items table tr th {
+    font-family: 'Summer Font Light';
+    font-size: x-large; }
+    .main .items table tr th:not(.nameCol) {
       text-align: center; }
-    .main .info h1 {
-      font-family: 'PoetsenOne';
-      margin-bottom: 2vh;
-      font-size: 6rem; }
-    .main .info h3 {
-      font-family: 'PoetsenOne'; }
+  .main .items table tr td {
+    vertical-align: middle;
+    border-bottom: 2px solid black; }
+    .main .items table tr td:not(.name) {
+      text-align: center; }
+    .main .items table tr td form input[type=submit] {
+      text-decoration: none;
+      border: none; }
+  .main h1 {
+    font-family: 'PoetsenOne';
+    margin-bottom: 2vh;
+    font-size: 6rem; }
+  .main .data {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row; }
+    .main .data * {
+      margin: auto; }
+    .main .data .info {
+      margin-top: 10vh;
+      margin-bottom: 10vh; }
+      .main .data .info * {
+        text-align: center; }
+      .main .data .info h3 {
+        font-family: 'PoetsenOne';
+        margin-bottom: 2vh; }

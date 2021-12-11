@@ -4,3 +4,4 @@ libsass
 flask-sqlalchemy
 wtforms
 flask_wtf
+Flaks-JSGlue

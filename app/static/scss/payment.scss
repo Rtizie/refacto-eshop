@@ -7,18 +7,89 @@
     *{
         margin: auto;
     }
-    .info{
-        margin-bottom: 10vh;
+    .items{
+        table{
+            font-family: 'Summer Font';
+            font-size: x-large;
+            width: 100%;
+            .image{
+                img{
+                    border: 1px solid #959595;
+                    /*height: 50%;
+                    width: 50%;*/
+                    height: 65px;
+                    width: 65px;
+                    border-radius: 75%;
+                    object-fit: cover;
+                    box-shadow: 4px 4px 18px rgba($color: #000000, $alpha: 0.2);
+                }
+            }
+        }
+        th:not(.fotoCol):not(.delete) {
+            border-bottom: 3px solid black;
+        }
+        table tr{
+            .fotoCol{
+                width: 10%;
+            }
+            .nameCol{
+                font-family: 'PoetsenOne';
+                width: 50%;
+            }
+            .name{
+                font-family: 'PoetsenOne';
+                font-size: x-large;
+            }
+            .color{
+                width:80%;
+                height: 4.8vh;
+                border: 2px solid black;
+                border-radius: 50%;
+            }
+            th{
+                font-family: 'Summer Font Light';
+                font-size: x-large;
+                &:not(.nameCol){
+                    text-align: center;
+                }
+            }
+            td{  
+                vertical-align: middle;
+                border-bottom: 2px solid black;
+                &:not(.name){
+                    text-align: center;
+                }
+                form input[type=submit]{
+                    text-decoration: none;
+                    border: none;
+                }
+            }
+        }
+    }
+    h1{
+        font-family: 'PoetsenOne';
+        margin-bottom: 2vh;
+        font-size: 6rem;
+    }
+    .data{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
         *{
-            text-align: center;
+            margin: auto;
         }
-        h1{
-            font-family: 'PoetsenOne';
-            margin-bottom: 2vh;
-            font-size: 6rem;
-        }
-        h3{
-            font-family: 'PoetsenOne';
+        .info{
+            margin-top: 10vh;
+            margin-bottom: 10vh;
+            *{
+                text-align: center;
+            }
+    
+            h3{
+                font-family: 'PoetsenOne';
+                margin-bottom: 2vh;
+            }
         }
     }
 }

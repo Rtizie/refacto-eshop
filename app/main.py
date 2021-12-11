@@ -7,8 +7,11 @@ from flask_sqlalchemy import SQLAlchemy
 import logging
 import sass
 from werkzeug.utils import redirect
+from flask_jsglue import JSGlue
+import smtplib
 
 app = Flask(__name__)
+
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///clothes.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
@@ -17,6 +20,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 logging.getLogger('werkzeug').setLevel('ERROR')
 db = SQLAlchemy(app)
 
+jsglue = JSGlue(app)
 class Shirt(db.Model):
 		id = db.Column(db.Integer, primary_key=True)
 		image = db.Column(db.String(300),nullable=False)
@@ -81,8 +85,41 @@ def payment():
 	deliveryC = 195
 	delivery_total = grand_total + deliveryC
 	print(delivery_total)
-	return render_template('payment.html',grand_total=grand_total,delivery=deliveryC,delivery_total=delivery_total)
+	return render_template('payment.html',products=products,grand_total=grand_total,delivery=deliveryC,delivery_total=delivery_total,firstName=firstName,lastName=lastName,email=email,phone=phone,address=address,town=town,psc=psc,deliveryV=delivery,number_of_items_in_basket=len(session.get('cart')))
 
+
+@app.route('/kosik/checkout/platbaOK',methods=['GET','POST'])
+def paymentOK():
+	#firstName = request.form.get('firstName')
+	#lastName = request.form.get('lastName')
+	#town =  request.form.get('town')
+	#psc = request.form.get('psc')
+	#deliveryV = request.form.get('deliveryV')
+	#address = request.form.get('address')
+	#email = request.form.get('email')
+	#phone = request.form.get('phone')
+
+	print(request.get_json())
+	
+	gmail_user = 'tvojemamazeddy@gmail.com'
+	gmail_password = '1597538624Sasa'
+
+	sent_from = gmail_user
+	to = ['refacto-objednavky@email.cz']
+
+	#message = f"""{firstName},{lastName},{email}.{phone},{address},{town},{psc},{deliveryV}"""
+
+	try:
+		smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+		smtp_server.ehlo()
+		smtp_server.login(gmail_user, gmail_password)
+		smtp_server.sendmail(sent_from, to, message)
+		smtp_server.close()
+		print ("Email sent successfully!")
+	except smtplib.SMTPException as e:
+		print (e)
+		print( "Error: unable to send email")
+	return render_template('paymentOK.html')
 
 @app.route("/cart_remove",methods=['GET','POST'])
 def cart_remove():
