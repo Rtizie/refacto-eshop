@@ -1,5 +1,5 @@
 from datetime import timedelta
-import re
+from email.mime.text import MIMEText
 from flask import Flask,render_template,request,session
 from flask.helpers import url_for
 from werkzeug.exceptions import abort
@@ -7,7 +7,6 @@ from flask_sqlalchemy import SQLAlchemy
 import logging
 import sass
 from werkzeug.utils import redirect
-from flask_jsglue import JSGlue
 import smtplib
 
 app = Flask(__name__)
@@ -19,8 +18,6 @@ app.config['SECRET_KEY'] = b'\xc36@\xa8\x80\x0bWO\x04\xb7\xdc\xc8\xdd3\xa4\xa2\x
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 logging.getLogger('werkzeug').setLevel('ERROR')
 db = SQLAlchemy(app)
-
-jsglue = JSGlue(app)
 class Shirt(db.Model):
 		id = db.Column(db.Integer, primary_key=True)
 		image = db.Column(db.String(300),nullable=False)
@@ -88,27 +85,31 @@ def payment():
 	return render_template('payment.html',products=products,grand_total=grand_total,delivery=deliveryC,delivery_total=delivery_total,firstName=firstName,lastName=lastName,email=email,phone=phone,address=address,town=town,psc=psc,deliveryV=delivery,number_of_items_in_basket=len(session.get('cart')))
 
 
-@app.route('/kosik/checkout/platbaOK',methods=['GET','POST'])
+@app.route("/platbaOK")
 def paymentOK():
-	#firstName = request.form.get('firstName')
-	#lastName = request.form.get('lastName')
-	#town =  request.form.get('town')
-	#psc = request.form.get('psc')
-	#deliveryV = request.form.get('deliveryV')
-	#address = request.form.get('address')
-	#email = request.form.get('email')
-	#phone = request.form.get('phone')
+	return render_template('paymentOK.html')
 
-	print(request.get_json())
-	
+@app.route('/kosik/checkout/data',methods=['GET','POST'])
+def data():
+	data = request.get_json()
+	firstName = MIMEText(data['firstName'],'utf-8')
+	lastName = MIMEText(data['lastName'],'utf-8')
+	town = MIMEText(data['town'],'utf-8')
+	psc = MIMEText(data['psc'],'utf-8')
+	delivery = MIMEText(data['delivery'],'utf-8')
+	email = MIMEText(data['email'],'utf-8')
+	phone = MIMEText(data['phone'],'utf-8')
+	products = session.get('cart')
+	payment = MIMEText(data['cost'],'utf-8')
+	address = MIMEText(data['address'],'utf-8')
+
 	gmail_user = 'tvojemamazeddy@gmail.com'
 	gmail_password = '1597538624Sasa'
 
 	sent_from = gmail_user
 	to = ['refacto-objednavky@email.cz']
 
-	#message = f"""{firstName},{lastName},{email}.{phone},{address},{town},{psc},{deliveryV}"""
-
+	message = f"""{firstName},{lastName},{email}.{phone},{address},{town},{psc},{delivery},{products},{payment}"""
 	try:
 		smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 		smtp_server.ehlo()
@@ -119,7 +120,6 @@ def paymentOK():
 	except smtplib.SMTPException as e:
 		print (e)
 		print( "Error: unable to send email")
-	return render_template('paymentOK.html')
 
 @app.route("/cart_remove",methods=['GET','POST'])
 def cart_remove():

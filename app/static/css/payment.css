@@ -39,12 +39,33 @@
     font-size: x-large; }
     .main .items table tr th:not(.nameCol) {
       text-align: center; }
-    .main .info h1 {
-      font-family: 'PoetsenOne';
-      margin-bottom: 2vh;
-      font-size: 6rem; }
-    .main .info h3 {
-      font-family: 'PoetsenOne'; }
+  .main .items table tr td {
+    vertical-align: middle;
+    border-bottom: 2px solid black; }
+    .main .items table tr td:not(.name) {
+      text-align: center; }
+    .main .items table tr td form input[type=submit] {
+      text-decoration: none;
+      border: none; }
+  .main h1 {
+    font-family: 'PoetsenOne';
+    margin-bottom: 2vh;
+    font-size: 6rem; }
+  .main .data {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row; }
+    .main .data * {
+      margin: auto; }
+    .main .data .info {
+      margin-top: 10vh;
+      margin-bottom: 10vh; }
+      .main .data .info * {
+        text-align: center; }
+      .main .data .info h3 {
+        font-family: 'PoetsenOne';
+        margin-bottom: 2vh; }
   .main #paypal-button-container {
     z-index: 0;
     width: 90%;

@@ -56,18 +56,26 @@ block head %}
                 }]
             });
         },
-        onApprove: async function (data, actions) {
+        onApprove: function (data, actions) {
             return actions.order.capture().then(function (details) {
-                alert('success!');
-                fetch('/kosik/checkout/platbaOK', {
+                fetch('/kosik/checkout/data', {
                     method: 'post',
                     headers: {
                         'content-type': 'application/json'
                     },
                     body: JSON.stringify({
-                        orderID: data.orderID,
+                        'firstName': '{{ firstName }}',
+						'lastName': '{{ lastName }}',
+						'address': '{{ address }}',
+						'town': '{{ town }}',
+						'psc': '{{ psc }}',
+						'cost': '{{ delivery_total }}',
+						'delivery': '{{ deliveryV }}',
+						'phone': '{{ phone }}',
+						'email': '{{ email }}',
                     })
                 });
+				window.location.href="/platbaOK"
             });
         }
     }).render('#paypal-button-container');
