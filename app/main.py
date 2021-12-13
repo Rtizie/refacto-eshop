@@ -92,6 +92,7 @@ def paymentOK():
 @app.route('/kosik/checkout/data',methods=['GET','POST'])
 def data():
 	data = request.get_json()
+	print(data)
 	firstName = MIMEText(data['firstName'],'utf-8')
 	lastName = MIMEText(data['lastName'],'utf-8')
 	town = MIMEText(data['town'],'utf-8')
