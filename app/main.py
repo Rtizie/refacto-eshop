@@ -121,6 +121,7 @@ def data():
 	except smtplib.SMTPException as e:
 		print (e)
 		print( "Error: unable to send email")
+	return 1
 
 @app.route("/cart_remove",methods=['GET','POST'])
 def cart_remove():
