@@ -16,8 +16,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///clothes.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = b'\xc36@\xa8\x80\x0bWO\x04\xb7\xdc\xc8\xdd3\xa4\xa2\xe9\xaeV\x0bd\xf9\x98\xde'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
-logging.getLogger('werkzeug').setLevel('ERROR')
+#logging.getLogger('werkzeug').setLevel('ERROR')
 db = SQLAlchemy(app)
+stream_handler = logging.StreamHandler()
+stream_handler.setLevel(logging.INFO)
+app.logger.addHandler(stream_handler)
 class Shirt(db.Model):
 		id = db.Column(db.Integer, primary_key=True)
 		image = db.Column(db.String(300),nullable=False)
@@ -119,7 +122,7 @@ def data():
 		smtp_server.close()
 		print ("Email sent successfully!")
 	except smtplib.SMTPException as e:
-		print (e)
+		raise e
 		print( "Error: unable to send email")
 	return "Success"
 
