@@ -3,48 +3,49 @@
   margin-top: 10vh;
   display: flex;
   justify-content: center;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 70%;
+  /*.items{*/
+  /*}*/ }
   .main * {
     margin: auto; }
-  .main .items table {
+  .main table {
     font-family: 'Summer Font';
     font-size: x-large;
     width: 100%; }
-    .main .items table .image img {
+    .main table .image img {
       border: 1px solid #959595;
-      /*height: 50%;
-                    width: 50%;*/
       height: 65px;
       width: 65px;
       border-radius: 75%;
       object-fit: cover;
       box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.2); }
-  .main .items th:not(.fotoCol):not(.delete) {
+  .main th:not(.fotoCol):not(.delete) {
     border-bottom: 3px solid black; }
-  .main .items table tr .fotoCol {
+  .main table tr .fotoCol {
     width: 10%; }
-  .main .items table tr .nameCol {
+  .main table tr .nameCol {
     font-family: 'PoetsenOne';
     width: 50%; }
-  .main .items table tr .name {
+  .main table tr .name {
     font-family: 'PoetsenOne';
     font-size: x-large; }
-  .main .items table tr .color {
-    width: 80%;
-    height: 4.8vh;
+  .main table tr .color {
+    height: 45px;
+    width: 45px;
     border: 2px solid black;
     border-radius: 50%; }
-  .main .items table tr th {
+  .main table tr th {
     font-family: 'Summer Font Light';
     font-size: x-large; }
-    .main .items table tr th:not(.nameCol) {
+    .main table tr th:not(.nameCol) {
       text-align: center; }
-  .main .items table tr td {
+  .main table tr td {
     vertical-align: middle;
     border-bottom: 2px solid black; }
-    .main .items table tr td:not(.name) {
+    .main table tr td:not(.name) {
       text-align: center; }
-    .main .items table tr td form input[type=submit] {
+    .main table tr td form input[type=submit] {
       text-decoration: none;
       border: none; }
   .main h1 {

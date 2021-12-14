@@ -1,5 +1,14 @@
-/*.main{  
-    #paypal-button-container {
-        width: 90% !important;
-    }
-}*/
+.main {
+  width: 90%; }
+  .main .scroll {
+    overflow-x: scroll; }
+  .main table .image img {
+    height: 55px;
+    width: 55px;
+    object-fit: cover; }
+  .main table tr .color {
+    height: 35px;
+    width: 35px; }
+
+.data {
+  flex-direction: column !important; }

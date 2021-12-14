@@ -1,40 +1,34 @@
 {% extends 'base.html'%} {% block title %}Platba - ReFacto{% endblock %} {%
 block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css')}}"/>
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css')}}"/>-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/payment-tablet.css') }}" media="(max-width: 968px)" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/payment-mobile.css') }}" media="(max-width: 786px) and (orientation: portrait)" type="text/css">
 {% endblock %} {% block body %}
 <div class="main">
 	<script src="https://www.paypal.com/sdk/js?client-id=AYl6fzLH8a742hJG_PA89W_uTwnogNeEbFHenxSv5BeSH5RpoJpqzJ8lgFn4mw3kyAUImk-s0WDL6F1Q&currency=CZK"></script>
 	<h1>Platba</h1>
 	<div class="data">
-		<div class="items">
+		<div class="scroll">	<!--items-->
 			<table class="w3-table">
 				<tr>
 					<th class="fotoCol">&nbsp;</th>
-					<th class="nameCol">Název produktu</th>
+					<th class="nameCol">Název&nbsp;produktu</th>
 					<th class="colorCol">Barva</th>
 					<th>Velikost</th>
-					<th>Počet Kusů</th>
+					<th>Počet&nbsp;Kusů</th>
 					<th>Cena</th>
 					<th class="delete">&nbsp;</th>
 				</tr>
-
+				
 				{% for item in products %}
 				<tr>
-					<td class="image">
-						<img
-							src="{{ url_for('static', filename=item.imageCart) }}"
-						/>
-					</td>
+					<td class="image"><img src="{{ url_for('static', filename=item.imageCart) }}"></td>
 					<td class="name">{{ item.name }}</td>
-					<td>
-						<div
-							class="color"
-							style="background-color: {{ item.color }}"
-						></div>
-					</td>
+					<td><div  class="color" style="background-color: {{ item.color }}"></div></td>
 					<td>{{ item.size}}</td>
 					<td>{{ item.quantity }}</td>
-					<td>{{ item.total }} Kč</td>
+					<td>{{ item.total }}&nbsp;Kč</td>
 				</tr>
 				{% endfor %}
 			</table>
@@ -45,6 +39,8 @@ block head %}
 			<div id="paypal-button-container"></div>
 		</div>
 	</div>
+
+
 	<script>
 		paypal.Buttons({
         createOrder: function (data, actions) {
