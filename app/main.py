@@ -8,6 +8,7 @@ import logging
 import sass
 from werkzeug.utils import redirect
 import smtplib
+import ssl
 
 app = Flask(__name__)
 
@@ -107,21 +108,24 @@ def data():
 	payment = MIMEText(data['cost'],'utf-8')
 	address = MIMEText(data['address'],'utf-8')
 
-	gmail_user = 'tvojemamazeddy@gmail.com'
-	gmail_password = '1597538624Sasa'
+	gmail_user = 'it-alexandermerunka@stredniskola.net'
+	gmail_password = 'Alex.2020'
 
 	sent_from = gmail_user
 	to = ['refacto-objednavky@email.cz']
 
 	message = f"""{firstName},{lastName},{email}.{phone},{address},{town},{psc},{delivery},{products},{payment}"""
 	try:
-		smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-		smtp_server.ehlo()
-		smtp_server.login(gmail_user, gmail_password)
-		smtp_server.sendmail(sent_from, to, message)
-		smtp_server.close()
+		connection = smtplib.SMTP('smtp-mail.outlook.com', 587)	
+		connection.ehlo()
+		connection.starttls()
+		connection.ehlo()
+		connection.login(gmail_user, gmail_password)
+		connection.sendmail(sent_from, to, message)
+		connection.close()
 		print ("Email sent successfully!")
-	except smtplib.SMTPException as e:
+	except Exception as e:
+		print(e)
 		raise e
 		print( "Error: unable to send email")
 	return "Success"
