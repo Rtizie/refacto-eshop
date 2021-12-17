@@ -72,6 +72,7 @@ block head %}
 						placeholder="Telefonní číslo"
 						id="phone"
 						minlength="9"
+						pattern="[0-9]{3}[0-9]{3}[0-9]{3}"
 						required
 					/>
 				</div>
@@ -104,6 +105,7 @@ block head %}
 						placeholder="PSČ"
 						id="psc"
 						minlength="5"
+						pattern="[0-9]{3}[0-9]{2}"
 						required
 					/>
 				</div>
@@ -146,13 +148,7 @@ block head %}
 		<h3 style="font-family: 'PoetsenOne';" id="error"></h3>
 	</div>
 	<script>
-		
-		/*function phoneMask() { 
-			var num = $(this).val(); 
-			$(this).val(num.substring(0,3) + ' ' + num.substring(3,6) + ' ' + num.substring(6,9)); 
-		}
-		$('[type="tel"]').keyup(phoneMask);*/		/*formatovani telefonniho cisla*/
-
+	
 
 		function validateFields() {
 			if (document.querySelector("#firstName").value.length <= 1) {
