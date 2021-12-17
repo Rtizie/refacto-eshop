@@ -61,7 +61,7 @@ class Order(db.Model):
 			
 
 		def __repr__(self) -> str:
-			return f'{self.orderID},{self.firstName},{self.lastName},{self.email},{self.town},{self.delivery},{self.phone},{self.products},{self.payment},{self.address},{self.psc}'
+			return f'{self.orderId},{self.firstName},{self.lastName},{self.email},{self.town},{self.delivery},{self.phone},{self.products},{self.payment},{self.address},{self.psc}'
 
 
 def handle_cart(cart):
@@ -118,6 +118,11 @@ def payment():
 @app.route("/platbaOK")
 def paymentOK():
 	return render_template('paymentOK.html')
+
+@app.route("/kekw")
+def objednavky():
+	data = Order.query.all()
+	return render_template('objednavky.html',data=data)
 
 @app.route('/kosik/checkout/data',methods=['GET','POST'])
 def data():
