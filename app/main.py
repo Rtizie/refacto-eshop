@@ -1,5 +1,4 @@
 from datetime import timedelta
-from email.mime.text import MIMEText
 from flask import Flask,render_template,request,session
 from flask.helpers import url_for
 from werkzeug.exceptions import abort
@@ -7,11 +6,9 @@ from flask_sqlalchemy import SQLAlchemy
 import logging
 import sass
 from werkzeug.utils import redirect
-import smtplib
-import ssl
+from email.mime.text import MIMEText
 
 app = Flask(__name__)
-
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///clothes.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
@@ -36,6 +33,35 @@ class Shirt(db.Model):
 
 		def __repr__(self) -> str:
 			return f'ID: {self.id},Fotka:{self.image},Fotka v Košíku:{self.imageCart}, Name:{self.name}, Collection:{self.collection}, Color:{self.color}, Size:{self.size}, Cost:{self.cost}, Stock:{self.stock}'
+
+class Order(db.Model):
+		orderId = db.Column(db.Integer, primary_key=True)
+		firstName = db.Column(db.String(64),nullable=False)
+		lastName = db.Column(db.String(64),nullable=False)
+		email = db.Column(db.String(128), nullable=False)
+		town = db.Column(db.String(64),nullable=False)
+		delivery = db.Column(db.String(64),nullable=False)
+		phone = db.Column(db.String(128), nullable=False)
+		products = db.Column(db.String(800), nullable=False)
+		payment = db.Column(db.String(16), nullable=False)
+		address = db.Column(db.String(64), nullable=False)
+		psc = db.Column(db.String(64), nullable=False)
+		
+		def __init__(self,firstName,lastName,email,town,delivery,phone,products,payment,address,psc) -> None:
+			self.firstName = firstName
+			self.lastName = lastName
+			self.email = email
+			self.town = town
+			self.delivery = delivery
+			self.phone = phone
+			self.products = products
+			self.payment = payment
+			self.address = address
+			self.psc = psc
+			
+
+		def __repr__(self) -> str:
+			return f'{self.orderID},{self.firstName},{self.lastName},{self.email},{self.town},{self.delivery},{self.phone},{self.products},{self.payment},{self.address},{self.psc}'
 
 
 def handle_cart(cart):
@@ -95,40 +121,27 @@ def paymentOK():
 
 @app.route('/kosik/checkout/data',methods=['GET','POST'])
 def data():
-	data = request.get_json()
-	print(data)
-	firstName = MIMEText(data['firstName'],'utf-8')
-	lastName = MIMEText(data['lastName'],'utf-8')
-	town = MIMEText(data['town'],'utf-8')
-	psc = MIMEText(data['psc'],'utf-8')
-	delivery = MIMEText(data['delivery'],'utf-8')
-	email = MIMEText(data['email'],'utf-8')
-	phone = MIMEText(data['phone'],'utf-8')
-	products = session.get('cart')
-	payment = MIMEText(data['cost'],'utf-8')
-	address = MIMEText(data['address'],'utf-8')
-
-	gmail_user = 'it-alexandermerunka@stredniskola.net'
-	gmail_password = 'Alex.2020'
-
-	sent_from = gmail_user
-	to = ['refacto-objednavky@email.cz']
-
-	message = f"""{firstName},{lastName},{email}.{phone},{address},{town},{psc},{delivery},{products},{payment}"""
 	try:
-		connection = smtplib.SMTP('smtp-mail.outlook.com', 587)	
-		connection.ehlo()
-		connection.starttls()
-		connection.ehlo()
-		connection.login(gmail_user, gmail_password)
-		connection.sendmail(sent_from, to, message)
-		connection.close()
-		print ("Email sent successfully!")
+		data = request.get_json()
+		print(data)
+		firstName = data['firstName']
+		lastName = data['lastName']
+		town = data['town']
+		psc = data['psc']
+		delivery = data['delivery']
+		email = data['email']
+		phone = data['phone']
+		products = str(session.get('cart'))
+		productsB = MIMEText(products,'plain','utf-8')
+		payment = data['cost']
+		address = data['address']
+		order = Order(firstName=firstName,lastName=lastName,town=town,psc=psc,delivery=delivery,email=email,phone=phone,products=productsB.as_string(),payment=payment,address=address)
+		db.session.add(order)
+		db.session.commit()
+		return "Success"
 	except Exception as e:
 		print(e)
 		raise e
-		print( "Error: unable to send email")
-	return "Success"
 
 @app.route("/cart_remove",methods=['GET','POST'])
 def cart_remove():
