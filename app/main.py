@@ -1,5 +1,5 @@
 from datetime import timedelta
-from flask import Flask,render_template,request,session
+from flask import Flask,render_template,request,session,Response
 from flask.helpers import url_for
 from werkzeug.exceptions import abort
 from flask_sqlalchemy import SQLAlchemy
@@ -7,6 +7,7 @@ import logging
 import sass
 from werkzeug.utils import redirect
 from email.mime.text import MIMEText
+from functools import wraps
 
 app = Flask(__name__)
 
@@ -62,6 +63,34 @@ class Order(db.Model):
 
 		def __repr__(self) -> str:
 			return f'{self.orderId},{self.firstName},{self.lastName},{self.email},{self.town},{self.delivery},{self.phone},{self.products},{self.payment},{self.address},{self.psc}'
+
+
+
+
+def check_auth(username, password):
+    """This function is called to check if a username /
+    password combination is valid.
+    """
+    return username == 'rtizie' and password == 'refactoIT2023Objednavky'
+
+def authenticate():
+    """Sends a 401 response that enables basic auth"""
+    return Response(
+    'Could not verify your access level for that URL.\n'
+    'You have to login with proper credentials', 401,
+    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
+
+
+
 
 
 def handle_cart(cart):
@@ -120,6 +149,7 @@ def paymentOK():
 	return render_template('paymentOK.html')
 
 @app.route("/kekw")
+@requires_auth
 def objednavky():
 	data = Order.query.all()
 	return render_template('objednavky.html',data=data)
