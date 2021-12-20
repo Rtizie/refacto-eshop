@@ -68,22 +68,19 @@
         </div>
 
     </div>
+
     <div class="actions w3-container">
-        <div class="first-action">
-            <div class="top-text">
+        <a href="{{ url_for('kolekce') }}">
+            <div class="first-action">
                 <h2>Prohlédnout Kolekce</h2>
+                <img src="{{ url_for('static', filename='images/first-action.png') }}">
             </div>
-            <div class="action-main">
-                <a href="{{ url_for('kolekce') }}"><img src="{{ url_for('static', filename='images/first-action.png') }}"></a>
-            </div>
-        </div>
-        <div class="second-action">
-            <div class="top-text">
-                <h2>Vytvořit vlastní návrh</h2>
-            </div>
-            <div class="action-main">
+        </a>
+        <a href="{{ url_for('kolekce') }}">
+            <div class="second-action">
+                <h2>Vytvořit vlastní návrh</h2>           
                 <img src="{{ url_for('static', filename='images/second-action.png') }}">
             </div>
-        </div>
+        </a>
     </div>
 {% endblock %}

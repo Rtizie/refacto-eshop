@@ -22,8 +22,18 @@
   width: 65min; }
 
 /*.actions {
-    flex-direction: column;
-    div {
-        flex-direction: row;
+    all: initial;
+    * {
+      all: unset;
     }
 }*/
+.actions {
+  padding-bottom: 42px; }
+  .actions .first-action, .actions .second-action {
+    width: 30vw;
+    border-radius: 10px;
+    box-shadow: 10px 10px 2px 0px rgba(0, 0, 0, 0.3); }
+    .actions .first-action h2, .actions .second-action h2 {
+      font-size: 3.75vw; }
+    .actions .first-action img, .actions .second-action img {
+      border-radius: 0px 0px 10px 10px; }
