@@ -1,4 +1,6 @@
-.main .items {
-  grid-template-columns: 80vw;
-  grid-template-rows: 500px auto 200px;
-  row-gap: 50px; }
+.main {
+  margin: 10vh 0; }
+  .main .items {
+    grid-template-columns: 80vw;
+    grid-template-rows: auto;
+    row-gap: 0px; }

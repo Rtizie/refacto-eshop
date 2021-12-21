@@ -7,6 +7,8 @@
 .mainPage .info {
   margin: 0 !important;
   width: 85vw !important; }
+  .mainPage .info h1 {
+    font-size: 50px !important; }
   .mainPage .info p {
     font-size: 1.5em !important;
     margin: 0; }
@@ -18,7 +20,8 @@
     margin-bottom: 3px; }
   .mainPage .info .buyingData .colors {
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    flex-wrap: wrap; }
   .mainPage .info form .buy {
     height: 35px !important; }
     .mainPage .info form .buy input[type=submit] {

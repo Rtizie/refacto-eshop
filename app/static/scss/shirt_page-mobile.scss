@@ -10,6 +10,9 @@
 	.info{
 		margin: 0 !important;
 		width: 85vw !important;
+		h1 {
+			font-size: 50px !important;
+		}
 		p{
 			font-size: 1.5em !important;
 			margin: 0;
@@ -31,6 +34,7 @@
 			.colors {
 				display: flex;
 				flex-direction: row;
+				flex-wrap: wrap;
 			}
 		}
 

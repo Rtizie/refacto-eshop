@@ -28,12 +28,20 @@
         </div>
         <div class="bubble3">
             <div class="middle-bubble">
+                <a href="{{ url_for('open_collection', collection='Sketch')}}"><img onmouseleave="hoverEnd(this)" src="{{ url_for('static', filename='images/kolekce/blue-bubble.png') }}"></a>
+                <h2>Sketch</h2>
+                <p>Skica na papíře? Ne. Na tričku!</p>
+            </div>
+            <img class="outside-bubble" src="{{ url_for('static', filename='images/kolekce/blue-bubbles.png') }}">
+        </div>
+        <!--<div class="bubble3">
+            <div class="middle-bubble">
                 <a href="{{ url_for('open_collection', collection='Black and White')}}"><img onmouseleave="hoverEnd(this)" src="{{ url_for('static', filename='images/kolekce/blue-bubble.png') }}"></a>
                 <h2>Studentské</h2>
                 <p>Dokonalá trička pro více i méně pilné studenty.</p>
             </div>
             <img class="outside-bubble" src="{{ url_for('static', filename='images/kolekce/blue-bubbles.png') }}">
-        </div>
+        </div>-->
         <div class="bubble4">
             <div class="middle-bubble">
                 <a href="{{ url_for('open_collection', collection='Pohoda')}}"><img onmouseleave="hoverEnd(this)" src="{{ url_for('static', filename='images/kolekce/green-bubble.png') }}"></a>

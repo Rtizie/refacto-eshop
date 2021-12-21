@@ -16,6 +16,20 @@
 			margin: 0;
 		}
 
+		.buyingData {
+			.sizes {
+				flex-wrap: wrap;
+			}
+			.size {
+				margin-bottom: 3px;
+			}
+			.colors {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+			}
+		}
+
 		form{
 			.buy{
 				height: 35px !important;

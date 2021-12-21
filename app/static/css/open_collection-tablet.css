@@ -1,5 +1,7 @@
-.main .items {
-  grid-template-columns: 40vw 40vw;
-  grid-template-rows: 500px auto 200px;
-  column-gap: 10vw;
-  row-gap: 50px; }
+.main {
+  margin: 10vh 0; }
+  .main .items {
+    grid-template-columns: 40vw 40vw;
+    grid-template-rows: auto;
+    column-gap: 10vw;
+    row-gap: 0px; }
