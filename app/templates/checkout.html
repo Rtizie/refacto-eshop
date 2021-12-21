@@ -1,10 +1,11 @@
 {% extends 'base.html' %} {% block title %}Dodací údaje - ReFacto{% endblock %} {%
 block head %}
 	<link rel="stylesheet" href="{{ url_for('static',filename='css/checkout.css')}}"/>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/contact-mobile.css') }}" media="(max-width: 786px) and (orientation: portrait)" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/checkout-tablet.css') }}" media="(max-width: 968px)" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/checkout-mobile.css') }}" media="(max-width: 786px) and (orientation: portrait)" type="text/css">
 {% endblock %} {% block body %}
 <div class="main">
-	<div>
+	<div class="form">
 		<form
 			class="w3-container w3-card-4 w3-light-grey w3-margin"
 			action="{{ url_for('payment')}}"
@@ -23,7 +24,7 @@ block head %}
 						type="text"
 						placeholder="Jméno"
 						id="firstName"
-						required
+
 					/>
 				</div>
 			</div>
@@ -39,7 +40,7 @@ block head %}
 						type="text"
 						placeholder="Přijmení"
 						id="lastName"
-						required
+
 					/>
 				</div>
 			</div>
@@ -55,7 +56,7 @@ block head %}
 						type="email"
 						placeholder="Email"
 						id="email"
-						required
+
 					/>
 				</div>
 			</div>
@@ -73,7 +74,7 @@ block head %}
 						id="phone"
 						minlength="9"
 						pattern="[0-9]{3}[0-9]{3}[0-9]{3}"
-						required
+
 					/>
 				</div>
 			</div>
@@ -89,7 +90,7 @@ block head %}
 						type="text"
 						placeholder="Adresa"
 						id="address"
-						required
+
 					/>
 				</div>
 			</div>
@@ -106,7 +107,7 @@ block head %}
 						id="psc"
 						minlength="5"
 						pattern="[0-9]{3}[0-9]{2}"
-						required
+
 					/>
 				</div>
 			</div>
@@ -121,7 +122,7 @@ block head %}
 						type="text"
 						placeholder="Město"
 						id="town"
-						required
+
 					/>
 				</div>
 			</div>
@@ -143,13 +144,13 @@ block head %}
 				</div>
 			</div>
 
-			<input class="w3-button w3-blue" style="font-family: 'PoetsenOne'; width: 100%;" type="submit" value="Zaplatit">
+			<input class="w3-button w3-blue" style="font-family: 'PoetsenOne'; width: 100%;" onclick="return validateFields()" type="submit" value="Zaplatit">
 		</form>
-		<h3 style="font-family: 'PoetsenOne';" id="error"></h3>
+		<!--<h3 style="font-family: 'PoetsenOne';" id="error"></h3>-->
+		<h3 style="font-family: 'PoetsenOne'; text-align: center; color: red;" id="error"></h3>
 	</div>
 	<script>
 	
-
 		function validateFields() {
 			if (document.querySelector("#firstName").value.length <= 1) {
 				document.querySelector("#error").innerText =
@@ -163,6 +164,10 @@ block head %}
 				return false;
 			}
 			if (document.querySelector("#phone").value.length < 9) {
+				document.querySelector("#error").innerText =
+					"Zadej prosím telefonní číslo ve správném formátu";
+				return false;
+			} else if (document.querySelector("#phone").value.length < 1) {
 				document.querySelector("#error").innerText =
 					"Zadej prosím telefonní číslo";
 				return false;
