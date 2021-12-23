@@ -1,0 +1,21 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    margin-top: 8vh;
+    h1{
+        font-family: 'PoetsenOne';
+        margin: auto;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        div{
+            display: flex;
+        }
+    }
+}

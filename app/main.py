@@ -1,4 +1,5 @@
 from datetime import timedelta
+import re
 from flask import Flask,render_template,request,session,Response
 from flask.helpers import url_for
 from werkzeug.exceptions import abort
@@ -8,6 +9,8 @@ import sass
 from werkzeug.utils import redirect
 from email.mime.text import MIMEText
 from functools import wraps
+
+
 
 app = Flask(__name__)
 
@@ -66,28 +69,27 @@ class Order(db.Model):
 
 
 
-
 def check_auth(username, password):
-    """This function is called to check if a username /
-    password combination is valid.
-    """
-    return username == 'rtizie' and password == 'refactoIT2023Objednavky'
+	"""This function is called to check if a username /
+	password combination is valid.
+	"""
+	return username == 'rtizie' and password == 'refactoIT2023Objednavky'
 
 def authenticate():
-    """Sends a 401 response that enables basic auth"""
-    return Response(
-    'Could not verify your access level for that URL.\n'
-    'You have to login with proper credentials', 401,
-    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+	"""Sends a 401 response that enables basic auth"""
+	return Response(
+	'Could not verify your access level for that URL.\n'
+	'You have to login with proper credentials', 401,
+	{'WWW-Authenticate': 'Basic realm="Login Required"'})
 
 def requires_auth(f):
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        auth = request.authorization
-        if not auth or not check_auth(auth.username, auth.password):
-            return authenticate()
-        return f(*args, **kwargs)
-    return decorated
+	@wraps(f)
+	def decorated(*args, **kwargs):
+		auth = request.authorization
+		if not auth or not check_auth(auth.username, auth.password):
+			return authenticate()
+		return f(*args, **kwargs)
+	return decorated
 
 
 
@@ -247,6 +249,7 @@ def openShirt(collection,shirt):
 	else:
 		abort(404)
 
+
 @app.route('/addItem',methods=['GET','POST'])
 def addItem():
 	if request.method == 'POST':
@@ -310,3 +313,27 @@ def open_collection(collection):
 		raise(e)
 
 
+from flask_wtf import FlaskForm
+from wtforms import StringField
+from wtforms.validators import DataRequired
+from flask_wtf.file import FileField, FileRequired
+from wtforms import validators
+class CustomDesing(FlaskForm):
+	email = StringField('email', validators=[DataRequired()])
+	image = FileField('Image File', validators=[FileRequired()])
+
+
+@app.route('/vlastni-navrh')
+def custom_desing():
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	form = CustomDesing()
+	return render_template('custom_desing.html',form=form,number_of_items_in_basket=len(session.get('cart')))
+
+@app.route('/custom_desing_add',methods=['GET','POST'])
+def custom_desing_add():
+	email = request.form.get('email')
+	photo = request.files.get('image')
+	photo.filename = email
+	photo.save(f"app/static/custom_desing/{email}.png")
+	return redirect('/vlastni-navrh-ok')
+	
