@@ -91,9 +91,6 @@ def requires_auth(f):
 	return decorated
 
 
-
-
-
 def handle_cart(cart):
 	products = []
 	grand_total = 0
@@ -142,12 +139,13 @@ def payment():
 	deliveryC = 195
 	delivery_total = grand_total + deliveryC
 	print(delivery_total)
-	session.clear()
+	
 	return render_template('payment.html',products=products,grand_total=grand_total,delivery=deliveryC,delivery_total=delivery_total,firstName=firstName,lastName=lastName,email=email,phone=phone,address=address,town=town,psc=psc,deliveryV=delivery)
 
 
 @app.route("/platbaOK")
 def paymentOK():
+	session['cart'] = []
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	return render_template('paymentOK.html',number_of_items_in_basket=len(session.get('cart')))
 
@@ -237,7 +235,7 @@ def open_collection(collection):
 		raise(e)
 
 """
-	Custom Pages
+	Custom Desing Pages
 """
 
 @app.route('/vlastni-navrh')
