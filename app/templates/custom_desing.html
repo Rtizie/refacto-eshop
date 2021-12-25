@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}Vlastní Návrh - ReFacto{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/custom_desing.css')}}">
 {% endblock %}
@@ -13,7 +14,7 @@
             <div>
                 {{ form.image.label}}{{ form.image }}
             </div>
-            <input type="submit" value="Go">
+            <input type="submit" value="Zaslat Návrh">
         </form>
     </div>
 {% endblock %}

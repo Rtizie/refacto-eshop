@@ -4,15 +4,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/paymentOK.css')}}">
 {% endblock %}
 {% block body %}
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
-<h1> Není hotovo ale zaplaceno</h1>
+<div class="main">
+    <h1>Platba byla úspěsná</h1>
+    <a href="{{ url_for('kolekce') }}">Nakupovat dále <i class="fas fa-caret-right"></i></a>
+</div>
 {% endblock %}

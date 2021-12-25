@@ -1,5 +1,4 @@
 from datetime import timedelta
-import re
 from flask import Flask,render_template,request,session,Response
 from flask.helpers import url_for
 from werkzeug.exceptions import abort
@@ -9,7 +8,6 @@ import sass
 from werkzeug.utils import redirect
 from email.mime.text import MIMEText
 from functools import wraps
-
 
 
 app = Flask(__name__)
@@ -23,6 +21,7 @@ db = SQLAlchemy(app)
 stream_handler = logging.StreamHandler()
 stream_handler.setLevel(logging.INFO)
 app.logger.addHandler(stream_handler)
+
 class Shirt(db.Model):
 		id = db.Column(db.Integer, primary_key=True)
 		image = db.Column(db.String(300),nullable=False)
@@ -126,7 +125,7 @@ def checkout():
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	return render_template("checkout.html",number_of_items_in_basket=len(session.get('cart')))
 
-@app.route('/kosik/checkout/platba',methods=['GET', 'POST'])
+@app.route('/kosik/checkout/platba',methods=['POST'])
 def payment():
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	firstName = request.form.get('first')
@@ -143,12 +142,14 @@ def payment():
 	deliveryC = 195
 	delivery_total = grand_total + deliveryC
 	print(delivery_total)
-	return render_template('payment.html',products=products,grand_total=grand_total,delivery=deliveryC,delivery_total=delivery_total,firstName=firstName,lastName=lastName,email=email,phone=phone,address=address,town=town,psc=psc,deliveryV=delivery,number_of_items_in_basket=len(session.get('cart')))
+	session.clear()
+	return render_template('payment.html',products=products,grand_total=grand_total,delivery=deliveryC,delivery_total=delivery_total,firstName=firstName,lastName=lastName,email=email,phone=phone,address=address,town=town,psc=psc,deliveryV=delivery)
 
 
 @app.route("/platbaOK")
 def paymentOK():
-	return render_template('paymentOK.html')
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	return render_template('paymentOK.html',number_of_items_in_basket=len(session.get('cart')))
 
 @app.route("/kekw")
 @requires_auth
@@ -156,50 +157,6 @@ def objednavky():
 	data = Order.query.all()
 	return render_template('objednavky.html',data=data)
 
-@app.route('/kosik/checkout/data',methods=['GET','POST'])
-def data():
-	try:
-		data = request.get_json()
-		print(data)
-		firstName = data['firstName']
-		lastName = data['lastName']
-		town = data['town']
-		psc = data['psc']
-		delivery = data['delivery']
-		email = data['email']
-		phone = data['phone']
-		products = str(session.get('cart'))
-		productsB = MIMEText(products,'plain','utf-8')
-		payment = data['cost']
-		address = data['address']
-		order = Order(firstName=firstName,lastName=lastName,town=town,psc=psc,delivery=delivery,email=email,phone=phone,products=productsB.as_string(),payment=payment,address=address)
-		db.session.add(order)
-		db.session.commit()
-		return "Success"
-	except Exception as e:
-		print(e)
-		raise e
-
-@app.route("/cart_remove",methods=['GET','POST'])
-def cart_remove():
-	ID = request.form.get('id')
-	name = request.form.get('name')
-	color = request.form.get('color')
-	quantity = request.form.get('quantity')
-	size = request.form.get('size')
-	cart = session.get('cart')
-	
-	for count,item in enumerate(cart):
-		print(item)
-		print(ID)
-		if item['id'] == ID:
-			if item['name'] == name:
-				if item['color'] == color:
-					if item['quantity'] == quantity:
-						if item['size'] == size:
-							del cart[count]
-	session.update()
-	return redirect(url_for('cart',number_of_items_in_basket=len(session.get('cart'))))
 
 
 @app.errorhandler(404)
@@ -250,7 +207,104 @@ def openShirt(collection,shirt):
 		abort(404)
 
 
-@app.route('/addItem',methods=['GET','POST'])
+
+@app.route('/kosik')
+def cart():
+	if 'cart' not in session:
+		print("Vytvořený cart")
+		session['cart'] = []	
+	cart = session.get('cart')
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	try:
+		products, grand_total, quantity_total = handle_cart(cart)
+		if grand_total == 0:
+			return render_template('empty_cart.html',number_of_items_in_basket=len(session.get('cart')))
+		return render_template('cart.html',items=products,grand_total=grand_total,quantity_total=quantity_total,number_of_items_in_basket=len(session.get('cart')))
+	except Exception as e:
+		print(e)
+		return render_template('empty_cart.html',number_of_items_in_basket=len(session.get('cart')))
+
+@app.route('/kolekce/<collection>')
+def open_collection(collection):
+	if 'cart' not in session:
+		print("Vytvořený cart")
+		session['cart'] = []	
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	try:
+		shirts = Shirt.query.filter_by(collection=collection).all()
+		return render_template('open_collection.html',title=collection,shirts=shirts,number_of_items_in_basket=len(session.get('cart')))
+	except Exception as e:
+		raise(e)
+
+"""
+	Custom Pages
+"""
+
+@app.route('/vlastni-navrh')
+def custom_desing():
+	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+	form = CustomDesing()
+	return render_template('custom_desing.html',form=form,number_of_items_in_basket=len(session.get('cart')))
+
+@app.route('/vlastni-navrh-ok')
+def custom_desing_ok():
+	return render_template('custom_desing_ok.html',number_of_items_in_basket=len(session.get('cart')))
+@app.route('/vlastni-navrh-error')
+def custom_desing_error():
+	return render_template('custom_desing_error.html',number_of_items_in_basket=len(session.get('cart')))
+
+"""
+	API
+"""
+
+#Custom Desing Pages
+
+from flask_wtf import FlaskForm
+from wtforms import StringField,TextAreaField
+from wtforms.validators import DataRequired
+from flask_wtf.file import FileField, FileRequired
+class CustomDesing(FlaskForm):
+	email = StringField('E-Mail', validators=[DataRequired()])
+	image = FileField('Image File', validators=[FileRequired()])
+	notes = TextAreaField('')
+
+
+@app.route('/custom_desing_add',methods=['POST'])
+def custom_desing_add():
+	try:
+		email = request.form.get('email')
+		photo = request.files.get('image')
+		photo.filename = email
+		photo.save(f"app/static/custom_desing/{email}.png")
+		return redirect('/vlastni-navrh-ok')
+	except Exception as e:
+		print(e)
+		return redirect('/vlastni-navrh-error')
+	
+
+@app.route("/cart_remove",methods=['POST'])
+def cart_remove():
+	ID = request.form.get('id')
+	name = request.form.get('name')
+	color = request.form.get('color')
+	quantity = request.form.get('quantity')
+	size = request.form.get('size')
+	cart = session.get('cart')
+	
+	for count,item in enumerate(cart):
+		print(item)
+		print(ID)
+		if item['id'] == ID:
+			if item['name'] == name:
+				if item['color'] == color:
+					if item['quantity'] == quantity:
+						if item['size'] == size:
+							del cart[count]
+	session.update()
+	return redirect(url_for('cart',number_of_items_in_basket=len(session.get('cart'))))
+
+
+@app.route('/addItem',methods=['POST'])
 def addItem():
 	if request.method == 'POST':
 		try:
@@ -284,56 +338,27 @@ def addItem():
 			raise e
 	return redirect(url_for('cart',number_of_items_in_basket=len(session.get('cart'))))
 
-@app.route('/kosik')
-def cart():
-	if 'cart' not in session:
-		print("Vytvořený cart")
-		session['cart'] = []	
-	cart = session.get('cart')
-	sass.compile(dirname=('app/static/scss', 'app/static/css'))
+
+@app.route('/kosik/checkout/data',methods=['POST'])
+def data():
 	try:
-		products, grand_total, quantity_total = handle_cart(cart)
-		if grand_total == 0:
-			return render_template('empty_cart.html',number_of_items_in_basket=len(session.get('cart')))
-		return render_template('cart.html',items=products,grand_total=grand_total,quantity_total=quantity_total,number_of_items_in_basket=len(session.get('cart')))
+		data = request.get_json()
+		print(data)
+		firstName = data['firstName']
+		lastName = data['lastName']
+		town = data['town']
+		psc = data['psc']
+		delivery = data['delivery']
+		email = data['email']
+		phone = data['phone']
+		products = str(session.get('cart'))
+		productsB = MIMEText(products,'plain','utf-8')
+		payment = data['cost']
+		address = data['address']
+		order = Order(firstName=firstName,lastName=lastName,town=town,psc=psc,delivery=delivery,email=email,phone=phone,products=productsB.as_string(),payment=payment,address=address)
+		db.session.add(order)
+		db.session.commit()
+		return "Success"
 	except Exception as e:
 		print(e)
-		return render_template('empty_cart.html',number_of_items_in_basket=len(session.get('cart')))
-
-@app.route('/kolekce/<collection>')
-def open_collection(collection):
-	if 'cart' not in session:
-		print("Vytvořený cart")
-		session['cart'] = []	
-	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	try:
-		shirts = Shirt.query.filter_by(collection=collection).all()
-		return render_template('open_collection.html',title=collection,shirts=shirts,number_of_items_in_basket=len(session.get('cart')))
-	except Exception as e:
-		raise(e)
-
-
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from wtforms.validators import DataRequired
-from flask_wtf.file import FileField, FileRequired
-from wtforms import validators
-class CustomDesing(FlaskForm):
-	email = StringField('email', validators=[DataRequired()])
-	image = FileField('Image File', validators=[FileRequired()])
-
-
-@app.route('/vlastni-navrh')
-def custom_desing():
-	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	form = CustomDesing()
-	return render_template('custom_desing.html',form=form,number_of_items_in_basket=len(session.get('cart')))
-
-@app.route('/custom_desing_add',methods=['GET','POST'])
-def custom_desing_add():
-	email = request.form.get('email')
-	photo = request.files.get('image')
-	photo.filename = email
-	photo.save(f"app/static/custom_desing/{email}.png")
-	return redirect('/vlastni-navrh-ok')
-	
+		raise e

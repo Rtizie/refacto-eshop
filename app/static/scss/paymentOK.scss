@@ -1,0 +1,21 @@
+.main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    h1{
+        text-align: center;
+        font-family: 'PoetsenOne';
+        margin-bottom: 10vh;
+    }
+    a{
+        text-align: center;
+        background-color: #C80C2B;
+        color: white;  
+        margin: auto;
+        padding:3vh 2vw;
+        font-family: 'PoetsenOne';
+        text-decoration: none;
+    }
+}
