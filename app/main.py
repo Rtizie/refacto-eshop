@@ -136,11 +136,18 @@ def payment():
 	print(f"{firstName},{lastName},{email},{phone},{address},{psc},{town},{delivery}")
 	cart = session.get('cart')
 	products, grand_total, quantity_total = handle_cart(cart)
-	deliveryC = 195
+	if delivery == 'zasilkovna':
+		deliveryC = 69
+	elif delivery == 'posta':
+		deliveryC = 109
+	elif delivery == 'ppl':
+		deliveryC = 99
+	elif delivery == 'local':
+		deliveryC = 0
 	delivery_total = grand_total + deliveryC
 	print(delivery_total)
 	
-	return render_template('payment.html',products=products,grand_total=grand_total,delivery=deliveryC,delivery_total=delivery_total,firstName=firstName,lastName=lastName,email=email,phone=phone,address=address,town=town,psc=psc,deliveryV=delivery)
+	return render_template('payment.html',products=products,grand_total=grand_total,delivery=deliveryC,delivery_total=delivery_total,firstName=firstName,lastName=lastName,email=email,phone=phone,address=address,town=town,psc=psc,deliveryV=delivery,number_of_items_in_basket=len(session.get('cart')))
 
 
 @app.route("/platbaOK")
