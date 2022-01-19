@@ -1,9 +1,13 @@
 .mainPage{
 	.shirt{
 		flex-direction: column;
-		img{
-			width: 60%;
-			margin: auto;
+		
+		.carrousel {
+			width: 100%;
+			img{
+				width: 60%;
+				margin: auto;
+			}
 		}
 	}
 

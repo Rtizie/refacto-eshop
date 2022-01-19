@@ -1,8 +1,10 @@
 .mainPage .shirt {
   flex-direction: column; }
-  .mainPage .shirt img {
-    width: 60%;
-    margin: auto; }
+  .mainPage .shirt .carrousel {
+    width: 100%; }
+    .mainPage .shirt .carrousel img {
+      width: 60%;
+      margin: auto; }
 
 .mainPage .info {
   margin: 0 !important;

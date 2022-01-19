@@ -4,10 +4,12 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    margin: 7vw;
-    margin-right: 6vw; }
-    .mainPage .shirt img {
+    margin: 7vw; }
+    .mainPage .shirt .carrousel {
+      margin-right: 6vw;
       width: 30%; }
+      .mainPage .shirt .carrousel img {
+        width: 100%; }
     .mainPage .shirt .info {
       margin-left: 10vw;
       display: flex;

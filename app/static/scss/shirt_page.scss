@@ -10,10 +10,15 @@
 		display: flex;
 		flex-direction: row;
 		margin:7vw;
-		margin-right: 6vw;
-		img{
+		
+		.carrousel {
+			margin-right: 6vw;
 			width: 30%;
+			img{
+				width: 100%;
+			}
 		}
+		
 		.info{
 			margin-left: 10vw;
 			display: flex;
