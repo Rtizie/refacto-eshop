@@ -14,14 +14,16 @@
  
         <div class="designShow w3-display-container">
             <div class="carrousel">
-                <img class="designs" src="{{ url_for('static', filename=image) }}">
+                {% for image in range(0, lenImages) %}
+                <img class="designs" src="{{ url_for('static', filename=images[image]) }}">
+                {% endfor %}
             </div>
             <button class="prev w3-button w3-black w3-display-left" onclick="designShow.previous()">&#10094;</button>
             <button class="next w3-button w3-black w3-display-right" onclick="designShow.next()">&#10095;</button>
         </div>
 
         <script>
-            designShow = w3.slideshow(".designs", 3000);
+            designShow = w3.slideshow(".designs", 4000);
         </script>
         
         <div class="info">

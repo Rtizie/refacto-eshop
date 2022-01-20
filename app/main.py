@@ -205,9 +205,10 @@ def openShirt(collection,shirt):
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
 	shirtData = Shirt.query.filter_by(name=shirt,collection=collection).all()
 	if shirtData != []:
+		images = shirtData[0].image.split(',')
 		sizes = shirtData[0].size.split(',')
 		colors = shirtData[0].color.split(',')
-		return render_template('shirt_page.html',number_of_items_in_basket=len(session.get('cart')),id=shirtData[0].id,image=shirtData[0].image,description=shirtData[0].description,name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
+		return render_template('shirt_page.html',number_of_items_in_basket=len(session.get('cart')),id=shirtData[0].id,images=images, lenImages=len(images),description=shirtData[0].description,name=shirtData[0].name,cost=shirtData[0].cost,lenSizes=len(sizes),sizes=sizes,colors=colors,lenColors=len(colors),stock=shirtData[0].stock)
 	else:
 		abort(404)
 
