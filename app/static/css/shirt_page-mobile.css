@@ -1,9 +1,9 @@
 .mainPage .shirt {
   flex-direction: column; }
-  .mainPage .shirt .carrousel {
-    width: 100%; }
-    .mainPage .shirt .carrousel img {
-      width: 60%;
+  .mainPage .shirt .designShow {
+    width: 60%; }
+    .mainPage .shirt .designShow img {
+      width: 100%;
       margin: auto; }
 
 .mainPage .info {

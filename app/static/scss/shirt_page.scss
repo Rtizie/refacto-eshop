@@ -11,11 +11,19 @@
 		flex-direction: row;
 		margin:7vw;
 		
-		.carrousel {
+		.designShow {
 			margin-right: 6vw;
 			width: 30%;
 			img{
 				width: 100%;
+			}
+			.prev, .next {
+				height: 50px;
+				transition: 0.6s ease;
+				border-radius: 0 3px 3px 0;
+			}
+			.next {
+				border-radius: 3px 0 0 3px;
 			}
 		}
 		

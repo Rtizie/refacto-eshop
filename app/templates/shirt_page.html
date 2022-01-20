@@ -4,79 +4,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/shirt_page.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/shirt_page-tablet.css') }}" media="(max-width: 1080px)" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/shirt_page-mobile.css') }}" media="(max-width: 786px) and (orientation: portrait)" type="text/css">
+    <script src="{{ url_for('static', filename='js/w3.js')}}"></script>
 {% endblock %}
 
 
 {% block body %}
 <div class="mainPage">
     <div class="shirt">
-        
-        <!--<img src="{{ url_for('static', filename=image) }}">-->
-
-        <div class="carrousel">
-            <!--<img class="mySlides" src="{{ url_for('static', filename='images/shirts/sketch/route-99_tshirt.png') }}">-->
-            <img class="mySlides" src="{{ url_for('static', filename=image) }}">
-            <!--<img class="mySlides" src="{{ url_for('static', filename=image) }}"> -->           
-
-            <div class="w3-center">
-                <div class="w3-section">
-                  <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Předchozí</button>
-                  <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Další ❯</button>
-                </div>
-                <!--<button class="w3-button demo" onclick="currentDiv(1)">B</button> 
-                <button class="w3-button demo" onclick="currentDiv(2)">W</button> -->
+ 
+        <div class="designShow w3-display-container">
+            <div class="carrousel">
+                <img class="designs" src="{{ url_for('static', filename=image) }}">
             </div>
-
+            <button class="prev w3-button w3-black w3-display-left" onclick="designShow.previous()">&#10094;</button>
+            <button class="next w3-button w3-black w3-display-right" onclick="designShow.next()">&#10095;</button>
         </div>
-        <!--<img src="{{ url_for('static', filename=image) }}">
 
-        <!--<div class="w3-content" style="max-width:800px">
-            <img class="mySlides" src="{{ url_for('static', filename=image) }}" style="width:100%">
-            <img class="mySlides" src="{{ url_for('static', filename=image) }}" style="width:100%">
-            <img class="mySlides" src="{{ url_for('static', filename=image) }}" style="width:100%">
-        </div>
-          
-          <div class="w3-center">
-            <div class="w3-section">
-              <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
-              <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
-            </div>
-            <button class="w3-black w3-button demo" onclick="currentDiv(1)">B</button> 
-            <button class="w3-white w3-button demo" onclick="currentDiv(2)">W</button> 
-          </div>-->
-          
-          <script>
-          var slideIndex = 1;
-          showDivs(slideIndex);
-          
-          function plusDivs(n) {
-            showDivs(slideIndex += n);
-          }
-          
-          function currentDiv(n) {
-            showDivs(slideIndex = n);
-          }
-          
-          function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demo");
-            if (n > x.length) {slideIndex = 1}    
-            if (n < 1) {slideIndex = x.length}
-            for (i = 0; i < x.length; i++) {
-              x[i].style.display = "none";  
-            }
-            for (i = 0; i < dots.length; i++) {
-              dots[i].className = dots[i].className.replace(" w3-red", "");
-            }
-            x[slideIndex-1].style.display = "block";  
-            dots[slideIndex-1].className += " w3-red";
-          }
-          </script>
+        <script>
+            designShow = w3.slideshow(".designs", 3000);
+        </script>
         
-
-
-
         <div class="info">
             <h1 class="w3-jumbo">{{ name }}</h1>
             <p>{{ description }}</p>
@@ -133,4 +80,5 @@
 {% endblock %}
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/shirt_page.js')}}"></script>
+
 {% endblock %}

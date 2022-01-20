@@ -5,11 +5,17 @@
     display: flex;
     flex-direction: row;
     margin: 7vw; }
-    .mainPage .shirt .carrousel {
+    .mainPage .shirt .designShow {
       margin-right: 6vw;
       width: 30%; }
-      .mainPage .shirt .carrousel img {
+      .mainPage .shirt .designShow img {
         width: 100%; }
+      .mainPage .shirt .designShow .prev, .mainPage .shirt .designShow .next {
+        height: 50px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0; }
+      .mainPage .shirt .designShow .next {
+        border-radius: 3px 0 0 3px; }
     .mainPage .shirt .info {
       margin-left: 10vw;
       display: flex;
