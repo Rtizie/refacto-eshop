@@ -21,6 +21,7 @@ def print_database():
 
 def data():
     image = input("Zadej cestu k fotce: ")
+    display_image = input("Zadej cestu k fotce na kolekci: ")
     imageCart = input("Zadej cestu k fotce v košíku: ")
     name = input("Zadej název: ")
     description = input("Zadej popis: ")
@@ -29,7 +30,7 @@ def data():
     cost = input("Zadej cenu: ")
     stock = input("Kolik toho je na skladě: ")
     collection = input("V jaké je to kolekci:")
-    return image,imageCart,name,description,color,size,cost,stock,collection
+    return image,display_image,imageCart,name,description,color,size,cost,stock,collection
 
 def clear():
     Shirt.query.delete()
@@ -41,7 +42,7 @@ def change():
     id = int(input("Vyber ID:"))
     shirt = Shirt.query.filter_by(id=id).all()
     print(shirt)
-    image,imageCart,name,description,color,size,cost,stock,collection = data()
+    image,display_image,imageCart,name,description,color,size,cost,stock,collection = data()
     if image != "":
         shirt[0].image = image
     if imageCart != "":
@@ -60,12 +61,14 @@ def change():
         shirt[0].stock = stock
     if collection != "":
         shirt[0].collection = collection
+    if display_image != "":
+        shirt[0].display_image = display_image
     print(shirt)
     db.session.commit()
 
 def add():
-    image,imageCart,name,description,color,size,cost,stock,collection = data()
-    shirt = Shirt(image=image,imageCart=imageCart,name=name,description=description,color=color,size=size,cost=cost,stock=stock,collection=collection)
+    image,display_image,imageCart,name,description,color,size,cost,stock,collection = data()
+    shirt = Shirt(image=image,display_image=display_image,imageCart=imageCart,name=name,description=description,color=color,size=size,cost=cost,stock=stock,collection=collection)
     db.session.add(shirt)
     db.session.commit()
     print("Úspěšně přidáno")

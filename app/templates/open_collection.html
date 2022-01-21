@@ -21,7 +21,7 @@
         {% for s in shirts %}
         <a href="{{ url_for('openShirt', collection=title, shirt=s.name) }}">
             <div class="item">
-                <img src="{{ url_for('static', filename=s.display-image) }}">
+                <img src="{{ url_for('static', filename=s.display_image) }}">
                 <h2>{{ s.name }}</h2>
                 <h3>{{ s.cost }} Kč</h3>
             </div>
