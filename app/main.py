@@ -24,6 +24,7 @@ app.logger.addHandler(stream_handler)
 
 class Shirt(db.Model):
 		id = db.Column(db.Integer, primary_key=True)
+		display_image = db.Column(db.String(300),nullable=False)
 		image = db.Column(db.String(300),nullable=False)
 		imageCart = db.Column(db.String(300),nullable=False)
 		name = db.Column(db.String(40),unique=True, nullable=False)

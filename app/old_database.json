@@ -1,0 +1,163 @@
+[
+  {
+    "stmt": "SELECT * FROM shirt;",
+    "header": [
+      "id",
+      "image",
+      "imageCart",
+      "name",
+      "description",
+      "collection",
+      "color",
+      "size",
+      "cost",
+      "stock"
+    ],
+    "rows": [
+      [
+        "1",
+        "images/shirts/kreslene/coffe-addiction.png",
+        "images/shirts/kreeslene/coffe-addiction.png",
+        "Coffee Addiction",
+        "Kafe a závislost ? Nikdy",
+        "Kreslené",
+        "black,white",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "20"
+      ],
+      [
+        "2",
+        "images/shirts/kreslene/cooling-summer.png",
+        "images/shirts/kreslene/cooling-summer.png",
+        "Cooling Summer",
+        "Léto zrovna není, ale to vůbec nevadí. Můžeš se lehce zahřát tímto tričkem.",
+        "Kreslené",
+        "white,black",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "20"
+      ],
+      [
+        "3",
+        "images/shirts/kreslene/hotdog.png",
+        "images/shirts/kreslene/hotdog.png",
+        "Hotdog",
+        "Hot Dog nebo HotDog. Jak je to asi myšleno ?",
+        "Kreslené",
+        "black,white",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "20"
+      ],
+      [
+        "4",
+        "images/shirts/sketch/dream-it_tshirt.png",
+        "images/shirts/sketch/dream-it_cart.png",
+        "Dream It",
+        "Sníš o něčem? Tohle je tričko které ti možná splní tvoje sny.",
+        "Sketch",
+        "black,white",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "0"
+      ],
+      [
+        "5",
+        "images/shirts/sketch/rose-agents_tshirt.png,images/shirts/sketch/rose-agents_cart.png",
+        "images/shirts/sketch/rose-agents_cart.png",
+        "Rose Agents",
+        "Okouzlete rozkvetlou růží!",
+        "Sketch",
+        "black,white",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "0"
+      ],
+      [
+        "6",
+        "images/shirts/sketch/route-99_tshirt.png",
+        "images/shirts/sketch/route-99_cart.png",
+        "Route 99",
+        "Route 99",
+        "Sketch",
+        "yellow,white",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "0"
+      ],
+      [
+        "7",
+        "images/shirts/sketch/stylish-girl_tshirt.png",
+        "images/shirts/sketch/stylish-girl_cart.png",
+        "Stylish girl",
+        "Oblečte se stylově!",
+        "Sketch",
+        "pink,white",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "0"
+      ],
+      [
+        "8",
+        "images/shirts/sketch/yummy_tshirt.png",
+        "images/shirts/sketch/yummy_cart.png",
+        "Yummy",
+        "mňamka",
+        "Sketch",
+        "black",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "0"
+      ],
+      [
+        "9",
+        "images/shirts/sketch/surf-the-net_tshirt.png",
+        "images/shirts/sketch/surf-the-net_cart.png",
+        "Surf the Net",
+        "Surfuj na vlnách internetu! Užij si moře plné pohody s originálním tričkem.",
+        "Sketch",
+        "black",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "0"
+      ],
+      [
+        "10",
+        "images/shirts/sketch/skull_tshirt.png",
+        "images/shirts/sketch/skull_cart.png",
+        "Lebka",
+        "",
+        "Sketch",
+        "white",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "0"
+      ],
+      [
+        "11",
+        "images/shirts/sketch/warrior_tshirt.png",
+        "images/shirts/sketch/warrior_cart.png",
+        "Warrior",
+        "bojuj, dokud můžeš",
+        "Sketch",
+        "black",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "0"
+      ],
+      [
+        "12",
+        "images/shirts/sketch/clover_tshirt.png",
+        "images/shirts/sketch/clover_cart.png",
+        "Čtyřlístek",
+        "pro štěstí",
+        "Sketch",
+        "black",
+        "XS,S,M,L,XL,XXL,3XL",
+        "140",
+        "0"
+      ]
+    ]
+  }
+]
