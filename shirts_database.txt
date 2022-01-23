@@ -1,0 +1,164 @@
+images/shirts/kreslene/coffe-addiction.png
+images/shirts/kreslene/coffe-addiction.png
+images/shirts/kreslene/coffe-addiction.png
+Coffee Addiction
+Kafe a závislost? Nikdy!
+Kreslené
+black,white
+XS,S,M,L,XL,XXL,3XL
+140
+20
+python app\database-editor.py
+
+
+2
+images/shirts/kreslene/cooling-summer.png
+images/shirts/kreslene/cooling-summer.png
+images/shirts/kreslene/cooling-summer.png
+Cooling Summer
+Léto zrovna není, ale to vůbec nevadí. Můžeš se lehce zahřát tímto tričkem.
+Kreslené
+black,white
+XS,S,M,L,XL,XXL,3XL
+140
+20
+python app\database-editor.py
+
+
+2
+images/shirts/kreslene/hotdog.png
+images/shirts/kreslene/hotdog.png
+images/shirts/kreslene/hotdog.png
+Hotdog
+Hot Dog nebo HotDog. Jak je to asi myšleno?
+Kreslené
+black,white
+XS,S,M,L,XL,XXL,3XL
+140
+20
+python app\database-editor.py
+
+
+2
+images/shirts/sketch/dream-it_tshirt.png
+images/shirts/sketch/dream-it_tshirt.png,images/shirts/sketch/dream-it_cart.png
+images/shirts/sketch/dream-it_cart.png
+Dream It
+Sníš o něčem? Tohle je tričko které ti možná splní tvoje sny.
+Sketch
+black,white
+XS,S,M,L,XL,XXL,3XL
+140
+0
+python app\database-editor.py
+
+
+2
+images/shirts/sketch/rose-agents_tshirt.png
+images/shirts/sketch/rose-agents_tshirt.png,images/shirts/sketch/rose-agents_cart.png
+images/shirts/sketch/rose-agents_cart.png
+Rose Agents
+Okouzlete rozkvetlou růží!
+Sketch
+black,white
+XS,S,M,L,XL,XXL,3XL
+140
+0
+python app\database-editor.py
+
+
+2
+images/shirts/sketch/route-99_tshirt.png
+images/shirts/sketch/route-99_tshirt.png,images/shirts/sketch/route-99_cart.png
+images/shirts/sketch/route-99_cart.png
+Route 99
+Nastartuj svůj den s prima tričkem - Route 99. Ať je i ta tvoje cesta správná.
+Sketch
+yellow,white
+XS,S,M,L,XL,XXL,3XL
+140
+0
+python app\database-editor.py
+
+
+2
+images/shirts/sketch/stylish-girl_tshirt.png
+images/shirts/sketch/stylish-girl_tshirt.png,images/shirts/sketch/stylish-girl_cart.png
+images/shirts/sketch/stylish-girl_cart.png
+Stylish girl
+Oblečte se stylově!
+Sketch
+pink,white
+XS,S,M,L,XL,XXL,3XL
+140
+0
+python app\database-editor.py
+
+
+2
+images/shirts/sketch/yummy_tshirt.png
+images/shirts/sketch/yummy_tshirt.png,images/shirts/sketch/yummy_cart.png
+images/shirts/sketch/yummy_cat.png
+Yummy
+Honí tě mlsná? No, tohle tričko zrovna k jídlu není, ale radost ti rozhodně udělá!
+Sketch
+black,white
+XS,S,M,L,XL,XXL,3XL
+140
+0
+python app\database-editor.py
+
+
+2
+images/shirts/sketch/surf-the-net_tshirt.png
+images/shirts/sketch/surf-the-net_tshirt.png,images/shirts/sketch/surf-the-net_cart.png
+images/shirts/sketch/surf-the-net_cart.png
+Surf the Net
+Surfuj na vlnách internetu! Užij si moře plné pohody s tímto originálním tričkem.
+Sketch
+black,white
+XS,S,M,L,XL,XXL,3XL
+140
+0
+python app\database-editor.py
+
+
+2
+images/shirts/sketch/skull_tshirt.png
+images/shirts/sketch/skull_tshirt.png,images/shirts/sketch/skull_cart.png
+images/shirts/sketch/skull_cart.png
+Skull
+Nahání ti kostlivci strach? Tahle lebka působí docela přátelsky.
+Sketch
+white
+XS,S,M,L,XL,XXL,3XL
+140
+0
+python app\database-editor.py
+
+
+2
+images/shirts/sketch/warrior_tshirt.png
+images/shirts/sketch/warrior_tshirt.png,images/shirts/sketch/warrior_cart.png
+images/shirts/sketch/warrior_cart.png
+Warrior
+Připrav se k nelítostnému souboji! Bojuj dokud můžeš a získej tričko s originálním designem za skvělou cenu. Warrior - vítězství má v krvi
+Sketch
+black
+XS,S,M,L,XL,XXL,3XL
+140
+0
+python app\database-editor.py
+
+
+2
+images/shirts/sketch/clover_tshirt.png
+images/shirts/sketch/clover_tshirt.png,images/shirts/sketch/clover_cart.png
+images/shirts/sketch/clover_cart.png
+Čtyřlístek
+Sháníš něco decentního, co tobě nebo tvým blízkým udělá radost? Tak neváhej a pořiď si pro štěstí tričko s drobným čtyřlístkem!
+Sketch
+black
+XS,S,M,L,XL,XXL,3XL
+140
+0

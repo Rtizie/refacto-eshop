@@ -16,7 +16,7 @@ a {
   display: flex;
   font-family: "PoetsenOne";
   height: 100vh;
-  background-image: url(../images/background.png);
+  background-image: url(../images/background-primary.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; }

@@ -20,16 +20,16 @@ def print_database():
     pprint.pprint(Shirt.query.all())
 
 def data():
-    image = input("Zadej cestu k fotce: ")
     display_image = input("Zadej cestu k fotce na kolekci: ")
+    image = input("Zadej cestu k fotce: ")
     imageCart = input("Zadej cestu k fotce v košíku: ")
     name = input("Zadej název: ")
     description = input("Zadej popis: ")
+    collection = input("V jaké je to kolekci:")
     color = input("Zadej barvu: ")
     size = input("Zadej velikost: ")
     cost = input("Zadej cenu: ")
     stock = input("Kolik toho je na skladě: ")
-    collection = input("V jaké je to kolekci:")
     return image,display_image,imageCart,name,description,color,size,cost,stock,collection
 
 def clear():
@@ -46,7 +46,7 @@ def change():
     if image != "":
         shirt[0].image = image
     if imageCart != "":
-        shirt[0].imageCart = imageCart;
+        shirt[0].imageCart = imageCart
     if name != "":
         shirt[0].name = name
     if description != "":
