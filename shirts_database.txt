@@ -180,7 +180,7 @@ images/shirts/chemical/_cart.png
 Chemical
 black
 XS,S,M,L,XL,XXL,3XL
-140
+249
 0
 
 2
@@ -199,36 +199,36 @@ XS,S,M,L,XL,XXL,3XL
 images/shirts/chemical/unicorn_tshirt.png
 images/shirts/chemical/unicorn_tshirt.png,images/shirts/chemical/unicorn_cart.png
 images/shirts/chemical/unicorn_cart.png
---Unicorn--
+Unicorn
 --popisek--
 Chemical
 black
 XS,S,M,L,XL,XXL,3XL
-140
+249
 0
 
 2
 images/shirts/chemical/alkohol_tshirt.png
 images/shirts/chemical/alkohol_tshirt.png,images/shirts/chemical/alkohol_cart.png
 images/shirts/chemical/alkohol_cart.png
---NÁZEV--
+Slivovice, whisky, pivo
 --popisek--
 Chemical
 black
 XS,S,M,L,XL,XXL,3XL
-140
+249
 0
 
 2
 images/shirts/chemical/iamteacher_tshirt.png
-images/shirts/chemical/iamteacher_tshirt.png,images/shirts/chemical/_cart.png
+images/shirts/chemical/iamteacher_tshirt.png,images/shirts/chemical/iamteacher_cart.png
 images/shirts/chemical/_cart.png
 I am Teacher
---popisek--
+Vezmi si na sebe tričko nabité chemií.
 Chemical
 black
 XS,S,M,L,XL,XXL,3XL
-140
+249
 0
 
 2
@@ -236,9 +236,58 @@ images/shirts/chemical/iamcute_tshirt.png
 images/shirts/chemical/iamcute_tshirt.png,images/shirts/chemical/iamcute_cart.png
 images/shirts/chemical/iamcute_cart.png
 I am cute
-něco roztomilého ...
+Zkrátka a jednoduše něco roztomilého ...
 Chemical
 black
 XS,S,M,L,XL,XXL,3XL
-140
+249
+0
+
+
+2
+images/shirts/chemical/puregenius_tshirt.png
+images/shirts/chemical/puregenius_tshirt.png,images/shirts/chemical/puregenius_cart.png
+images/shirts/chemical/puregenius_cart.png
+Pure Genius
+Chytřejší než ti nejchytřejší? Prostě génius!
+Chemical
+black
+XS,S,M,L,XL,XXL,3XL
+249
+0
+
+2
+images/shirts/chemical/ups_tshirt.png
+images/shirts/chemical/ups_tshirt.png,images/shirts/chemical/ups_cart.png
+images/shirts/chemical/ups_cart.png
+UPS
+Něco se nepovedlo, nevadí ... Tohle povedené tričko ti hned spraví náladu.
+Chemical
+black
+XS,S,M,L,XL,XXL,3XL
+249
+0
+
+2
+images/shirts/chemical/niceboy_tshirt.png
+images/shirts/chemical/niceboy_tshirt.png,images/shirts/chemical/niceboy_cart.png
+images/shirts/chemical/niceboy_cart.png
+Nice Boy
+Ať ti to sluší!
+Chemical
+black
+XS,S,M,L,XL,XXL,3XL
+249
+0
+
+2
+images/shirts/chemical/rateus_tshirt.png
+images/shirts/chemical/rateus_tshirt.png,images/shirts/chemical/rateus_cart.png
+images/shirts/chemical/rateus_cart.png
+Rate us
+Ohodnoceno plným počtem hvězdiček!
+Chemical
+black
+XS,S,M,L,XL,XXL,3XL
+249
 0

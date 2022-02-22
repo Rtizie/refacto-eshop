@@ -1,3 +1,6 @@
+/**{
+	border: 1px solid red;
+}*/
 .mainPage {
   display: flex; }
   .mainPage .shirt {
@@ -16,6 +19,9 @@
         border-radius: 0 3px 3px 0; }
       .mainPage .shirt .designShow .next {
         border-radius: 3px 0 0 3px; }
+      .mainPage .shirt .designShow p {
+        font-style: italic;
+        text-align: center; }
     .mainPage .shirt .info {
       margin-left: 10vw;
       display: flex;
@@ -23,12 +29,13 @@
       justify-content: flex-start;
       font-family: 'Summer Font';
       /*Summer Font Light*/
+      font-weight: bold;
       width: 40%; }
       .mainPage .shirt .info h1 {
         font-family: 'PoetsenOne'; }
       .mainPage .shirt .info p {
         font-size: 1.5em;
-        letter-spacing: 1px; }
+        letter-spacing: 1.5px; }
       .mainPage .shirt .info .data {
         margin-right: 0%;
         margin-top: 2vh;
@@ -67,9 +74,9 @@
             margin: auto; }
       .mainPage .shirt .info .captions {
         display: flex;
-        font-family: 'Summer Font Light'; }
+        font-family: 'Summer Font'; }
         .mainPage .shirt .info .captions h2 {
-          font-family: 'Summer Font Light';
+          font-family: 'Summer Font';
           display: inline; }
         .mainPage .shirt .info .captions h2:nth-child(2) {
           margin-left: auto; }
