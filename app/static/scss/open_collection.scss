@@ -45,7 +45,7 @@
                 width: 100%;
             }
             h2{
-              	text-align: center;  
+                text-align: center;  
               	font-family: 'PoetsenOne';
             }
             h3{
@@ -54,4 +54,8 @@
             }
         }
     } 
+}
+
+a {
+    text-decoration: none;  //remove underline of t-shirt name and price
 }
