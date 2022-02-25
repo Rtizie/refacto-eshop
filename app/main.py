@@ -114,10 +114,6 @@ def handle_cart(cart):
 	return products, grand_total, quantity_total
 
 
-@app.route("/test")
-def test():
-	return render_template("test.html")
-
 @app.route("/kosik/checkout")
 def checkout():
 	sass.compile(dirname=('app/static/scss', 'app/static/css'))
@@ -243,22 +239,6 @@ def open_collection(collection):
 	except Exception as e:
 		raise(e)
 
-"""
-	Custom Desing Pages
-"""
-
-@app.route('/vlastni-navrh')
-def custom_desing():
-	sass.compile(dirname=('app/static/scss', 'app/static/css'))
-	form = CustomDesing()
-	return render_template('custom_desing.html',form=form,number_of_items_in_basket=len(session.get('cart')))
-
-@app.route('/vlastni-navrh-ok')
-def custom_desing_ok():
-	return render_template('custom_desing_ok.html',number_of_items_in_basket=len(session.get('cart')))
-@app.route('/vlastni-navrh-error')
-def custom_desing_error():
-	return render_template('custom_desing_error.html',number_of_items_in_basket=len(session.get('cart')))
 
 """
 	API
