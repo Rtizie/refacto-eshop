@@ -60,7 +60,7 @@
                     <div class="colors">
                         {% for color in range(0, lenColors) %}
                             <label>
-                                <input type="radio" name="color" value="{{ colors[color] }}" required>
+                                <input type="radio" name="color" value="{{ colors[color] }}" required checked>
                                 <div style="background-color: {{ colors[color] }}  ">
                                     <img src="{{ url_for('static', filename='images/checkmark-b.png')}}" alt="">
                                 </div>
