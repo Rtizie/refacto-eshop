@@ -50,7 +50,7 @@
                     <div class="sizes">
                         {% for size in range(0, lenSizes) %}
                             <label class="size">
-                                <input type="radio" name="size" value="{{ sizes[size] }}"  required>
+                                <input type="radio" name="size" value="{{ sizes[size] }}"  required checked>
                                 <div>
                                     {{ sizes[size] }}
                                 </div>
@@ -71,7 +71,7 @@
                 <div class="buy">
                     <input type="submit" value="Objednat"/>
                     <div class="quantity">
-                        <input type="number" name="count" value="0" max="{{ stock }}" min="1"/>
+                        <input type="number" name="count" value="1" max="{{ stock }}" min="1"/>
                         <h3>&nbsp;ks</h3>
                     </div>
                     <input type="hidden" name="id" value="{{ id }}">
