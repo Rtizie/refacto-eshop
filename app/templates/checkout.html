@@ -3,6 +3,50 @@ block head %}
 	<link rel="stylesheet" href="{{ url_for('static',filename='css/checkout.css')}}"/>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/checkout-tablet.css') }}" media="(max-width: 968px)" type="text/css">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/checkout-mobile.css') }}" media="(max-width: 786px) and (orientation: portrait)" type="text/css">
+	<script src="https://widget.packeta.com/v6/www/js/library.js"></script>
+	<script>
+        var packetaApiKey = '7a4645e0fcf8f51f';
+        /*
+        	This function will receive either a pickup point object, or null if the user
+        	did not select anything, e.g. if they used the close icon in top-right corner
+        	of the widget, or if they pressed the escape key.
+        */
+        function showSelectedPickupPoint(point) {
+            var spanElement = document.getElementById('packeta-point-info');
+            var idElement = document.getElementById('packeta-point-id');
+            if (point) {
+                var recursiveToString = function(o) {
+                    return Object.keys(o).map(
+                        function(k) {
+                            if (o[k] === null) {
+                                return k + " = null";
+                            }
+
+                            return k + " = " + (typeof(o[k]) == "object" ?
+                                "<ul><li>" + recursiveToString(o[k]) + "</li></ul>" :
+                                o[k].toString().replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                            );
+                        }
+                    ).join("</li><li>");
+                };
+
+                spanElement.innerText =
+                    "Adresa dodání: " + point.name + "\n" + point.zip + " " + point.city + "\n";
+
+                //spanElement.innerHTML +=
+                //    "<ul><li>" + recursiveToString(point) + "</li></ul>";
+
+                idElement.value = point.id;
+            } else {
+                spanElement.innerText = "";
+                idElement.value = "";
+            }
+        };
+		function removePacketaInfo(){
+			document.getElementById('packeta-point-info').innerText = "";
+			document.getElementById('packeta-point-id').value = "";
+		}
+        </script>
 {% endblock %} {% block body %}
 <div class="main">
 	<div class="form">
@@ -131,15 +175,16 @@ block head %}
 					<i class="w3-xxlarge fa fa-truck" aria-hidden="true"></i>
 				</div>
 				<div class="w3-rest">
-					<input class="w3-radio" type="radio" name="delivery" value="zasilkovna" checked required>
+					<span style="font-family: 'Summer Font';padding:0;margin:0;" class="w3-xlarge" id="packeta-point-info"></span>
+					<input class="w3-radio" type="radio" name="delivery"  onclick="Packeta.Widget.pick(packetaApiKey, showSelectedPickupPoint)" id="packeta-point-id" value="zasilkovna" checked required>
 					<label style="font-family: 'Summer Font';" class="w3-xlarge">Zásilkovna</label>
 		
-					<input class="w3-radio" type="radio" name="delivery" value="posta">
+					<input class="w3-radio" onclick="removePacketaInfo()" type="radio" name="delivery" value="posta">
 					<label style="font-family: 'Summer Font';" class="w3-xlarge">Česká Pošta</label>
-					<input class="w3-radio" type="radio" name="delivery" value="ppl">
+					<input class="w3-radio" onclick="removePacketaInfo()" type="radio" name="delivery" value="ppl">
 					<label style="font-family: 'Summer Font';" class="w3-xlarge">PPL</label>
 		
-					<input class="w3-radio" type="radio" name="delivery" value="local">
+					<input class="w3-radio" onclick="removePacketaInfo()" type="radio" name="delivery" value="local">
 					<label style="font-family: 'Summer Font';" class="w3-xlarge">Osobní odběr</label>
 				</div>
 			</div>

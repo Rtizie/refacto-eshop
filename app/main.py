@@ -50,6 +50,7 @@ class Order(db.Model):
 		payment = db.Column(db.String(16), nullable=False)
 		address = db.Column(db.String(64), nullable=False)
 		psc = db.Column(db.String(64), nullable=False)
+		zasilkovna = db.Column(db.String(256), nullable=True)
 		
 		def __init__(self,firstName,lastName,email,town,delivery,phone,products,payment,address,psc) -> None:
 			self.firstName = firstName
@@ -62,6 +63,7 @@ class Order(db.Model):
 			self.payment = payment
 			self.address = address
 			self.psc = psc
+
 			
 
 		def __repr__(self) -> str:
@@ -133,14 +135,14 @@ def payment():
 	print(f"{firstName},{lastName},{email},{phone},{address},{psc},{town},{delivery}")
 	cart = session.get('cart')
 	products, grand_total, quantity_total = handle_cart(cart)
-	if delivery == 'zasilkovna':
-		deliveryC = 69
-	elif delivery == 'posta':
+	if delivery == 'posta':
 		deliveryC = 109
 	elif delivery == 'ppl':
 		deliveryC = 99
 	elif delivery == 'local':
 		deliveryC = 0
+	else:
+		deliveryC = 69
 	delivery_total = grand_total + deliveryC
 	print(delivery_total)
 	

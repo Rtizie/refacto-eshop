@@ -50,8 +50,8 @@ https://client.packeta.com/cs/support/?backlink=hirar
                     "Address: " + point.name + "\n" + point.zip + " " + point.city + "\n\n" +
                     "All available fields:\n";
 
-                spanElement.innerHTML +=
-                    "<ul><li>" + recursiveToString(point) + "</li></ul>";
+                //spanElement.innerHTML +=
+                //    "<ul><li>" + recursiveToString(point) + "</li></ul>";
 
                 idElement.value = point.id;
             } else {
