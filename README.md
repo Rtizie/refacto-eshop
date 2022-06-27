@@ -1,15 +1,5 @@
-# SAND BOX
-
-sb-7ysfq8935004@business.example.com - Email
-AXNerpSeUK2z2O5B3ogz1vH-3faY-oNH-64furHQ0jLbQpqZC8Zb0BB2OBVN7g3MiDz1TFLoV43qMP9i    CLIENT ID
-EHMGuwUrazotq0m568SgN70ifhRm1g85xvPiXbnpDFVwGWeY-rV7DJ1HC3i7s2tAVLF1_GaTdU8Yzaue	SECRET
-
-
-# Zásilkovna 
-
-https://client.packeta.com/cs/support/?backlink=hirar
-7a4645e0fcf8f51f - API klíč
-7a4645e0fcf8f51fe038e6044b1e100d - API heslo
+# ReFacto - Student Company
+## Project about trying to be functional company.
 
 ```html
 <!DOCTYPE html>
