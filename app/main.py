@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///clothes.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SECRET_KEY'] = b'\xc36@\xa8\x80\x0bWO\x04\xb7\xdc\xc8\xdd3\xa4\xa2\xe9\xaeV\x0bd\xf9\x98\xde'
+app.config['SECRET_KEY'] = '***********'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 #logging.getLogger('werkzeug').setLevel('ERROR')
 db = SQLAlchemy(app)
@@ -75,7 +75,7 @@ def check_auth(username, password):
 	"""This function is called to check if a username /
 	password combination is valid.
 	"""
-	return username == 'rtizie' and password == 'refactoIT2023Objednavky'
+	return username == '********' and password == '********'
 
 def authenticate():
 	"""Sends a 401 response that enables basic auth"""
