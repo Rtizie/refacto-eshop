@@ -11,7 +11,7 @@
     <title>Document</title>
     <script src="https://widget.packeta.com/v6/www/js/library.js"></script>
     <script>
-        var packetaApiKey = '7a4645e0fcf8f51f';
+        var packetaApiKey = '***********';
         /*
         	This function will receive either a pickup point object, or null if the user
         	did not select anything, e.g. if they used the close icon in top-right corner
